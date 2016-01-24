@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Estudo de Caso</string>
+
+    <string name="sexo">Sexo</string>
+    <string name="feminino">Feminino</string>
+    <string name="masculino">Masculino</string>
+
+    <string name="idade">Faixa etária</string>
+    <string name="grupo_etario_1">18-25</string>
+    <string name="grupo_etario_2">26-35</string>
+    <string name="grupo_etario_3">36-50</string>
+    <string name="grupo_etario_4">50+</string>
+
+    <string name="conhecimento_computador">Qual das frases abaixo melhor descreve seu conhecimento de computadores?</string>
+    <string name="grupo_cc_1">Preciso de ajuda para usar computadores, celulares, etc.</string>
+    <string name="grupo_cc_2">Consigo usar computadores para funções simples, como acessar a internet, escrever documentos, ouvir música, ...</string>
+    <string name="grupo_cc_3">Consigo usar computadores para funções mais complexas, como uso de programas especializados para edição de vídeos, fotos, análise estatísticas, ...</string>
+    <string name="grupo_cc_4">Sou capaz de programar novas funções para um computador.</string>
+
+    <string name="uso">Quais os principais usos que você faz de computadores / celulares/ tablets / ...?</string>
+    <string name="trabalho">Trabalho</string>
+    <string name="compras">Compras</string>
+    <string name="entretenimento">Entretenimento</string>
+    <string name="emails">E-mails</string>
+    <string name="banco">Operações bancárias</string>
+    <string name="noticias">Notícias</string>
+    <string name="SN">Redes Sociais</string>
+    <string name="estudo">Estudo</string>
+    <string name="outros">Outros</string>
+
+    <string name="tempo">Quanto tempo por dia você passa utilizando computadores e outros dispositivos?</string>
+    <string name="grupo_tempo_1">Menos que 2 horas</string>
+    <string name="grupo_tempo_2">Entre 2 e 6 horas</string>
+    <string name="grupo_tempo_3">Entre 6 e 8 horas</string>
+    <string name="grupo_tempo_4">Mais do que 8 horas</string>
+
+    <string name="avancar">Avançar</string>
+</resources>
