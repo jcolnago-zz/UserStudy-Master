@@ -1,0 +1,715 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rowCount="3"
+        android:columnCount="2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/greeting4"
+            android:id="@+id/greeting"
+            android:padding="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control1"
+            android:id="@+id/control_label_1"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/greeting"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control1"
+            android:layout_below="@+id/control_label_1"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView1"
+            android:layout_below="@+id/control1"
+            android:layout_alignLeft="@+id/control1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView2"
+            android:layout_alignBottom="@+id/textView3"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control1"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView3"
+            android:layout_alignBaseline="@+id/textView1"
+            android:layout_alignBottom="@+id/textView1"
+            android:layout_alignRight="@+id/control1"
+            android:layout_alignEnd="@+id/control1"
+            android:gravity="right"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control2"
+            android:id="@+id/control_label_2"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView3"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control2"
+            android:layout_below="@+id/control_label_2"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView4"
+            android:layout_below="@+id/control2"
+            android:layout_alignLeft="@+id/control2"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView5"
+            android:layout_alignBottom="@+id/textView5"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control2"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView6"
+            android:layout_alignBaseline="@+id/textView4"
+            android:layout_alignBottom="@+id/textView4"
+            android:layout_alignRight="@+id/control2"
+            android:layout_alignEnd="@+id/control2"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control3"
+            android:id="@+id/control_label_3"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView6"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control3"
+            android:layout_below="@+id/control_label_3"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView7"
+            android:layout_below="@+id/control3"
+            android:layout_alignLeft="@+id/control3"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView8"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control3"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView9"
+            android:layout_alignBaseline="@+id/textView7"
+            android:layout_alignBottom="@+id/textView7"
+            android:layout_alignRight="@+id/control3"
+            android:layout_alignEnd="@+id/control3"
+            android:gravity="right"
+            android:textSize="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control4"
+            android:id="@+id/control_label_4"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView9"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control4"
+            android:layout_below="@+id/control_label_4"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView10"
+            android:layout_below="@+id/control4"
+            android:layout_alignLeft="@+id/control4"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView11"
+            android:layout_alignBottom="@+id/textView11"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control4"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView12"
+            android:layout_alignBaseline="@+id/textView10"
+            android:layout_alignBottom="@+id/textView10"
+            android:layout_alignRight="@+id/control4"
+            android:layout_alignEnd="@+id/control4"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control5"
+            android:id="@+id/control_label_5"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView12"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control5"
+            android:layout_below="@+id/control_label_5"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView13"
+            android:layout_below="@+id/control5"
+            android:layout_alignLeft="@+id/control5"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView14"
+            android:layout_alignBottom="@+id/textView14"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control5"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView15"
+            android:layout_alignBaseline="@+id/textView13"
+            android:layout_alignBottom="@+id/textView13"
+            android:layout_alignRight="@+id/control5"
+            android:layout_alignEnd="@+id/control5"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control6"
+            android:id="@+id/control_label_6"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView15"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control6"
+            android:layout_below="@+id/control_label_6"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView16"
+            android:layout_below="@+id/control6"
+            android:layout_alignLeft="@+id/control6"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView17"
+            android:layout_alignBottom="@+id/textView17"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control6"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView18"
+            android:layout_alignBaseline="@+id/textView16"
+            android:layout_alignBottom="@+id/textView16"
+            android:layout_alignRight="@+id/control6"
+            android:layout_alignEnd="@+id/control6"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control7"
+            android:id="@+id/control_label_7"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView18"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control7"
+            android:layout_below="@+id/control_label_7"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView19"
+            android:layout_below="@+id/control7"
+            android:layout_alignLeft="@+id/control7"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView20"
+            android:layout_alignBottom="@+id/textView8"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control7"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView21"
+            android:layout_alignBaseline="@+id/textView19"
+            android:layout_alignBottom="@+id/textView19"
+            android:layout_alignRight="@+id/control7"
+            android:layout_alignEnd="@+id/control7"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control8"
+            android:id="@+id/control_label_8"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView21"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control8"
+            android:layout_below="@+id/control_label_8"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView22"
+            android:layout_below="@+id/control8"
+            android:layout_alignLeft="@+id/control8"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView23"
+            android:layout_alignBottom="@+id/textView23"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control8"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView24"
+            android:layout_alignBaseline="@+id/textView22"
+            android:layout_alignBottom="@+id/textView22"
+            android:layout_alignRight="@+id/control8"
+            android:layout_alignEnd="@+id/control8"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control9"
+            android:id="@+id/control_label_9"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView24"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control9"
+            android:layout_below="@+id/control_label_9"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView25"
+            android:layout_below="@+id/control9"
+            android:layout_alignLeft="@+id/control9"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView26"
+            android:layout_alignBottom="@+id/textView26"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control9"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView27"
+            android:layout_alignBaseline="@+id/textView25"
+            android:layout_alignBottom="@+id/textView25"
+            android:layout_alignRight="@+id/control9"
+            android:layout_alignEnd="@+id/control9"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/control10"
+            android:id="@+id/control_label_10"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/textView27"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_marginTop="10dp"
+            android:paddingRight="10dp" />
+
+        <SeekBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/control10"
+            android:layout_below="@+id/control_label_10"
+            android:paddingLeft="20dp"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:indeterminate="false"
+            android:max="5"
+            android:progress="0"
+            android:layout_alignParentRight="false"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_alignParentBottom="false"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/disagree_label"
+            android:id="@+id/textView28"
+            android:layout_below="@+id/control10"
+            android:layout_alignLeft="@+id/control10"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/half_noidea"
+            android:id="@+id/textView29"
+            android:layout_alignBottom="@+id/textView29"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/control10"
+            android:textSize="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/agree_label"
+            android:id="@+id/textView30"
+            android:layout_alignBaseline="@+id/textView28"
+            android:layout_alignBottom="@+id/textView28"
+            android:layout_alignRight="@+id/control10"
+            android:layout_alignEnd="@+id/control10"
+            android:gravity="right"
+            android:textSize="12dp" />
+
+        <Button
+            android:layout_width="112dp"
+            android:layout_height="wrap_content"
+            android:text="@string/avancar"
+            android:id="@+id/buttonDemoNext"
+            android:onClick="nextDemographics"
+            android:layout_below="@+id/textView30"
+            android:layout_alignRight="@+id/textView30"
+            android:layout_marginBottom="70dp"
+            android:layout_marginTop="10dp" />
+
+    </RelativeLayout>
+</ScrollView>

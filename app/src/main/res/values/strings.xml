@@ -5,7 +5,7 @@
     <string name="disagree_label">Discordo \ncompletamente</string>
     <string name="agree_label">Concordo \ncompletamente</string>
     <string name="never">Nunca</string>
-    <string name="half_noidea">Não tenho certeza ou Na metade do tempo</string>
+    <string name="half_noidea">Não tenho certeza \nNa metade do tempo</string>
     <string name="always">Sempre</string>
     <string name="coletaPerso_r1">Não me preocuparia</string>
     <string name="coletaPerso_r2">Normal</string>
@@ -201,7 +201,4 @@
     </string-array>
 
     <!-- End Scenarios -->
-
-
-
 </resources>
