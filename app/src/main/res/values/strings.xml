@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Estudo de Caso</string>
 
+    <string name="disagree_label">Discordo \ncompletamente</string>
+    <string name="agree_label">Concordo \ncompletamente</string>
+
     <string name="sexo">Sexo</string>
     <string name="feminino">Feminino</string>
     <string name="masculino">Masculino</string>
@@ -33,6 +36,14 @@
     <string name="grupo_tempo_2">Entre 2 e 6 horas</string>
     <string name="grupo_tempo_3">Entre 6 e 8 horas</string>
     <string name="grupo_tempo_4">Mais do que 8 horas</string>
+
+    <string name="inttrust_label">Por favor, indique o seu nível de concordância com as frases abaixo:</string>
+    <string name="inttrust_1">Conto com meu celular / tablet / computador para lembrar de eventos importantes.</string>
+    <string name="inttrust_2">Possuo documentos importantes no meu computador / tablet / celular sem cópias em outros lugares.</string>
+    <string name="inttrust_3">Não confio em tecnologias em geral.</string>
+    <string name="inttrust_4">Quanto mais tecnológico algo é, fico mais preocupado que algo vai dar errado.</string>
+    <string name="inttrust_5">Desligo as notificações do celular / tablet / computador sempre que posso. </string>
+    <string name="inttrust_6">Não gosto de ser interrompido enquanto estou concentrado.</string>
 
     <string name="avancar">Avançar</string>
 </resources>
