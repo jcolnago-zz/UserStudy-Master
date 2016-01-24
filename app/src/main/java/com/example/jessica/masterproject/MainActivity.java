@@ -135,13 +135,10 @@ public class MainActivity extends AppCompatActivity {
                 // TODO: return proper fragments below
                 // TODO: maybe make a mDone flag like with Scenarios?
                 case 3:
-                    //layout = R.layout.demographics3;
+                    layout = R.layout.demographics3;
                     break;
                 case 4:
-                    //layout = R.layout.demographics4;
-                    break;
-                case 5:
-                    //layout = R.layout.done;
+                    layout = R.layout.done;
                     break;
             }
 
@@ -229,8 +226,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            // TODO: return proper done fragment
-            return null;//inflater.inflate(R.layout.done, container, false);
+            return inflater.inflate(R.layout.done, container, false);
         }
     }
 
