@@ -18,7 +18,7 @@
     <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
-    <string name="greetings5">Por favor, classifique o cenário abaixo de acordo com o quanto você acredita que essa é uma situação sensível de privacidade. Quanto maior a preocupação, maior a sensitividade. </string>
+    <string name="greetings5">Por favor, classifique o cenário abaixo. Quanto maior a preocupação, maior a sensitividade. </string>
     <!-- End Greetings and buttons -->
 
     <!-- Demo -->
