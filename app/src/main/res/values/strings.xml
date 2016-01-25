@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Estudo de Caso</string>
+    <string name="scenarios_filename">scenarios.csv</string>
+    <string name="demographic_filename">demographics.csv</string>
+
+    <string name="current_scenario">com.jessica.app.current_scenario</string>
+    <string name="upload_pending">com.jessica.app.upload_pending_</string>
 
     <!-- Choice values -->
     <string name="disagree_label">Discordo \ncompletamente</string>
@@ -85,7 +90,7 @@
     <!-- End Demo -->
 
     <!-- Scenarios -->
-    <string-array name="coletaPerso1_p1_r">
+    <string-array name="scenarios">
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	NOT IMPORTANT -->
         <item>Um restaurante não confiável quer acesso a seus dados de saúde para sugerir pratos adequados.</item>
         <item>Um restaurante não confiável quer acesso a seu CPF para colocar na nota fiscal.</item>

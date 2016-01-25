@@ -18,6 +18,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     /**
@@ -29,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
      * {@link android.support.v4.app.FragmentStatePagerAdapter}.
      */
     private static final int FILE_PERM = 0x46;
+    private static final int REQUEST_PERMISSIONS = 0x50;
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-    private int mCurrentScenario = 0;
     private String mFilename;
     private String[] mData;
     private boolean mAppend;
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
+
+        requestMultiplePermissions();
 
     }
 
@@ -209,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean doSave() {
-        return FileSaver.save(mFilename, mData, mAppend);
+        return FileSaver.save(mFilename, mData, mAppend, this);
     }
 
     @Override
@@ -222,6 +227,29 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Você deve dar permissão para o estudo funcionar.", Toast.LENGTH_SHORT).show();
                     requestSave(mFilename, mData, mAppend);
                 }
+                break;
+            case REQUEST_PERMISSIONS:
+                break;
+        }
+    }
+
+    private void requestMultiplePermissions() {
+        String locationPermission = Manifest.permission.ACCESS_FINE_LOCATION;
+        String storagePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
+        int hasLocPermission = ActivityCompat.checkSelfPermission(this, locationPermission);
+        int hasStorePermission = ActivityCompat.checkSelfPermission(this, storagePermission);
+        List<String> permissions = new ArrayList<String>();
+        if (hasLocPermission != PackageManager.PERMISSION_GRANTED) {
+            permissions.add(locationPermission);
+        }
+        if (hasStorePermission != PackageManager.PERMISSION_GRANTED) {
+            permissions.add(storagePermission);
+        }
+        if (!permissions.isEmpty()) {
+            String[] params = permissions.toArray(new String[permissions.size()]);
+            ActivityCompat.requestPermissions(this, params, REQUEST_PERMISSIONS);
+        } else {
+            // We already have permission, so handle as normal
         }
     }
 }

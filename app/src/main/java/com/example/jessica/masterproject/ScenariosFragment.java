@@ -1,5 +1,7 @@
 package com.example.jessica.masterproject;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,12 +12,17 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
+
 public class ScenariosFragment extends Fragment {
     private boolean mDone = false;
     private int mCurrentScenario = 0;
+    private int mLastAnswered = 0;
     private String[] mAnswers;
     private String[] mQuestions;
     private View mView;
+    private SharedPreferences mSharedPref;
+    private SharedPreferences.Editor mEditor;
 
     public ScenariosFragment() {
     }
@@ -30,9 +37,15 @@ public class ScenariosFragment extends Fragment {
         RadioGroup choices = (RadioGroup) mView.findViewById(R.id.choices);
 
         if(mQuestions == null){
-            mQuestions = getResources().getStringArray(R.array.coletaPerso1_p1_r);
+            mQuestions = getResources().getStringArray(R.array.scenarios);
             mAnswers = new String[mQuestions.length];
             progress.setMax(mQuestions.length);
+        }
+
+        // Se tiver SharedPref for current_scenario use that value, else use default mCurrentScenario
+        int temp = mSharedPref.getInt(getString(R.string.current_scenario), mCurrentScenario);
+        if (temp != mCurrentScenario) {
+            mLastAnswered = mCurrentScenario = temp;
         }
 
         progress.setProgress(mCurrentScenario);
@@ -41,6 +54,7 @@ public class ScenariosFragment extends Fragment {
     }
 
     public void nextScenario () {
+
         RadioGroup choices = (RadioGroup) mView.findViewById(R.id.choices);
         int selectedId = choices.getCheckedRadioButtonId();
 
@@ -54,9 +68,13 @@ public class ScenariosFragment extends Fragment {
         mAnswers[mCurrentScenario] = Integer.toString(choice);
 
         mCurrentScenario++;
+
+        mEditor.putInt(getString(R.string.current_scenario), mCurrentScenario);
+        mEditor.commit();
+
         if(mCurrentScenario == 3) {//mQuestions.length) {
+            ((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename), Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0);
             mDone = true;
-            ((MainActivity)getActivity()).requestSave("scenarios.csv", mAnswers, false);
         } else {
             setupScenario();
         }
@@ -69,6 +87,8 @@ public class ScenariosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        mSharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        mEditor = mSharedPref.edit();
         if(!mDone) {
             mView = inflater.inflate(R.layout.scenarios, container, false);
             setupScenario();
@@ -76,5 +96,13 @@ public class ScenariosFragment extends Fragment {
             mView = inflater.inflate(R.layout.scenarios, container, false);
         }
         return mView;
+    }
+
+    @Override
+    public void onStop() {
+        if (mCurrentScenario != 3 && mLastAnswered!=mCurrentScenario) { //mQuestions.length)  {
+            ((MainActivity)getActivity()).requestSave("scenarios.csv", Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0);
+        }
+        super.onStop();
     }
 }

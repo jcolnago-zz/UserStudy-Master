@@ -108,7 +108,7 @@ public class DemographicsFragment extends Fragment {
         if(!readAnswers())
             return false;
 
-        ((MainActivity)getActivity()).requestSave("demographics.csv", mAnswers, mCurrentDemographic != 0);
+        ((MainActivity)getActivity()).requestSave(getString(R.string.demographic_filename), mAnswers, mCurrentDemographic != 0);
         return true;
     }
 
