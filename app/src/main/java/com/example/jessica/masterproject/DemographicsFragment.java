@@ -1,5 +1,7 @@
 package com.example.jessica.masterproject;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -16,6 +18,8 @@ public class DemographicsFragment extends Fragment {
     private int mCurrentAnswer = 0;
     private String[] mAnswers;
     private View mView;
+    private SharedPreferences mSharedPref;
+    private SharedPreferences.Editor mEditor;
 
     public DemographicsFragment() {
     }
@@ -32,7 +36,7 @@ public class DemographicsFragment extends Fragment {
         RadioGroup group = (RadioGroup) mView.findViewById(viewId);
         int id = group.getCheckedRadioButtonId();
         if(id < 0) {
-            Toast.makeText(getContext(), "Você deve selecionar uma opção para "+name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), R.string.missing_option + name, Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -54,6 +58,7 @@ public class DemographicsFragment extends Fragment {
     }
 
     private boolean readAnswers() {
+        mCurrentAnswer = 0;
         switch(mCurrentDemographic) {
             case 0:
                 mAnswers = new String[13];
@@ -108,8 +113,7 @@ public class DemographicsFragment extends Fragment {
         if(!readAnswers())
             return false;
 
-        ((MainActivity)getActivity()).requestSave(getString(R.string.demographic_filename), mAnswers, mCurrentDemographic != 0);
-        return true;
+        return ((MainActivity)getActivity()).requestSave(getString(R.string.demographic_filename), mAnswers, mCurrentDemographic != 0);
     }
 
     @Override
@@ -133,6 +137,11 @@ public class DemographicsFragment extends Fragment {
                 break;
             case 4:
                 layout = R.layout.done;
+                mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+                mEditor = mSharedPref.edit();
+                String filename = getString(R.string.demographic_filename);
+                mEditor.putBoolean(getString(R.string.upload_pending)+filename.substring(0, filename.length()-4), true);
+                mEditor.commit();
                 break;
         }
 

@@ -1,8 +1,6 @@
 package com.example.jessica.masterproject;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Environment;
 
 import java.io.BufferedWriter;
@@ -14,17 +12,11 @@ import android.text.TextUtils;
 
 public class FileSaver {
 
-    private SharedPreferences mSharedPref;
-    private SharedPreferences.Editor mEditor;
-
     public FileSaver() {
 
     }
 
     public static boolean save(String filename, String[] data, boolean append, Activity activity) {
-        SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-
         File folder = new File(String.valueOf(Environment.getExternalStorageDirectory())+"/annoyme");
         String state = Environment.getExternalStorageState();
         if(!Environment.MEDIA_MOUNTED.equals(state)) {
@@ -59,9 +51,6 @@ public class FileSaver {
                 bufferedWriter.write(TextUtils.join(",", data));
             bufferedWriter.close();
 
-            editor.putBoolean(activity.getString(R.string.upload_pending)+filename.substring(0, filename.length()-4), true);
-            editor.commit();
-            //FileUploader.upload(file, activity);
         } catch (IOException e) {
             e.printStackTrace();
             return false;

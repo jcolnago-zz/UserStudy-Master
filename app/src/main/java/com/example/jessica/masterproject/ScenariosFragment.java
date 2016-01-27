@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import java.util.Arrays;
 
+//TODO: uncomment mQuestions
 public class ScenariosFragment extends Fragment {
-    private boolean mDone = false;
     private int mCurrentScenario = 0;
     private int mLastAnswered = 0;
     private String[] mAnswers;
@@ -23,6 +23,7 @@ public class ScenariosFragment extends Fragment {
     private View mView;
     private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mEditor;
+    private String mFilename;
 
     public ScenariosFragment() {
     }
@@ -38,8 +39,8 @@ public class ScenariosFragment extends Fragment {
 
         if(mQuestions == null){
             mQuestions = getResources().getStringArray(R.array.scenarios);
-            mAnswers = new String[mQuestions.length];
-            progress.setMax(mQuestions.length);
+            mAnswers = new String[3];//mQuestions.length];
+            progress.setMax(3);//mQuestions.length);
         }
 
         // Se tiver SharedPref for current_scenario use that value, else use default mCurrentScenario
@@ -54,7 +55,6 @@ public class ScenariosFragment extends Fragment {
     }
 
     public void nextScenario () {
-
         RadioGroup choices = (RadioGroup) mView.findViewById(R.id.choices);
         int selectedId = choices.getCheckedRadioButtonId();
 
@@ -73,23 +73,30 @@ public class ScenariosFragment extends Fragment {
         mEditor.commit();
 
         if(mCurrentScenario == 3) {//mQuestions.length) {
-            ((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename), Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0);
-            mDone = true;
+            if (((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename),
+                    Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0)) {
+                mEditor.putBoolean(getString(R.string.upload_pending)
+                        + mFilename.substring(0, mFilename.length() - 4), true);
+                mEditor.commit();
+            }
         } else {
             setupScenario();
         }
     }
 
     public boolean isDone() {
-        return mDone;
+        return (mSharedPref.getBoolean(getString(R.string.upload_pending) + mFilename.substring(0, mFilename.length() - 4), false)
+                || mSharedPref.getBoolean(getString(R.string.upload_done)+ mFilename.substring(0, mFilename.length() - 4),false));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mSharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        mFilename = getString(R.string.scenarios_filename);
+        mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
         mEditor = mSharedPref.edit();
-        if(!mDone) {
+        if(!(mSharedPref.getBoolean(getString(R.string.upload_pending) + mFilename.substring(0, mFilename.length() - 4), false)
+                || mSharedPref.getBoolean(getString(R.string.upload_done)+ mFilename.substring(0, mFilename.length() - 4),false))) {
             mView = inflater.inflate(R.layout.scenarios, container, false);
             setupScenario();
         } else {

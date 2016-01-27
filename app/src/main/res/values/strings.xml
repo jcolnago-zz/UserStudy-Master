@@ -1,10 +1,22 @@
 <resources>
     <string name="app_name">Estudo de Caso</string>
+    <string name="demographics">Demográfico</string>
+    <string name="scenarios">Cenários</string>
+    <string name="missing_option">"Você deve selecionar uma opção para "</string>
+
+
     <string name="scenarios_filename">scenarios.csv</string>
     <string name="demographic_filename">demographics.csv</string>
+    <string name="interruption_filename">interruption.csv</string>
 
+    <string name="preference_file">com.jessica.app.preference_file</string>
     <string name="current_scenario">com.jessica.app.current_scenario</string>
     <string name="upload_pending">com.jessica.app.upload_pending_</string>
+    <string name="upload_done">com.jessica.app.upload_done_</string>
+    <string name="last_interruption">com.jessica.app.last_interruption</string>
+
+    <string name="pending_ds_title">Atividade Inicial Pendente</string>
+    <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
 
     <!-- Choice values -->
     <string name="disagree_label">Discordo \ncompletamente</string>

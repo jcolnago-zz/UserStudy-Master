@@ -1,7 +1,8 @@
 package com.example.jessica.masterproject;
 
-
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Environment;
 import android.provider.Settings;
 
 import com.loopj.android.http.*;
@@ -11,11 +12,19 @@ import java.io.FileNotFoundException;
 import cz.msebera.android.httpclient.Header;
 
 public class FileUploader {
+    private static Context mContext;
+    private static String mFilename;
+    private static String mFiletype;
 
-    public static void upload(File file, Context context){
+    public static void upload(final String filename, String fileType, final Context context){
+        mContext = context;
+        mFilename = filename;
+        mFiletype = fileType;
+
         String url = "http://jessicacolnago.com/upload";
         RequestParams params = new RequestParams();
         String id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+        File file = new File(String.valueOf(Environment.getExternalStorageDirectory())+"/annoyme/"+filename+fileType);
 
         try {
             params.put("file", file);
@@ -29,12 +38,27 @@ public class FileUploader {
         client.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                System.out.println("Success" + statusCode);
+                SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+                SharedPreferences.Editor mEditor = mSharedPref.edit();
+                mEditor.putBoolean(context.getString(R.string.upload_pending) + filename, false);
+                mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
+                if (filename.contains("interruption")) {
+                    mEditor.putInt(context.getString(R.string.last_interruption), Integer.getInteger(filename.split("_")[0]));
+                    System.out.println("Last interruption uploaded was: " + Integer.getInteger(filename.split("_")[0]));
+                    System.out.println("Last interruption is (-1=error): " +  mSharedPref.getInt(context.getString(R.string.last_interruption), -1));
+                }
+
+                mEditor.commit();
+                System.out.println("Successfully uploaded " + filename
+                        + ", new status (true=error in saving status): "
+                        + mSharedPref.getBoolean(context.getString(R.string.upload_pending)+filename, true));
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] bytes, Throwable throwable) {
-                System.out.println("Failure: " + statusCode);
+                //TODO: change this, this is horrible. can't keep trying forever
+                upload(mFilename, mFiletype, mContext);
+                System.err.println("Failure: " + statusCode);
             }
         });
     }
