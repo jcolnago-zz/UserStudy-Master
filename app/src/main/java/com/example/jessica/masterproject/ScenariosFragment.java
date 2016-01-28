@@ -55,16 +55,10 @@ public class ScenariosFragment extends Fragment {
     }
 
     public void nextScenario () {
-        RadioGroup choices = (RadioGroup) mView.findViewById(R.id.choices);
-        int selectedId = choices.getCheckedRadioButtonId();
-
-        if(selectedId < 0) {
-            //TODO: put string into resource
-            Toast.makeText(getContext(), "Você deve selecionar uma opção", Toast.LENGTH_SHORT).show();
+        int choice = ((MainActivity)getActivity()).readRadio(mView, R.id.choices, "esse cenário");
+        if (choice == -1)
             return;
-        }
 
-        int choice = choices.indexOfChild(mView.findViewById(selectedId));
         mAnswers[mCurrentScenario] = Integer.toString(choice);
 
         mCurrentScenario++;

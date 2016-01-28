@@ -52,21 +52,21 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/coletaPerso_r1"
+            android:text="@string/low_sensitivity"
             android:id="@+id/choice1"
             android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/coletaPerso_r2"
+            android:text="@string/medium_sensitivity"
             android:id="@+id/choice2"
             android:checked="false" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/coletaPerso_r3"
+            android:text="@string/high_sensitivity"
             android:id="@+id/choice3"
             android:checked="false" />
 

@@ -1,15 +1,9 @@
 package com.example.jessica.masterproject;
 
-import android.Manifest;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -19,14 +13,19 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.example.jessica.masterproject.alarms.DisplayInterruptionAlarm;
+import com.example.jessica.masterproject.alarms.ReminderDSAlarm;
+import com.example.jessica.masterproject.alarms.UploadDSAlarm;
+import com.example.jessica.masterproject.alarms.UploadInterruptionAlarm;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    // TODO: check if alarms should be with a delay or in a specif time
+public class MainActivity extends MotherActivity {
     // UploadDSAlarm delay of 1 hour after startup, follow instructions in class for rescheduling
     // ReminderDSAlarm day before study begins at 10 am, follow instructions in class for rescheduling
     // UploadInterruptionAlarm first day of the study at 8pm
@@ -35,15 +34,11 @@ public class MainActivity extends AppCompatActivity {
     public static final long DAY = 1000*60*60*24;
     public static final long HOUR = 1000*60*60;
     public static final long MINUTE = 1000*60;
-
-    private static final int FILE_PERM = 0x46;
-    private static final int REQUEST_PERMISSIONS = 0x50;
+    public static final int INTERRUPTIONS = 2;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
-    private String mFilename;
-    private String[] mData;
-    private boolean mAppend;
+    private SharedPreferences mSharedPref;
 
     // OVERRIDE METHODS FROM MAIN ACTIVITY
     @Override
@@ -67,10 +62,53 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         requestMultiplePermissions();
+        mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
 
-        scheduleAlarm(MainActivity.this, MINUTE, new Intent(MainActivity.this, UploadDSAlarm.class));
-        //Not tested: scheduleAlarm(MainActivity.this, MINUTE/2, new Intent(MainActivity.this, UploadInterruptionAlarm.class));
-        scheduleAlarm(MainActivity.this, -MINUTE, new Intent(MainActivity.this, ReminderDSAlarm.class));
+        // Try to upload Demographics and Scenarios after 2 hours of starting the activity
+        // TODO: set this back to 2*HOUR
+        System.out.println("Setting Upload DS Alarm: " + (new GregorianCalendar()).getTimeInMillis()+HOUR/60);
+        scheduleAlarm(MainActivity.this,
+                (new GregorianCalendar()).getTimeInMillis()+HOUR/60,
+                new Intent(MainActivity.this, UploadDSAlarm.class));
+
+        // Remind participant of finishing Demographics and Scenario the day before the start of the study
+        GregorianCalendar intTime = new GregorianCalendar();
+        try {
+            intTime.setTime(MotherActivity.FORMAT.parse("2016-01-31T11:00:00.000-0300"));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Setting Reminder DS Alarm: " + intTime.getTimeInMillis());
+        scheduleAlarm(MainActivity.this,
+                intTime.getTimeInMillis(),
+                new Intent(MainActivity.this, ReminderDSAlarm.class));
+
+        // Set up alarm for the first interruption
+        int lastInterruption = mSharedPref.getInt(getString(R.string.last_interruption), 0);
+        if (lastInterruption != INTERRUPTIONS) {
+            Intent interruptionIntent = new Intent(MainActivity.this, DisplayInterruptionAlarm.class);
+            interruptionIntent.putExtra("current_interruption", lastInterruption + 1);
+
+            String[] setupValues = getResources().getStringArray(R.array.interruptions);
+
+            try {
+                intTime.setTime(MotherActivity.FORMAT.parse(setupValues[lastInterruption * 3 + 2]));
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            System.out.println("Setting Display Interruption Alarm: " + intTime.getTimeInMillis());
+            scheduleAlarm(MainActivity.this,
+                    intTime.getTimeInMillis(),
+                    interruptionIntent);
+        }
+
+        // Set alarm to upload interruptions 30s from start of first interruption
+        System.out.println("Setting Upload Interruption Alarm: " + (intTime.getTimeInMillis() + MINUTE / 2));
+        scheduleAlarm(MainActivity.this,
+                intTime.getTimeInMillis() + MINUTE / 2,
+                new Intent(MainActivity.this, UploadInterruptionAlarm.class));
     }
 
     @Override
@@ -82,23 +120,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
-        switch (requestCode) {
-            case FILE_PERM:
-                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    doSave();
-                } else {
-                    Toast.makeText(getApplicationContext(), "Você deve dar permissão para o estudo funcionar.", Toast.LENGTH_SHORT).show();
-                    requestSave(mFilename, mData, mAppend);
-                }
-                break;
-            case REQUEST_PERMISSIONS:
-                break;
-        }
-    }
-
-
     // METHODS FROM MAIN ACTIVITY
     public void nextDemographics(View view) {
         mSectionsPagerAdapter.nextDemographics();
@@ -106,68 +127,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextScenario(View view) {
         mSectionsPagerAdapter.nextScenario();
-    }
-
-    public boolean requestFilePermission() {
-        String permission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-        int hasPermission = ActivityCompat.checkSelfPermission(this, permission);
-
-        if(hasPermission != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{permission}, FILE_PERM);
-            return false;
-        }
-        return true;
-    }
-
-    public boolean requestSave(String filename, String[] data, boolean append){
-        mFilename = filename;
-        mData = data;
-        mAppend = append;
-
-        if (requestFilePermission()) {
-            return doSave();
-        }
-        return false;
-    }
-
-    public boolean doSave() {
-        return FileSaver.save(mFilename, mData, mAppend, this);
-    }
-
-    public void requestMultiplePermissions() {
-        String locationPermission = Manifest.permission.ACCESS_FINE_LOCATION;
-        String storagePermission = Manifest.permission.WRITE_EXTERNAL_STORAGE;
-        int hasLocPermission = ActivityCompat.checkSelfPermission(this, locationPermission);
-        int hasStorePermission = ActivityCompat.checkSelfPermission(this, storagePermission);
-        List<String> permissions = new ArrayList<String>();
-        if (hasLocPermission != PackageManager.PERMISSION_GRANTED) {
-            permissions.add(locationPermission);
-        }
-        if (hasStorePermission != PackageManager.PERMISSION_GRANTED) {
-            permissions.add(storagePermission);
-        }
-        if (!permissions.isEmpty()) {
-            String[] params = permissions.toArray(new String[permissions.size()]);
-            ActivityCompat.requestPermissions(this, params, REQUEST_PERMISSIONS);
-        } else {
-            // We already have permission, so handle as normal
-        }
-    }
-
-    private static void scheduleAlarm(Context context, long delayMili, Intent intentAlarm) {
-        Long time = new GregorianCalendar().getTimeInMillis()+delayMili;
-
-        // create the object
-        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
-        //set the alarm for particular time
-        alarmManager.set(AlarmManager.RTC_WAKEUP, time, PendingIntent.getBroadcast(context, 1, intentAlarm, PendingIntent.FLAG_UPDATE_CURRENT));
-        System.out.println("AlarmSet");
-    }
-
-    public static void reScheduleAlarm(Context context, long delayMili, Intent intentAlarm) {
-        System.out.println("Rescheduling for: " + intentAlarm.getClass().toString() + " delay of " + delayMili);
-        scheduleAlarm(context, delayMili, intentAlarm);
     }
 
     // SUBCLASSES OF MAIN ACTIVITY
@@ -219,7 +178,6 @@ public class MainActivity extends AppCompatActivity {
         public void nextScenario() {
             ScenariosFragment fragment = (ScenariosFragment) mScenFragment;
             fragment.nextScenario();
-            System.out.println(fragment.isDone());
 
             if(fragment.isDone()) {
                 mFragmentManager.beginTransaction().remove(mScenFragment).commit();

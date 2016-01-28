@@ -4,7 +4,6 @@
     <string name="scenarios">Cenários</string>
     <string name="missing_option">"Você deve selecionar uma opção para "</string>
 
-
     <string name="scenarios_filename">scenarios.csv</string>
     <string name="demographic_filename">demographics.csv</string>
     <string name="interruption_filename">interruption.csv</string>
@@ -14,9 +13,23 @@
     <string name="upload_pending">com.jessica.app.upload_pending_</string>
     <string name="upload_done">com.jessica.app.upload_done_</string>
     <string name="last_interruption">com.jessica.app.last_interruption</string>
+    <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
+    <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
+    <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
 
     <string name="pending_ds_title">Atividade Inicial Pendente</string>
     <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
+
+    <string name="participation_request_title">Você pode participar agora?</string>
+    <string name="participation_request_text">Escolha se você pode participar agora.</string>
+    <string name="participation_request_not_now">Agora não</string>
+    <string name="participation_request_yes">Vamos lá</string>
+
+    <string name="certainty">Eu tenho uma certeza %s na decisão que eu faria por você.</string>
+
+    <string name="default_low_sensitivity">Imagine uma situação na qual você não acha importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_medium_sensitivity">Imagine uma situação na qual você acha meio importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_high_sensitivity">Imagine uma situação na qual você acha muito importante a sua privacidade no compartilhamento de dados.</string>
 
     <!-- Choice values -->
     <string name="disagree_label">Discordo \ncompletamente</string>
@@ -24,9 +37,35 @@
     <string name="never">Nunca</string>
     <string name="half_noidea">Não tenho certeza \nNa metade do tempo</string>
     <string name="always">Sempre</string>
-    <string name="coletaPerso_r1">Não me preocuparia</string>
-    <string name="coletaPerso_r2">Normal</string>
-    <string name="coletaPerso_r3">Me preocuparia muito</string>
+    <string name="low_sensitivity">Não me preocuparia</string>
+    <string name="medium_sensitivity">Normal</string>
+    <string name="high_sensitivity">Me preocuparia muito</string>
+    <string name="let_me_choose_label">Quero escolher</string>
+    <string name="leave_me_alone_label">Quero delegar</string>
+    <string name="yes_label">Sim</string>
+    <string name="no_label">Não</string>
+    <string name="do_not_care"> ... mas não me importo com isso.</string>
+    <string name="where_work">Trabalho</string>
+    <string name="where_home">Casa</string>
+    <string name="where_school">Escola</string>
+    <string name="where_store">Supermercado/Loja</string>
+    <string name="where_in_transit">Em trânsito</string>
+    <string name="where_doctor">Médico</string>
+    <string name="where_restaurant">Restaurante</string>
+    <string name="where_bar">Bar</string>
+    <string name="where_cinema">Cinema</string>
+    <string name="where_park">Parque</string>
+    <string name="what_studying">Estudando</string>
+    <string name="what_in_class">Em aula</string>
+    <string name="what_meeting">Em reunião</string>
+    <string name="what_watching">Vendo TV/Filme</string>
+    <string name="what_cooking">Cozinhando</string>
+    <string name="what_talking">Conversando</string>
+    <string name="what_shower">Banho</string>
+    <string name="what_driving">Dirigindo</string>
+    <string name="what_shopping">Compras</string>
+    <string name="what_eating">Comendo</string>
+
     <!-- End Choice values -->
 
     <!-- Greetings and buttons -->
@@ -36,6 +75,7 @@
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
     <string name="greetings5">Por favor, classifique o cenário abaixo. Quanto maior a preocupação, maior a sensitividade. </string>
+    <string name="greetings6">Nesse caso, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
     <!-- End Greetings and buttons -->
 
     <!-- Demo -->
@@ -147,14 +187,12 @@
 
         <!-- Classificação da tabela: UNKNOWN	HIGH SENSITIVITY	IRRELEVANT   -->
         <item>Uma farmácia quer acesso aos seus dados de sono para fazer propaganda de remédios apropriados para você</item>
-        <item>O sistema do restaurante quer acesso às informações sobre suas restrições alimentares para propor um menu personalizado.
-</item>
+        <item>O sistema do restaurante quer acesso às informações sobre suas restrições alimentares para propor um menu personalizado.</item>
 
         <!-- Classificação da tabela: UNKNOWN	HIGH SENSITIVITY	IMPORTANT   -->
         <item>Um serviço de táxi quer acesso ao endereço de casa para poder passar para lhe buscar</item>
         <item>Um serviço de táxi quer acesso aos seus dados bancários para poder cobrar a tarifa da corrida</item>
-        <item>A farmácia quer informações sobre sua receita médica para a consulta de estoque e seleção de produto.
-</item>
+        <item>A farmácia quer informações sobre sua receita médica para a consulta de estoque e seleção de produto.</item>
 
         <!-- Classificação da tabela: UNKNOWN	MEDIUM SENSITIVITY	NOT IMPORTANT   -->
         <item>Um serviço de táxi quer acesso ao endereço do seu local de trabalho para calcular a sua tarifa a priori</item>
@@ -218,4 +256,13 @@
     </string-array>
 
     <!-- End Scenarios -->
+
+    <!-- User Study -->
+    <string name="userStudy_mood">Como você está se sentindo? </string>
+    <string name="userStudy_busy">Você está ocupado? </string>
+    <string name="userStudy_interacting">Você está interagindo com outras pessoas? </string>
+    <string name="userStudy_social_acceptance">Você acha que na situação atual é socialmente aceitável ser interrompido?</string>
+    <string name="userStudy_where">Onde você está agora?</string>
+    <string name="userStudy_activity">O que você está fazendo agora?</string>
+    <!-- End User Study -->
 </resources>

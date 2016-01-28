@@ -23,7 +23,6 @@ public class PendingFragment extends Fragment {
     }
 
     private void setupPending () {
-        System.out.println("Setting up Pending");
         ProgressBar scenarios = (ProgressBar) mView.findViewById(R.id.pending_scenarios);
         ProgressBar demo = (ProgressBar) mView.findViewById(R.id.pending_demographics);
 

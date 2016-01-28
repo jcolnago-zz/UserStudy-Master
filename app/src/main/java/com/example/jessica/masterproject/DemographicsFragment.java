@@ -33,27 +33,21 @@ public class DemographicsFragment extends Fragment {
     }
 
     private boolean readRadio(int viewId, String name) {
-        RadioGroup group = (RadioGroup) mView.findViewById(viewId);
-        int id = group.getCheckedRadioButtonId();
-        if(id < 0) {
-            Toast.makeText(getContext(), R.string.missing_option + name, Toast.LENGTH_SHORT).show();
+        int item = ((MainActivity)getActivity()).readRadio(mView, viewId, name);
+        if (item == -1)
             return false;
-        }
 
-        int item = group.indexOfChild(mView.findViewById(id));
         mAnswers[mCurrentAnswer++] = Integer.toString(item);
         return true;
     }
 
     private boolean readCheckBox(int viewId) {
-        CheckBox box = (CheckBox) mView.findViewById(viewId);
-        mAnswers[mCurrentAnswer++] = Boolean.toString(box.isChecked());
+        mAnswers[mCurrentAnswer++] = ((MainActivity)getActivity()).readCheckBox(mView, viewId);
         return true;
     }
 
     private boolean readSeekBar(int viewId) {
-        SeekBar bar = (SeekBar) mView.findViewById(viewId);
-        mAnswers[mCurrentAnswer++] = Integer.toString(bar.getProgress());
+        mAnswers[mCurrentAnswer++] = ((MainActivity)getActivity()).readSeekBar(mView, viewId);
         return true;
     }
 
