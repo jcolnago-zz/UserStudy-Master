@@ -7,10 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.RadioGroup;
-import android.widget.SeekBar;
-import android.widget.Toast;
 
 public class DemographicsFragment extends Fragment {
     private static final String ARG_TAB_NUMBER = "tab_number";

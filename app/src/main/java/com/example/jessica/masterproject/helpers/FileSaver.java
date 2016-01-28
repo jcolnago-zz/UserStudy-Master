@@ -1,8 +1,6 @@
 package com.example.jessica.masterproject.helpers;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Environment;
 
 import java.io.BufferedWriter;

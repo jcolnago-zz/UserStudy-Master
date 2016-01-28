@@ -19,17 +19,11 @@ import com.example.jessica.masterproject.alarms.ReminderDSAlarm;
 import com.example.jessica.masterproject.alarms.UploadDSAlarm;
 import com.example.jessica.masterproject.alarms.UploadInterruptionAlarm;
 
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 import java.util.GregorianCalendar;
 
 public class MainActivity extends MotherActivity {
-    // UploadDSAlarm delay of 1 hour after startup, follow instructions in class for rescheduling
-    // ReminderDSAlarm day before study begins at 10 am, follow instructions in class for rescheduling
-    // UploadInterruptionAlarm first day of the study at 8pm
-    // Remember to check if date - current time > 0, if not
 
     public static final long DAY = 1000*60*60*24;
     public static final long HOUR = 1000*60*60;

@@ -4,11 +4,11 @@
     <string-array name="interruptions">
         <item>0</item> <!-- sensitivity -->
         <item>baixa</item> <!-- certainty -->
-        <item>2016-01-28T15:11:00.000-0500</item> <!-- date <item>2016-02-01T08:45:00.000-0300</item>-->
+        <item>2016-01-28T15:48:00.000-0500</item> <!-- date <item>2016-02-01T08:45:00.000-0300</item>-->
 
         <item>1</item> <!-- sensitivity -->
         <item>baixa</item> <!-- certainty -->
-        <item>2016-01-28T15:13:00.000-0500</item> <!-- date  <item>2016-02-01T09:30:00.000-0300</item>-->
+        <item>2016-01-28T15:50:00.000-0500</item> <!-- date  <item>2016-02-01T09:30:00.000-0300</item>-->
 
         <item>2</item> <!-- sensitivity -->
         <item>baixa</item> <!-- certainty -->

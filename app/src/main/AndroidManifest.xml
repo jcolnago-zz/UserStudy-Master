@@ -58,14 +58,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".ParticipationYesActivity"
+            android:name=".ParticipationActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/FullscreenTheme" />
+            android:screenOrientation="portrait" />
+
         <activity android:name=".MotherActivity" />
-        <activity android:name=".ParticipationNotNowActivity"></activity>
+
+        <activity android:name=".ParticipationNotNowActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

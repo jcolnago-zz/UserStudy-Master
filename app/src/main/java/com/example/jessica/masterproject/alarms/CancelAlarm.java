@@ -6,11 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.jessica.masterproject.MainActivity;
 import com.example.jessica.masterproject.R;
-import com.example.jessica.masterproject.helpers.FileUploader;
-
-import java.util.Arrays;
 
 public class CancelAlarm extends BroadcastReceiver {
 

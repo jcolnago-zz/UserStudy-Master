@@ -3,11 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFEFE"
-    tools:context="com.example.jessica.masterproject.ParticipationYesActivity">
+    tools:context="com.example.jessica.masterproject.ParticipationActivity">
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mood_label"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginLeft="20dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -318,7 +315,9 @@
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 android:layout_marginLeft="20dp"
-                android:layout_below="@+id/what">
+                android:layout_below="@+id/what"
+                android:id="@+id/what_options"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:orientation="vertical"
@@ -409,38 +408,18 @@
 
             </LinearLayout>
 
-        </RelativeLayout>
-    </ScrollView>
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls_1"
-            style="?metaButtonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
-
             <Button
                 android:id="@+id/us_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:text="@string/avancar"
-                android:textColor="#FFFFFF"
-                android:onClick="nextUserStudy" />
+                android:textColor="#000000"
+                android:onClick="nextUserStudy"
+                android:layout_below="@+id/what_options"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="20dp" />
 
-        </LinearLayout>
-    </FrameLayout>
-
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

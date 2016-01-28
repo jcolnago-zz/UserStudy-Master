@@ -10,13 +10,12 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.service.notification.StatusBarNotification;
 import android.support.v4.app.NotificationCompat;
 
 import com.example.jessica.masterproject.MainActivity;
 import com.example.jessica.masterproject.MotherActivity;
+import com.example.jessica.masterproject.ParticipationActivity;
 import com.example.jessica.masterproject.ParticipationNotNowActivity;
-import com.example.jessica.masterproject.ParticipationYesActivity;
 import com.example.jessica.masterproject.R;
 
 import java.text.ParseException;
@@ -74,7 +73,7 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                 long[] pattern = {0, 150, 75, 150, 75, 150};
 
                 // TODO: check flags
-                Intent yesIntent = new Intent(context, ParticipationYesActivity.class);
+                Intent yesIntent = new Intent(context, ParticipationActivity.class);
                 yesIntent.putExtra("current_interruption", mCurrentInterruption);
                 yesIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_SINGLE_TOP);
