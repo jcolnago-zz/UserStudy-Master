@@ -16,10 +16,12 @@
     <string name="current_scenario">com.jessica.app.current_scenario</string>
     <string name="upload_pending">com.jessica.app.upload_pending_</string>
     <string name="upload_done">com.jessica.app.upload_done_</string>
+    <string name="last_interruption_uploaded">com.jessica.app.last_interruption_uploaded</string>
     <string name="last_interruption">com.jessica.app.last_interruption</string>
     <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
     <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
     <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
+    <string name="missed_interruptions">com.jessica.app.missed_interruptions</string>
 
     <string name="pending_ds_title">Atividade Inicial Pendente</string>
     <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
@@ -31,15 +33,15 @@
 
     <string name="certainty">Eu tenho uma certeza %s na decisão que eu faria por você.</string>
 
-    <string name="default_low_sensitivity">Imagine uma situação na qual você não acha importante a sua privacidade no compartilhamento de dados.</string>
-    <string name="default_medium_sensitivity">Imagine uma situação na qual você acha meio importante a sua privacidade no compartilhamento de dados.</string>
-    <string name="default_high_sensitivity">Imagine uma situação na qual você acha muito importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_low_sensitivity">Imagine uma situação onde você NÃO ACHA importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_medium_sensitivity">Imagine uma situação onde você ACHA MEIO importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_high_sensitivity">Imagine uma situação onde você ACHA MUITO importante a sua privacidade no compartilhamento de dados.</string>
 
     <!-- Choice values -->
     <string name="disagree_label">Discordo \ncompletamente</string>
     <string name="agree_label">Concordo \ncompletamente</string>
     <string name="never">Nunca</string>
-    <string name="half_noidea">Não tenho certeza \nNa metade do tempo</string>
+    <string name="half_noidea">Na metade do tempo\nNão tenho certeza </string>
     <string name="always">Sempre</string>
     <string name="low_sensitivity">Não me preocuparia</string>
     <string name="medium_sensitivity">Normal</string>
@@ -48,7 +50,7 @@
     <string name="leave_me_alone_label">Quero delegar</string>
     <string name="yes_label">Sim</string>
     <string name="no_label">Não</string>
-    <string name="do_not_care"> ... mas não me importo com isso.</string>
+    <string name="do_not_care"> … mas não me importo com isso.</string>
     <string name="where_work">Trabalho</string>
     <string name="where_home">Casa</string>
     <string name="where_school">Escola</string>
@@ -66,7 +68,7 @@
     <string name="what_cooking">Cozinhando</string>
     <string name="what_talking">Conversando</string>
     <string name="what_shower">Banho</string>
-    <string name="what_driving">Dirigindo</string>
+    <string name="what_working">Trabalhando</string>
     <string name="what_shopping">Compras</string>
     <string name="what_eating">Comendo</string>
 
@@ -89,18 +91,18 @@
     <string name="masculino">Masculino</string>
 
     <string name="idade">Faixa etária</string>
-    <string name="grupo_etario_1">18-25</string>
-    <string name="grupo_etario_2">26-35</string>
-    <string name="grupo_etario_3">36-50</string>
+    <string name="grupo_etario_1">18–25</string>
+    <string name="grupo_etario_2">26–35</string>
+    <string name="grupo_etario_3">36–50</string>
     <string name="grupo_etario_4">50+</string>
 
     <string name="conhecimento_computador">Qual das frases abaixo melhor descreve seu conhecimento de computadores?</string>
     <string name="grupo_cc_1">Preciso de ajuda para usar computadores, celulares, etc.</string>
-    <string name="grupo_cc_2">Consigo usar computadores para funções simples, como acessar a internet, escrever documentos, ouvir música, ...</string>
-    <string name="grupo_cc_3">Consigo usar computadores para funções mais complexas, como uso de programas especializados para edição de vídeos, fotos, análise estatísticas, ...</string>
+    <string name="grupo_cc_2">Consigo usar computadores para funções simples, como acessar a internet, escrever documentos, ouvir música, …</string>
+    <string name="grupo_cc_3">Consigo usar computadores para funções mais complexas, como uso de programas especializados para edição de vídeos, fotos, análise estatísticas, …</string>
     <string name="grupo_cc_4">Sou capaz de programar novas funções para um computador.</string>
 
-    <string name="uso">Quais os principais usos que você faz de computadores / celulares/ tablets / ...?</string>
+    <string name="uso">Quais os principais usos que você faz de computadores, celulares, tablets, …?</string>
     <string name="trabalho">Trabalho</string>
     <string name="compras">Compras</string>
     <string name="entretenimento">Entretenimento</string>
@@ -277,8 +279,5 @@
     <string name="notNow_will">Não estou com vontade</string>
     <string name="notNow_tired">Estou cansado</string>
     <string name="notNow_too_much">Já fui muito interrompido</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- End Not Now -->
 </resources>

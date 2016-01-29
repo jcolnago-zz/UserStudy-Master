@@ -3,7 +3,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FEFEFE"
-    tools:context="com.example.jessica.masterproject.ParticipationActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jessica.masterproject.ParticipationActivity">
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -21,20 +25,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/mood_label"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="4dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="4dp" />
 
             <ImageView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/mood_label"
                 android:id="@+id/imageView"
                 android:src="@mipmap/emotions"
-                android:adjustViewBounds="true" />
+                android:adjustViewBounds="true"
+                android:contentDescription="Angra, sad, anxious, netural, happy" />
 
             <RadioGroup
                 android:layout_width="match_parent"
@@ -47,8 +52,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/mood_angry"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="15dp" />
+                    android:layout_weight="1" />
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -86,12 +90,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/busy_label"
                 android:layout_below="@+id/mood_group"
-                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -100,8 +104,8 @@
                 android:measureWithLargestChild="false"
                 android:id="@+id/busy_group"
                 android:layout_below="@+id/busy_label"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
 
                 <RadioButton
                     android:text="@string/yes_label"
@@ -123,12 +127,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/interacting_label"
                 android:layout_below="@+id/busy_group"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="4dp" />
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -137,8 +141,8 @@
                 android:measureWithLargestChild="false"
                 android:id="@+id/interacting_group"
                 android:layout_below="@+id/interacting_label"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
 
                 <RadioButton
                     android:text="@string/yes_label"
@@ -160,12 +164,12 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/acceptance_label"
                 android:layout_below="@+id/interacting_group"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="4dp" />
 
             <RadioGroup
                 android:layout_width="fill_parent"
@@ -174,8 +178,8 @@
                 android:measureWithLargestChild="false"
                 android:id="@+id/acceptance_group"
                 android:layout_below="@+id/acceptance_label"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
 
                 <RadioButton
                     android:text="@string/yes_label"
@@ -196,7 +200,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/acceptance_group"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp" />
 
             <TextView
                 android:text="@string/userStudy_where"
@@ -204,19 +209,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/where"
                 android:layout_below="@+id/do_not_care"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="4dp" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/where_group"
                 android:layout_below="@+id/where"
-                android:layout_marginLeft="20dp">
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -293,7 +299,7 @@
                 android:inputType="text"
                 android:layout_toRightOf="@+id/where_group"
                 android:layout_alignBottom="@+id/where_group"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="14dp" />
 
             <TextView
                 android:text="@string/userStudy_activity"
@@ -301,20 +307,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/what"
                 android:layout_below="@+id/where_group"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="20dp" />
+                android:layout_marginRight="4dp" />
 
 
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginLeft="14dp"
                 android:layout_below="@+id/what"
                 android:id="@+id/what_options"
                 android:baselineAligned="false">
@@ -377,7 +383,7 @@
                     <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/what_driving"
+                        android:text="@string/what_working"
                         android:id="@+id/what_driving" />
 
                     <CheckBox
@@ -417,8 +423,7 @@
                 android:onClick="nextUserStudy"
                 android:layout_below="@+id/what_options"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="10dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginBottom="10dp" />
 
         </RelativeLayout>
     </ScrollView>

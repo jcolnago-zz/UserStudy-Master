@@ -1,4 +1,4 @@
-package com.example.jessica.masterproject;
+package com.jessica.masterproject;
 
 import org.junit.Test;
 

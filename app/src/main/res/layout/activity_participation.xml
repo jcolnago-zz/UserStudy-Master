@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.jessica.masterproject.ParticipationActivity">
+    tools:context="com.jessica.masterproject.ParticipationActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,8 +22,8 @@
             android:text="Large Text"
             android:id="@+id/sensitivity"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -32,8 +32,9 @@
             android:text="Large Text"
             android:id="@+id/certainty"
             android:layout_below="@+id/sensitivity"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp" />
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="4dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,15 +45,15 @@
             android:layout_below="@+id/certainty"
             android:layout_alignLeft="@+id/sensitivity"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp" />
+            android:layout_marginRight="4dp" />
 
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/us_choice"
             android:layout_below="@+id/textView34"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
             android:layout_marginTop="10dp">
 
             <RadioButton
@@ -80,7 +81,6 @@
         android:id="@+id/us_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="@string/avancar"
         android:textColor="#000000"
         android:onClick="nextUserStudy"
