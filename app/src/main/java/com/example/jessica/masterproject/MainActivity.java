@@ -1,9 +1,15 @@
 package com.example.jessica.masterproject;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
@@ -18,6 +24,13 @@ import com.example.jessica.masterproject.alarms.DisplayInterruptionAlarm;
 import com.example.jessica.masterproject.alarms.ReminderDSAlarm;
 import com.example.jessica.masterproject.alarms.UploadDSAlarm;
 import com.example.jessica.masterproject.alarms.UploadInterruptionAlarm;
+import com.example.jessica.masterproject.fragments.DemographicsFragment;
+import com.example.jessica.masterproject.fragments.DoneFragment;
+import com.example.jessica.masterproject.fragments.PendingFragment;
+import com.example.jessica.masterproject.fragments.ScenariosFragment;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 
 import java.text.ParseException;
 
@@ -25,9 +38,9 @@ import java.util.GregorianCalendar;
 
 public class MainActivity extends MotherActivity {
 
-    public static final long DAY = 1000*60*60*24;
-    public static final long HOUR = 1000*60*60;
-    public static final long MINUTE = 1000*60;
+    public static final long DAY = 1000 * 60 * 60 * 24;
+    public static final long HOUR = 1000 * 60 * 60;
+    public static final long MINUTE = 1000 * 60;
     public static final int INTERRUPTIONS = 2;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
@@ -56,13 +69,30 @@ public class MainActivity extends MotherActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         requestMultiplePermissions();
+
+        setLocationListener();
+        //TODO: check best place to start receiving it: I think about 5minutes before interruption alarm and stop with interruption
+        //requestLocation(locationManager, locationListener);
+        // Remove the listener you previously added
+        //locationManager.removeUpdates(locationListener);
+
+        mapFragment = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.location_map));
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(new OnMapReadyCallback() {
+                @Override
+                public void onMapReady(GoogleMap map) {
+                    loadMap(map);
+                }
+            });
+        }
+
         mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
 
         // Try to upload Demographics and Scenarios after 2 hours of starting the activity
         // TODO: set this back to 2*HOUR
-        System.out.println("Setting Upload DS Alarm: " + (new GregorianCalendar()).getTimeInMillis()+HOUR/60);
+        System.out.println("Setting Upload DS Alarm: " + (new GregorianCalendar()).getTimeInMillis() + HOUR / 60);
         scheduleAlarm(MainActivity.this,
-                (new GregorianCalendar()).getTimeInMillis()+HOUR/60,
+                (new GregorianCalendar()).getTimeInMillis() + HOUR / 60,
                 new Intent(MainActivity.this, UploadDSAlarm.class));
 
         // Remind participant of finishing Demographics and Scenario the day before the start of the study
@@ -104,6 +134,42 @@ public class MainActivity extends MotherActivity {
                 intTime.getTimeInMillis() + MINUTE / 2,
                 new Intent(MainActivity.this, UploadInterruptionAlarm.class));
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        connectClient();
+    }
+
+    @Override
+    protected void onStop() {
+        // Disconnecting the client invalidates it.
+        if (mGoogleApiClient != null) {
+            mGoogleApiClient.disconnect();
+        }
+        super.onStop();
+    }
+
+    /*
+	 * Handle results returned to the FragmentActivity by Google Play services
+	 */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Decide what to do based on the original request code
+        switch (requestCode) {
+            case CONNECTION_FAILURE_RESOLUTION_REQUEST:
+			/*
+			 * If the result code is Activity.RESULT_OK, try to connect again
+			 */
+            switch (resultCode) {
+                case Activity.RESULT_OK:
+                    mGoogleApiClient.connect();
+                    break;
+            }
+        }
+    }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -227,6 +293,7 @@ public class MainActivity extends MotherActivity {
             return null;
         }
     }
+
 
 }
 

@@ -2,7 +2,11 @@
     <string name="app_name">Estudo de Caso</string>
     <string name="demographics">Demográfico</string>
     <string name="scenarios">Cenários</string>
-    <string name="missing_option">"Você deve selecionar uma opção para "</string>
+    <string name="missed">Interrupções perdidas</string>
+    <string name="location_text">Você estava aqui: </string>
+    <string name="missing_option">Você deve selecionar uma opção para </string>
+
+    <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
 
     <string name="scenarios_filename">scenarios.csv</string>
     <string name="demographic_filename">demographics.csv</string>
@@ -70,6 +74,7 @@
 
     <!-- Greetings and buttons -->
     <string name="avancar">Avançar</string>
+    <string name="save">Salvar</string>
     <string name="greeting1">Por favor, responda as questões abaixo: </string>
     <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
@@ -265,4 +270,15 @@
     <string name="userStudy_where">Onde você está agora?</string>
     <string name="userStudy_activity">O que você está fazendo agora?</string>
     <!-- End User Study -->
+
+    <!-- Not now -->
+    <string name="notNow_reason">Você pode nos dizer o por quê de você não poder participar do estudo agora?</string>
+    <string name="notNow_situation">A situação não permite</string>
+    <string name="notNow_will">Não estou com vontade</string>
+    <string name="notNow_tired">Estou cansado</string>
+    <string name="notNow_too_much">Já fui muito interrompido</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- End Not Now -->
 </resources>

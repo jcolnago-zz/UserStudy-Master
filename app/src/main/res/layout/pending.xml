@@ -16,7 +16,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="#000000"
+        android:textColor="#333333"
         android:textStyle="bold" />
 
     <TextView
@@ -30,7 +30,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:textColor="#000000"
+        android:textColor="#333333"
         android:textStyle="bold" />
 
     <ProgressBar
@@ -65,5 +65,108 @@
         android:layout_alignLeft="@+id/pending_demographics"
         android:layout_alignStart="@+id/pending_demographics"
         android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/missed"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/textView32"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#333333"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="0"
+        android:id="@+id/missed"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#ff0000"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_alignBottom="@+id/textView2" />
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:id="@+id/space" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/pending"
+        android:id="@+id/pending_text"
+        android:layout_below="@+id/space"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/location_text"
+        android:id="@+id/textView35"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/pending_text"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/date"
+        android:layout_alignBottom="@+id/textView35"
+        android:layout_toRightOf="@+id/textView35"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView35"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="1"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/linearLayout">
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/location_map"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            class="com.google.android.gms.maps.MapFragment"
+            android:layout_weight="0.4" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textMultiLine"
+            android:ems="10"
+            android:id="@+id/editText"
+            android:layout_weight="0.6" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/avancar"
+            android:id="@+id/pending_button"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
 
 </RelativeLayout>

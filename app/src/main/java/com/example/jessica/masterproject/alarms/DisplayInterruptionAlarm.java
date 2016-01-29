@@ -80,6 +80,7 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
 
                 // TODO: check flags and change to ParticipationNotNowActivity.class
                 Intent notNowIntent = new Intent(context, ParticipationNotNowActivity.class);
+                notNowIntent.putExtra("current_interruption", mCurrentInterruption);
                 notNowIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                         | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
