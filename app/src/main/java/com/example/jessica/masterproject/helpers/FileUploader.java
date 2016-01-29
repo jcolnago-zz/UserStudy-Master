@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.provider.Settings;
 
+import com.example.jessica.masterproject.MainActivity;
 import com.example.jessica.masterproject.R;
 import com.loopj.android.http.*;
 import java.io.File;
@@ -13,15 +14,8 @@ import java.io.FileNotFoundException;
 import cz.msebera.android.httpclient.Header;
 
 public class FileUploader {
-    private static Context mContext;
-    private static String mFilename;
-    private static String mFiletype;
 
-    public static void upload(final String filename, String fileType, final Context context){
-        mContext = context;
-        mFilename = filename;
-        mFiletype = fileType;
-
+    public static void upload(final String filename, final String fileType, final Context context){
         String url = "http://jessicacolnago.com/upload";
         RequestParams params = new RequestParams();
         String id = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
@@ -44,6 +38,7 @@ public class FileUploader {
                 mEditor.putBoolean(context.getString(R.string.upload_pending) + filename, false);
                 mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
                 mEditor.commit();
+
                 System.out.println("Successfully uploaded " + filename
                         + ", new status (true=error in saving status): "
                         + mSharedPref.getBoolean(context.getString(R.string.upload_pending)+filename, true));
@@ -52,7 +47,7 @@ public class FileUploader {
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] bytes, Throwable throwable) {
                 //TODO: change this, this is horrible. can't keep trying forever
-                upload(mFilename, mFiletype, mContext);
+                upload(filename, fileType, context);
                 System.err.println("Failure: " + statusCode);
             }
         });

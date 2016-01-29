@@ -67,6 +67,7 @@ public class ScenariosFragment extends Fragment {
                 mEditor.putBoolean(getString(R.string.upload_pending)
                         + mFilename.substring(0, mFilename.length() - 4), true);
                 mEditor.commit();
+                ((MainActivity) getActivity()).updatePending();
             }
         } else {
             mAnswers[mCurrentScenario++] = Integer.toString(choice);

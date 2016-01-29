@@ -189,6 +189,10 @@ public class MainActivity extends MotherActivity {
         mSectionsPagerAdapter.nextScenario();
     }
 
+    public void updatePending() {
+        mSectionsPagerAdapter.updatePending();
+    }
+
     // SUBCLASSES OF MAIN ACTIVITY
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
@@ -244,6 +248,10 @@ public class MainActivity extends MotherActivity {
                 mScenFragment = DoneFragment.newInstance();
                 notifyDataSetChanged();
             }
+        }
+
+        public void updatePending() {
+            ((PendingFragment) mPendingFragment).setupPending();
         }
 
         @Override

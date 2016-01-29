@@ -24,27 +24,34 @@ public class PendingFragment extends Fragment {
         return new PendingFragment();
     }
 
-    private void setupPending () {
-        ProgressBar scenarios = (ProgressBar) mView.findViewById(R.id.pending_scenarios);
-        ProgressBar demo = (ProgressBar) mView.findViewById(R.id.pending_demographics);
+    public void setupPending () {
+        final ProgressBar scenarios = (ProgressBar) mView.findViewById(R.id.pending_scenarios);
+        final ProgressBar demo = (ProgressBar) mView.findViewById(R.id.pending_demographics);
 
-        //TODO:fix non updating progressbars
-        if (mSharedPref.getBoolean(getString(R.string.upload_pending) + "scenarios", false)) {
-            System.out.println("scenarios pending");
-            scenarios.setProgress(1);
-        }
-        if (mSharedPref.getBoolean(getString(R.string.upload_done) + "scenarios", false)){
-            System.out.println("scenarios done");
-            scenarios.setProgress(2);
-        }
-        if (mSharedPref.getBoolean(getString(R.string.upload_pending) + "demographics", false)){
-            System.out.println("demographics pending");
-            demo.setProgress(1);
-        }
-        if (mSharedPref.getBoolean(getString(R.string.upload_done) + "demographics", false)){
-            System.out.println("demographics done");
-            demo.setProgress(2);
-        }
+        final boolean scenarios_pending = mSharedPref.getBoolean(getString(R.string.upload_pending) + "scenarios", false);
+        final boolean scenarios_done    = mSharedPref.getBoolean(getString(R.string.upload_done) + "scenarios", false);
+        final boolean demo_pending      = mSharedPref.getBoolean(getString(R.string.upload_pending) + "demographics", false);
+        final boolean demo_done         = mSharedPref.getBoolean(getString(R.string.upload_done) + "demographics", false);
+
+        scenarios.post(new Runnable() {
+            @Override
+            public void run() {
+                if(scenarios_pending)
+                    scenarios.setProgress(1);
+                else if(scenarios_done)
+                    scenarios.setProgress(2);
+            }
+        });
+
+        demo.post(new Runnable() {
+            @Override
+            public void run() {
+                if(demo_pending)
+                    demo.setProgress(1);
+                else if(demo_done)
+                    demo.setProgress(2);
+            }
+        });
     }
 
     @Override
@@ -53,10 +60,9 @@ public class PendingFragment extends Fragment {
         mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
         mEditor = mSharedPref.edit();
 
-        mView  = inflater.inflate(R.layout.pending, container, false);
+        mView = inflater.inflate(R.layout.pending, container, false);
 
         setupPending();
-
         return mView;
     }
 

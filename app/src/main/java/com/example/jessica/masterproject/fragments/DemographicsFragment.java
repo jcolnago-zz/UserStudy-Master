@@ -133,8 +133,9 @@ public class DemographicsFragment extends Fragment {
                 mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
                 mEditor = mSharedPref.edit();
                 String filename = getString(R.string.demographic_filename);
-                mEditor.putBoolean(getString(R.string.upload_pending)+filename.substring(0, filename.length()-4), true);
+                mEditor.putBoolean(getString(R.string.upload_pending) + filename.substring(0, filename.length() - 4), true);
                 mEditor.commit();
+                ((MainActivity) getActivity()).updatePending();
                 break;
         }
 
