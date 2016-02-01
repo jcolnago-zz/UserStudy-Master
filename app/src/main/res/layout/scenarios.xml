@@ -84,8 +84,8 @@
             android:text="@string/avancar"
             android:id="@+id/next"
             android:layout_gravity="right"
-            android:layout_weight="0.03"
-            android:onClick="nextScenario" />
+            android:onClick="nextScenario"
+            android:layout_marginBottom="50dp" />
 
     </LinearLayout>
 </ScrollView>
