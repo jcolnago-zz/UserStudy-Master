@@ -36,6 +36,7 @@ public class ParticipationActivity extends MotherActivity {
         super.onCreate(savedInstanceState);
 
         mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+        mEditor = mSharedPref.edit();
 
         mCurrentInterruption = getIntent().getIntExtra("current_interruption", -1);
 
@@ -77,9 +78,10 @@ public class ParticipationActivity extends MotherActivity {
             return getString(R.string.default_high_sensitivity);
         }
 
+        i = startAt;
 
         // Try from last point
-        for (i = startAt+1; i < sensitivities.length; i++) {
+        for (i = i+1; i < sensitivities.length; i++) {
             // Set right last sensitivity used
             if (sensitivities[i].equals(sensitivityLevel)) {
                 value = getResources().getStringArray(R.array.scenarios)[i];
@@ -138,24 +140,28 @@ public class ParticipationActivity extends MotherActivity {
         String line;
         String[] sensitivity = null;
 
+        System.out.println("[DEBUG] ParticipationActivity: scenariosFile: "+ scenariosFile);
         try {
             bufferedReader = new BufferedReader(new FileReader(scenariosFile));
             while ((line = bufferedReader.readLine()) != null) {
                 sensitivity = line.split(",");
             }
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
             return null;
         }
         catch (IOException e) {
+            e.printStackTrace();
             return null;
         }
+
+        System.out.println("[DEBUG] ParticipationActivity: sensitivity: " + sensitivity);
 
         return sensitivity;
     }
 
     public void nextUserStudy(View view) {
         mView = view.getRootView();
-        mEditor = mSharedPref.edit();
 
         if(!saveUserStudy())
             return;
