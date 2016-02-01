@@ -140,7 +140,6 @@ public class ParticipationActivity extends MotherActivity {
         String line;
         String[] sensitivity = null;
 
-        System.out.println("[DEBUG] ParticipationActivity: scenariosFile: "+ scenariosFile);
         try {
             bufferedReader = new BufferedReader(new FileReader(scenariosFile));
             while ((line = bufferedReader.readLine()) != null) {
@@ -154,8 +153,6 @@ public class ParticipationActivity extends MotherActivity {
             e.printStackTrace();
             return null;
         }
-
-        System.out.println("[DEBUG] ParticipationActivity: sensitivity: " + sensitivity);
 
         return sensitivity;
     }

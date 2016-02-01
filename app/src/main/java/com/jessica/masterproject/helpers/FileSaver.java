@@ -31,19 +31,20 @@ public class FileSaver {
         }
 
         File file = new File(folder.getPath()+"/"+filename);
-        boolean fileCreated = false;
+        boolean fileExists = false;
 
         if(!file.exists()) {
             try {
-                fileCreated = file.createNewFile();
+                fileExists = file.createNewFile();
             } catch (IOException e) {
                 System.err.println("Couldn't create file "+file.getName());
                 return false;
             }
         }
+        else fileExists = true;
 
         try {
-            if (fileCreated) {
+            if (fileExists) {
                 FileWriter fileWriter = new FileWriter(file.getAbsoluteFile(), append);
                 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
                 if(append)

@@ -43,7 +43,6 @@ public class UploadInterruptionAlarm extends BroadcastReceiver {
             }
 
             if (isWiFiAvailable(context)) {
-                System.out.println("[DEBUG] UploadInterruptionAlarm: iterating over 0 to " + (MainActivity.INTERRUPTIONS - lastInterruptionUp));
                 for (int i = 0; i < MainActivity.INTERRUPTIONS - lastInterruptionUp; i++) {
                     if (mSharedPref.getBoolean(context.getString(R.string.upload_pending) + files[i], false)) {
                         System.out.println("   [LOG] UploadInterruptionAlarm: uploading: " + files[i]);

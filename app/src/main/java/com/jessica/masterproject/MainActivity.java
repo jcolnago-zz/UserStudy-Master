@@ -69,7 +69,7 @@ public class MainActivity extends MotherActivity {
         // Remind participant of finishing Demographics and Scenario the day before the start of the study
         GregorianCalendar intTime = new GregorianCalendar();
         try {
-            intTime.setTime(MotherActivity.FORMAT.parse("2016-01-31T11:00:00.000-0200"));
+            intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -100,7 +100,7 @@ public class MainActivity extends MotherActivity {
 
         // Set alarm to upload interruptions at 8pm of the first day of the study
         try {
-            intTime.setTime(MotherActivity.FORMAT.parse("2016-02-01T20:00:00.000-0200"));
+            intTime.setTime(MotherActivity.FORMAT.parse("2016-02-03T20:00:00.000-0200"));
         } catch (ParseException e) {
             e.printStackTrace();
         }

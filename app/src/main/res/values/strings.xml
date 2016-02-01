@@ -31,7 +31,7 @@
     <string name="participation_request_not_now">Agora não</string>
     <string name="participation_request_yes">Vamos lá</string>
 
-    <string name="certainty">Eu tenho uma certeza %s na decisão que eu faria por você.</string>
+    <string name="certainty">Eu tenho %s de certeza na decisão que eu faria por você.</string>
 
     <string name="default_low_sensitivity">Imagine uma situação onde você NÃO ACHA importante a sua privacidade no compartilhamento de dados.</string>
     <string name="default_medium_sensitivity">Imagine uma situação onde você ACHA MEIO importante a sua privacidade no compartilhamento de dados.</string>
@@ -43,9 +43,9 @@
     <string name="never">Nunca</string>
     <string name="half_noidea">Na metade do tempo\nNão tenho certeza </string>
     <string name="always">Sempre</string>
-    <string name="low_sensitivity">Não me preocuparia</string>
-    <string name="medium_sensitivity">Normal</string>
-    <string name="high_sensitivity">Me preocuparia muito</string>
+    <string name="low_sensitivity">Permitiria tranquilamente</string>
+    <string name="medium_sensitivity">Permitiria incomodado</string>
+    <string name="high_sensitivity">Não permitiria</string>
     <string name="let_me_choose_label">Quero escolher</string>
     <string name="leave_me_alone_label">Quero delegar</string>
     <string name="yes_label">Sim</string>
@@ -81,7 +81,7 @@
     <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
-    <string name="greetings5">Por favor, classifique o cenário abaixo. Quanto maior a preocupação, maior a sensitividade. </string>
+    <string name="greetings5">Por favor, classifique o cenário. Quanto menos você quiser permitir, maior a sensitividade. </string>
     <string name="greetings6">Nesse caso, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
     <!-- End Greetings and buttons -->
 
@@ -135,15 +135,15 @@
     <string name="westin2">A maioria dos negócios lidam com informações pessoais coletadas dos seus clientes de forma correta e confidencial.</string>
     <string name="westin3">Existem leis e práticas organizacionais que fornecem um nível razoável de proteção para a privacidade dos consumidores.</string>
 
-    <string name="control1">Eu prefiro um emprego que eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
+    <string name="control1">Eu prefiro um emprego / uma ocupação que eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
     <string name="control2">Eu gosto de participar politicamente porque eu quero ter o máximo de participação que eu posso em como as políticas públicas devem ser feitas</string>
-    <string name="control3">Eu tento evitar situações que alguém me diz o que eu tenho que fazer.</string>
+    <string name="control3">Eu tento evitar situações nas quais alguém me diz o que eu tenho que fazer.</string>
     <string name="control4">Outras pessoas normalmente sabem o que é melhor pra mim.</string>
     <string name="control5">Eu gosto de tomar as minhas próprias decisões.</string>
     <string name="control6">Eu gosto de ter controle sobre o meu próprio destino.</string>
     <string name="control7">Eu geralmente me considero mais capaz em lidar com situações do que outros.</string>
     <string name="control8">Eu queria poder deixar outra pessoa decidir por mim o máximo das minhas decisões de vida.</string>
-    <string name="control9">Existem muitas situações que eu preferiria só tem uma opção do que ter que tomar uma decisão.</string>
+    <string name="control9">Existem muitas situações nas quais eu preferiria só tem uma opção do que ter que tomar uma decisão.</string>
     <string name="control10">Eu gosto de esperar e ver se outra pessoa vai resolver um problema para eu não ter que me preocupar com isso.</string>
 
     <!-- End Demo -->

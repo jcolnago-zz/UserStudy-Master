@@ -32,7 +32,7 @@ public class ReminderDSAlarm extends BroadcastReceiver {
             // If system rebooted reset alarm
             GregorianCalendar intTime = new GregorianCalendar();
             try {
-                intTime.setTime(MotherActivity.FORMAT.parse("2016-01-31T11:00:00.000-0200"));
+                intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
             } catch (ParseException e) {
                 e.printStackTrace();
             }

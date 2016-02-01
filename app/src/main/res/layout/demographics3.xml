@@ -485,7 +485,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/half_noidea"
             android:id="@+id/textView20"
-            android:layout_alignBottom="@+id/textView8"
+            android:layout_alignBottom="@+id/textView19"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/control7"
             android:textSize="12sp" />

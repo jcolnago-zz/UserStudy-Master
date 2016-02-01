@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.jessica.masterproject.MainActivity;
 import com.jessica.masterproject.R;
 
+import java.sql.SQLOutput;
 import java.util.Arrays;
 
 public class ScenariosFragment extends Fragment {
@@ -23,6 +24,7 @@ public class ScenariosFragment extends Fragment {
     private String[] mQuestions;
     private View mView;
     private SharedPreferences mSharedPref;
+    private SharedPreferences.Editor mEditor;
     private String mFilename;
 
     public ScenariosFragment() {
@@ -40,28 +42,27 @@ public class ScenariosFragment extends Fragment {
         if(mQuestions == null){
             mQuestions = getResources().getStringArray(R.array.scenarios);
             mAnswers = new String[mQuestions.length];
-            progress.post(new Runnable() {
-                @Override
-                public void run() {
-                    progress.setMax(mQuestions.length);
-                }
-            });
         }
 
-        // Se tiver SharedPref for current_scenario use that value, else use default mCurrentScenario
-        int temp = mSharedPref.getInt(getString(R.string.current_scenario), mCurrentScenario);
-        if (temp != mCurrentScenario) {
-            mLastAnswered = mCurrentScenario = temp;
+        // If fragment has been newly initialized
+        if (mCurrentScenario == 0) {
+            mCurrentScenario = mSharedPref.getInt(getString(R.string.current_scenario), mCurrentScenario);
+            mLastAnswered = mCurrentScenario;
         }
 
-        progress.setProgress(mCurrentScenario);
+        progress.post(new Runnable() {
+            @Override
+            public void run() {
+                progress.setMax(mQuestions.length);
+                progress.setProgress(mCurrentScenario);
+            }
+        });
+
         question.setText(mQuestions[mCurrentScenario]);
         choices.clearCheck();
     }
 
     public void nextScenario () {
-        SharedPreferences.Editor mEditor = mSharedPref.edit();
-
         int choice = ((MainActivity)getActivity()).readRadio(mView, R.id.choices, " esse cenário");
         if (choice == -1)
             return;
@@ -93,20 +94,26 @@ public class ScenariosFragment extends Fragment {
                              Bundle savedInstanceState) {
         mFilename = getString(R.string.scenarios_filename);
         mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
-        if(!(mSharedPref.getBoolean(getString(R.string.upload_pending) + mFilename.substring(0, mFilename.length() - 4), false)
-                || mSharedPref.getBoolean(getString(R.string.upload_done)+ mFilename.substring(0, mFilename.length() - 4),false))) {
+        mEditor = mSharedPref.edit();
+
+        if(!isDone()) {
             mView = inflater.inflate(R.layout.scenarios, container, false);
             setupScenario();
         } else {
-            mView = inflater.inflate(R.layout.scenarios, container, false);
+            mView = inflater.inflate(R.layout.done, container, false);
         }
         return mView;
     }
 
     @Override
     public void onStop() {
-        if (mCurrentScenario != mQuestions.length && mLastAnswered!=mCurrentScenario) {
-            ((MainActivity)getActivity()).requestSave("scenarios.csv", Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0);
+        if (mCurrentScenario < mAnswers.length-1 && mLastAnswered != mCurrentScenario) {
+            ((MainActivity)getActivity()).requestSave("scenarios.csv",
+                    Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered != 0);
+
+            mLastAnswered = mCurrentScenario;
+            mEditor.putInt(getString(R.string.current_scenario), mCurrentScenario);
+            mEditor.commit();
         }
         super.onStop();
     }
