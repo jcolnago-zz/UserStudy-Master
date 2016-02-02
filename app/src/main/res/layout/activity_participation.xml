@@ -1,90 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.jessica.masterproject.ParticipationActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:fillViewport="false">
 
     <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/fullscreen_content"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.jessica.masterproject.ParticipationActivity">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/sensitivity"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
-            android:id="@+id/certainty"
-            android:layout_below="@+id/sensitivity"
-            android:layout_marginLeft="4dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="4dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/greetings6"
-            android:id="@+id/textView34"
-            android:layout_below="@+id/certainty"
-            android:layout_alignLeft="@+id/sensitivity"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="4dp" />
-
-        <RadioGroup
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/us_choice"
-            android:layout_below="@+id/textView34"
-            android:layout_marginLeft="14dp"
-            android:layout_marginRight="14dp"
-            android:layout_marginTop="10dp">
+            android:id="@+id/fullscreen_content"
+            android:gravity="center">
 
-            <RadioButton
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/sensitivity"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Large Text"
+                android:id="@+id/certainty"
+                android:layout_below="@+id/sensitivity"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="4dp" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/let_me_choose_label"
-                android:id="@+id/let_me_choose"
-                android:textColor="#000000"
-                android:textSize="15dp" />
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/greetings6"
+                android:id="@+id/textView34"
+                android:layout_below="@+id/certainty"
+                android:layout_alignLeft="@+id/sensitivity"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="4dp" />
 
-            <RadioButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/leave_me_alone_label"
-                android:id="@+id/leave_me_alone"
-                android:layout_marginTop="10dp"
-                android:textColor="#000000"
-                android:textSize="15dp" />
-        </RadioGroup>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/us_choice"
+                android:layout_below="@+id/textView34"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp"
+                android:layout_marginTop="10dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/let_me_choose_label"
+                    android:id="@+id/let_me_choose"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leave_me_alone_label"
+                    android:id="@+id/leave_me_alone"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#000000"
+                    android:textSize="15dp" />
+            </RadioGroup>
+        </RelativeLayout>
+
+        <!-- This FrameLayout insets its children based on system windows using
+             android:fitsSystemWindows. -->
+        <Button
+            android:id="@+id/us_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/avancar"
+            android:textColor="#000000"
+            android:onClick="nextUserStudy"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true" />
+
     </RelativeLayout>
-
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <Button
-        android:id="@+id/us_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/avancar"
-        android:textColor="#000000"
-        android:onClick="nextUserStudy"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true" />
-
-</RelativeLayout>
+    </ScrollView>

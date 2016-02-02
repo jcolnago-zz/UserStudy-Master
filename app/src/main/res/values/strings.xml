@@ -135,7 +135,7 @@
     <string name="westin2">A maioria dos negócios lidam com informações pessoais coletadas dos seus clientes de forma correta e confidencial.</string>
     <string name="westin3">Existem leis e práticas organizacionais que fornecem um nível razoável de proteção para a privacidade dos consumidores.</string>
 
-    <string name="control1">Eu prefiro um emprego / uma ocupação que eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
+    <string name="control1">Eu prefiro um emprego / uma ocupação na qual eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
     <string name="control2">Eu gosto de participar politicamente porque eu quero ter o máximo de participação que eu posso em como as políticas públicas devem ser feitas</string>
     <string name="control3">Eu tento evitar situações nas quais alguém me diz o que eu tenho que fazer.</string>
     <string name="control4">Outras pessoas normalmente sabem o que é melhor pra mim.</string>
@@ -143,7 +143,7 @@
     <string name="control6">Eu gosto de ter controle sobre o meu próprio destino.</string>
     <string name="control7">Eu geralmente me considero mais capaz em lidar com situações do que outros.</string>
     <string name="control8">Eu queria poder deixar outra pessoa decidir por mim o máximo das minhas decisões de vida.</string>
-    <string name="control9">Existem muitas situações nas quais eu preferiria só tem uma opção do que ter que tomar uma decisão.</string>
+    <string name="control9">Existem muitas situações nas quais eu preferiria só ter uma opção do que ter que tomar uma decisão.</string>
     <string name="control10">Eu gosto de esperar e ver se outra pessoa vai resolver um problema para eu não ter que me preocupar com isso.</string>
 
     <!-- End Demo -->
@@ -153,7 +153,7 @@
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	NOT IMPORTANT -->
         <item>Um restaurante não confiável quer acesso a seus dados de saúde para sugerir pratos adequados.</item>
         <item>Um restaurante não confiável quer acesso a seu CPF para colocar na nota fiscal.</item>
-        <item>Uma loja não confiável que acesso ao seu e-mail para envio da NFE (nota fiscal eletrônica).</item>
+        <item>Uma loja não confiável quer acesso ao seu e-mail para envio da NFE (nota fiscal eletrônica).</item>
 
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	IRRELEVANT    -->
         <item>Um restaurante não confiável quer acesso a seus dados de saúde para informar decisões futuras de escolhas de receitas</item>
@@ -206,7 +206,7 @@
         <item>A farmácia quer informações sobre seu histórico de saúde para montagem de informações estatísticas.</item>
 
         <!-- Classificação da tabela: UNKNOWN	MEDIUM SENSITIVITY	IRRELEVANT   -->
-        <item>Um supermercado quer acesso aos seus dados de higiêne bucal para fazer propaganda de produtos apropriados para você.</item>
+        <item>Um supermercado quer acesso aos seus dados de higiene bucal para fazer propaganda de produtos apropriados para você.</item>
         <item>Uma loja de esporte quer acesso aos seu peso para fazer propaganda de produtos apropriados.</item>
         <item>Outdoors de propaganda querem acesso às suas preferências de compras para mostrarem propagandas adequadas.</item>
 
@@ -250,7 +250,7 @@
         <item>A cantina em seu local de trabalho quer acesso a seu histórico de saúde para propor um menu específico.</item>
 
         <!-- Classificação da tabela: TRUSTED	LOW SENSITIVITY	NOT IMPORTANT  -->
-        <item>A sua cidade quer acesso a emissão de gás carbônico do seu carro para realizar um planejamento de meio ambiente.</item>
+        <item>A sua cidade quer acesso aos dados de emissão de gás carbônico do seu carro para realizar um planejamento de meio ambiente.</item>
         <item>O seu sistema de entretenimento quer acesso às suas buscas mais recentes de notícias para selecionar uma programação relevante.</item>
         <item>O sistema de refrigeração do cômodo em que você está em sua casa quer saber seu tempo estimado de permanência para ajustes da refrigeração.</item>
 
