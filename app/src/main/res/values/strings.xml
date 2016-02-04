@@ -82,8 +82,8 @@
     <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
-    <string name="greetings5">Por favor, classifique o cenário. Quanto menos você quiser permitir, maior a sensitividade. </string>
-    <string name="greetings6">Nesse caso, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
+    <string name="greetings5">Por favor, classifique o cenário de acordo com como você acha que você se comportaria e se sentiria. </string>
+    <string name="greetings6">Considerando o seu contexto atual e a situação apresentada, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
     <!-- End Greetings and buttons -->
 
     <!-- Demo -->
