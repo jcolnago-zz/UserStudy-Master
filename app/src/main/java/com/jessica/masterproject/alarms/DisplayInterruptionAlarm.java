@@ -73,9 +73,10 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                 // If the timeout of 10 minutes doesn't do the trick, cancel previous one before
                 // creating a new one (could not use schedule alarm because the same intent is going to be used
                 // and it will override all previous alarms with that intent).
-                if (mCurrentInterruption > 1 && isNotificationVisible(context, CancelAlarm.class, mCurrentInterruption -1)) {
-                    System.out.println("[LOG] DisplayInterruptionAlarm: canceling previous interruption.");
-                    notificationManager.cancel(mCurrentInterruption -1);
+                int previousInterruption = mCurrentInterruption-1;
+                if (mCurrentInterruption > 1 && isNotificationVisible(context,  CancelAlarm.class, previousInterruption)) {
+                    System.out.println("[LOG] DisplayInterruptionAlarm: canceling previous interruption: " + previousInterruption);
+                    notificationManager.cancel(previousInterruption);
                     int missed = mSharedPref.getInt(context.getString(R.string.missed_interruptions), 0);
                     mEditor.putInt(context.getString(R.string.missed_interruptions), ++missed);
                     // set it as done, so it won't try to upload an non-existing file.
@@ -98,9 +99,9 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                 cancelIntent.putExtra("notificationId", mCurrentInterruption);
                 cancelIntent.putExtra("interruption", filename);
 
-                PendingIntent yesPendingIntent = PendingIntent.getActivity(context, 0, yesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                PendingIntent notNowPendingIntent = PendingIntent.getActivity(context, 1, notNowIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-                PendingIntent cancelPendingIntent = PendingIntent.getBroadcast(context, 2, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent yesPendingIntent = PendingIntent.getActivity(context, mCurrentInterruption, yesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent notNowPendingIntent = PendingIntent.getActivity(context, mCurrentInterruption, notNowIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+                PendingIntent cancelPendingIntent = PendingIntent.getBroadcast(context, mCurrentInterruption, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
                 NotificationCompat.Builder mBuilder =
                         new NotificationCompat.Builder(context)
@@ -116,7 +117,6 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                                 .setContentText(context.getString(R.string.participation_request_text))
                                 .addAction(R.drawable.not_now_icon, context.getString(R.string.participation_request_not_now), notNowPendingIntent)
                                 .addAction(R.drawable.yes_icon, context.getString(R.string.participation_request_yes), yesPendingIntent)
-                                .setStyle(new NotificationCompat.InboxStyle())
                                 .setContentIntent(yesPendingIntent);
 
                 Notification notification = mBuilder.build();
