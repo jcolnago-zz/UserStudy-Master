@@ -68,8 +68,8 @@ public class ScenariosFragment extends Fragment {
             return;
 
         // Always when clicking next, save current scenario answer
-        mAnswers[mCurrentScenario] = Integer.toString(choice);
-        if(mCurrentScenario == mQuestions.length-1) {
+        mAnswers[mCurrentScenario++] = Integer.toString(choice);
+        if(mCurrentScenario == mQuestions.length) {
             if (((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename),
                     Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0)) {
                 mEditor.putBoolean(getString(R.string.upload_pending)
@@ -78,8 +78,6 @@ public class ScenariosFragment extends Fragment {
                 ((MainActivity) getActivity()).updatePending();
             }
         } else {
-            // If it wasn't the last scenario, increment the current value and setup the next one
-            mCurrentScenario++;
             mEditor.putInt(getString(R.string.current_scenario), mCurrentScenario);
             mEditor.commit();
 
@@ -110,7 +108,7 @@ public class ScenariosFragment extends Fragment {
 
     @Override
     public void onStop() {
-        if (mCurrentScenario < mAnswers.length-1 && mLastAnswered != mCurrentScenario) {
+        if (mCurrentScenario < mAnswers.length && mLastAnswered != mCurrentScenario) {
             ((MainActivity)getActivity()).requestSave("scenarios.csv",
                     Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered != 0);
 
