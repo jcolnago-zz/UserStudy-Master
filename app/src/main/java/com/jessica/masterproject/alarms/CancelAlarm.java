@@ -27,8 +27,9 @@ public class CancelAlarm extends BroadcastReceiver {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (!mSharedPref.getBoolean(context.getString(R.string.upload_pending) + filename, false)
-                && !mSharedPref.getBoolean(context.getString(R.string.upload_done) + filename, false)) {
+        if (!(mSharedPref.getBoolean(context.getString(R.string.upload_pending) + filename, false)
+                || mSharedPref.getBoolean(context.getString(R.string.upload_done) + filename, false))) {
+            System.out.println("[DEBUG] CancelAlarm: canceling previous interruption: " + filename);
             // cancel notification
             notificationManager.cancel(notificationId);
 

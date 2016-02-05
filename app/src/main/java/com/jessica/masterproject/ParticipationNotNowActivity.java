@@ -31,6 +31,11 @@ public class ParticipationNotNowActivity extends MotherActivity {
         notificationManager.cancel(mCurrentInterruption);
 
         mFilename = mCurrentInterruption + "_" + getString(R.string.interruption_filename);
+
+        // Increment missed count
+        int missed = mSharedPref.getInt(getString(R.string.missed_interruptions), 0);
+        mEditor.putInt(getString(R.string.missed_interruptions), ++missed);
+        mEditor.commit();
     }
 
     private boolean readCheckBox(int viewId) {

@@ -41,7 +41,7 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="ERROR" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="DisplayInterruptionAlarm|CancelAlarm|ParticipationActivity: setting" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
@@ -72,95 +72,115 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="demographics1.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demographics1.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="31.666666">
-              <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <file leaf-file-name="DisplayInterruptionAlarm.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/DisplayInterruptionAlarm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30078125">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demographics2.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demographics2.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2571428">
-              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="demographics3.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demographics3.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="16.285715">
-              <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.44">
+              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
               <folding>
-                <element signature="e#480#513#0" expanded="true" />
-                <element signature="e#538#573#0" expanded="true" />
-                <element signature="e#599#634#0" expanded="true" />
-                <element signature="e#658#691#0" expanded="true" />
-                <element signature="e#1571#1590#0" expanded="true" />
-                <element signature="e#2131#2149#0" expanded="true" />
-                <element signature="e#3475#3499#0" expanded="true" />
-                <element signature="e#3893#3914#0" expanded="true" />
-                <element signature="e#4362#4383#0" expanded="true" />
-                <element signature="e#4932#4950#0" expanded="true" />
-                <element signature="e#6277#6301#0" expanded="true" />
-                <element signature="e#6703#6724#0" expanded="true" />
-                <element signature="e#7172#7193#0" expanded="true" />
-                <element signature="e#7742#7760#0" expanded="true" />
-                <element signature="e#9087#9111#0" expanded="true" />
-                <element signature="e#9505#9526#0" expanded="true" />
-                <element signature="e#9974#9995#0" expanded="true" />
-                <element signature="e#10543#10561#0" expanded="true" />
-                <element signature="e#11844#11868#0" expanded="true" />
-                <element signature="e#12263#12284#0" expanded="true" />
-                <element signature="e#12734#12755#0" expanded="true" />
-                <element signature="e#13307#13325#0" expanded="true" />
-                <element signature="e#14653#14677#0" expanded="true" />
-                <element signature="e#15072#15093#0" expanded="true" />
-                <element signature="e#15543#15564#0" expanded="true" />
-                <element signature="e#16116#16134#0" expanded="true" />
-                <element signature="e#17462#17486#0" expanded="true" />
-                <element signature="e#17881#17902#0" expanded="true" />
-                <element signature="e#18352#18373#0" expanded="true" />
-                <element signature="e#18925#18943#0" expanded="true" />
-                <element signature="e#20271#20295#0" expanded="true" />
-                <element signature="e#20690#20711#0" expanded="true" />
-                <element signature="e#21161#21182#0" expanded="true" />
-                <element signature="e#21734#21752#0" expanded="true" />
-                <element signature="e#23080#23104#0" expanded="true" />
-                <element signature="e#23499#23520#0" expanded="true" />
-                <element signature="e#23970#23991#0" expanded="true" />
-                <element signature="e#24543#24561#0" expanded="true" />
-                <element signature="e#25889#25913#0" expanded="true" />
-                <element signature="e#26308#26329#0" expanded="true" />
-                <element signature="e#26779#26800#0" expanded="true" />
-                <element signature="e#27352#27371#0" expanded="true" />
-                <element signature="e#29123#29144#0" expanded="true" />
+                <element signature="e#1122#1146#0" expanded="true" />
+                <element signature="e#1323#1372#0" expanded="true" />
+                <element signature="e#1540#1585#0" expanded="true" />
+                <element signature="e#2825#2867#0" expanded="true" />
+                <element signature="e#2934#2973#0" expanded="true" />
+                <element signature="e#6144#6199#0" expanded="true" />
+                <element signature="e#6249#6303#0" expanded="true" />
+                <element signature="e#6373#6430#0" expanded="true" />
+                <element signature="e#6517#6570#0" expanded="true" />
+                <element signature="e#6903#6948#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUploader.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/helpers/FileUploader.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="71" column="109" selection-start-line="71" selection-start-column="109" selection-end-line="71" selection-end-column="109" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReminderDSAlarm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/ReminderDSAlarm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="34" column="84" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interruptions.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/interruptions.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CancelAlarm.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/CancelAlarm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+              <folding>
+                <element signature="e#1088#1130#0" expanded="true" />
+                <element signature="e#1573#1621#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParticipationNotNowActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationNotNowActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <element signature="e#743#767#0" expanded="true" />
+                <element signature="e#1182#1223#0" expanded="true" />
+                <element signature="e#1300#1340#0" expanded="true" />
+                <element signature="e#1369#1409#0" expanded="true" />
+                <element signature="e#2146#2180#0" expanded="true" />
+                <element signature="e#2480#2514#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ParticipationActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="271" column="30" selection-start-line="271" selection-start-column="20" selection-end-line="271" selection-end-column="30" />
+              <folding>
+                <element signature="e#5843#5877#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScenariosFragment.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/ScenariosFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1760,8 +1780,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/build/intermediates/res/merged/debug/values/values.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessica/masterproject/fragments/LocationFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessica/masterproject/helpers/LocationListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessica/masterproject/helpers/MyLocationListener.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jessica/masterproject/GoogleMap.java" />
@@ -1798,19 +1816,21 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/scenarios.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_participation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/UploadInterruptionAlarm.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/interruptions.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/UploadDSAlarm.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/ReminderDSAlarm.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/DisplayInterruptionAlarm.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/DemographicsFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/ScenariosFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/PendingFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/pending.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/demographics1.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/demographics2.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/demographics3.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationNotNowActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/CancelAlarm.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/DisplayInterruptionAlarm.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/ReminderDSAlarm.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/interruptions.xml" />
       </list>
     </option>
   </component>
@@ -1895,6 +1915,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
@@ -2048,14 +2069,13 @@
       </pane>
       <pane id="ProjectPane" />
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="project.propDebugger" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="IRMM0100335893" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="MedfieldAD6004EC" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="2_7_QVGA_slider_API_14" />
     <property name="FullScreen" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -2301,11 +2321,11 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54428905" sideWeight="0.49571276" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53613055" sideWeight="0.6666667" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46270397" sideWeight="0.66398716" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997669" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32517484" sideWeight="0.5107181" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.53613055" sideWeight="0.33601287" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
@@ -2612,38 +2632,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationNotNowActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="68" column="20" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="169" column="20" selection-start-line="169" selection-start-column="20" selection-end-line="169" selection-end-column="20" />
-          <folding>
-            <element signature="e#5843#5877#0" expanded="false" />
-            <element signature="e#9707#9741#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/helpers/FileUploader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="43" selection-start-line="36" selection-start-column="43" selection-end-line="36" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/CancelAlarm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="44" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/8.4.0/res/values-pt-rPT/base_strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.235294">
@@ -2681,14 +2669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/interruptions.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/UploadDSAlarm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2713,28 +2693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/ReminderDSAlarm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="e#3662#3705#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/DisplayInterruptionAlarm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="0" selection-start-line="118" selection-start-column="0" selection-end-line="118" selection-end-column="0" />
-          <folding>
-            <element signature="e#2825#2867#0" expanded="true" />
-            <element signature="e#6623#6677#0" expanded="true" />
-            <element signature="e#6891#6944#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/DemographicsFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2746,16 +2704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/ScenariosFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
-          <folding>
-            <element signature="e#2540#2574#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/PendingFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5750916">
@@ -2763,14 +2711,6 @@
           <folding>
             <element signature="e#1012#1046#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7985348">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2796,13 +2736,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demographics1.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="31.666666">
-          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2812,7 +2749,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2571428">
+        <state vertical-scroll-proportion="0.0">
           <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
@@ -2823,61 +2760,115 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="16.285715">
+        <state vertical-scroll-proportion="0.0">
           <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/fragments/ScenariosFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="108" column="46" selection-start-line="108" selection-start-column="46" selection-end-line="108" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="30" selection-start-line="271" selection-start-column="20" selection-end-line="271" selection-end-column="30" />
           <folding>
-            <element signature="e#480#513#0" expanded="true" />
-            <element signature="e#538#573#0" expanded="true" />
-            <element signature="e#599#634#0" expanded="true" />
-            <element signature="e#658#691#0" expanded="true" />
-            <element signature="e#1571#1590#0" expanded="true" />
-            <element signature="e#2131#2149#0" expanded="true" />
-            <element signature="e#3475#3499#0" expanded="true" />
-            <element signature="e#3893#3914#0" expanded="true" />
-            <element signature="e#4362#4383#0" expanded="true" />
-            <element signature="e#4932#4950#0" expanded="true" />
-            <element signature="e#6277#6301#0" expanded="true" />
-            <element signature="e#6703#6724#0" expanded="true" />
-            <element signature="e#7172#7193#0" expanded="true" />
-            <element signature="e#7742#7760#0" expanded="true" />
-            <element signature="e#9087#9111#0" expanded="true" />
-            <element signature="e#9505#9526#0" expanded="true" />
-            <element signature="e#9974#9995#0" expanded="true" />
-            <element signature="e#10543#10561#0" expanded="true" />
-            <element signature="e#11844#11868#0" expanded="true" />
-            <element signature="e#12263#12284#0" expanded="true" />
-            <element signature="e#12734#12755#0" expanded="true" />
-            <element signature="e#13307#13325#0" expanded="true" />
-            <element signature="e#14653#14677#0" expanded="true" />
-            <element signature="e#15072#15093#0" expanded="true" />
-            <element signature="e#15543#15564#0" expanded="true" />
-            <element signature="e#16116#16134#0" expanded="true" />
-            <element signature="e#17462#17486#0" expanded="true" />
-            <element signature="e#17881#17902#0" expanded="true" />
-            <element signature="e#18352#18373#0" expanded="true" />
-            <element signature="e#18925#18943#0" expanded="true" />
-            <element signature="e#20271#20295#0" expanded="true" />
-            <element signature="e#20690#20711#0" expanded="true" />
-            <element signature="e#21161#21182#0" expanded="true" />
-            <element signature="e#21734#21752#0" expanded="true" />
-            <element signature="e#23080#23104#0" expanded="true" />
-            <element signature="e#23499#23520#0" expanded="true" />
-            <element signature="e#23970#23991#0" expanded="true" />
-            <element signature="e#24543#24561#0" expanded="true" />
-            <element signature="e#25889#25913#0" expanded="true" />
-            <element signature="e#26308#26329#0" expanded="true" />
-            <element signature="e#26779#26800#0" expanded="true" />
-            <element signature="e#27352#27371#0" expanded="true" />
-            <element signature="e#29123#29144#0" expanded="true" />
+            <element signature="e#5843#5877#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30078125">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/demographics1.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="29" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/CancelAlarm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+          <folding>
+            <element signature="e#1088#1130#0" expanded="true" />
+            <element signature="e#1573#1621#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/ParticipationNotNowActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#743#767#0" expanded="true" />
+            <element signature="e#1182#1223#0" expanded="true" />
+            <element signature="e#1300#1340#0" expanded="true" />
+            <element signature="e#1369#1409#0" expanded="true" />
+            <element signature="e#2146#2180#0" expanded="true" />
+            <element signature="e#2480#2514#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/helpers/FileUploader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="81" selection-start-line="34" selection-start-column="81" selection-end-line="34" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="71" column="109" selection-start-line="71" selection-start-column="109" selection-end-line="71" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/ReminderDSAlarm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="84" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/interruptions.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jessica/masterproject/alarms/DisplayInterruptionAlarm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44">
+          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding>
+            <element signature="e#1122#1146#0" expanded="true" />
+            <element signature="e#1323#1372#0" expanded="true" />
+            <element signature="e#1540#1585#0" expanded="true" />
+            <element signature="e#2825#2867#0" expanded="true" />
+            <element signature="e#2934#2973#0" expanded="true" />
+            <element signature="e#6144#6199#0" expanded="true" />
+            <element signature="e#6249#6303#0" expanded="true" />
+            <element signature="e#6373#6430#0" expanded="true" />
+            <element signature="e#6517#6570#0" expanded="true" />
+            <element signature="e#6903#6948#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
