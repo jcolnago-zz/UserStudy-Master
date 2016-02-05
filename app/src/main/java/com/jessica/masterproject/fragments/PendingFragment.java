@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.jessica.masterproject.R;
@@ -25,8 +25,8 @@ public class PendingFragment extends Fragment {
     }
 
     public void setupPending () {
-        final ImageView scenarios = (ImageView) mView.findViewById(R.id.scenario_image);
-        final ImageView demo = (ImageView) mView.findViewById(R.id.demo_image);
+        final ProgressBar scenarios = (ProgressBar) mView.findViewById(R.id.pending_scenarios);
+        final ProgressBar demo = (ProgressBar) mView.findViewById(R.id.pending_demographics);
         final TextView missed = (TextView) mView.findViewById(R.id.missed);
 
         final boolean scenarios_pending = mSharedPref.getBoolean(getString(R.string.upload_pending) + "scenarios", false);
@@ -41,9 +41,9 @@ public class PendingFragment extends Fragment {
             @Override
             public void run() {
                 if(scenarios_pending)
-                    scenarios.setImageResource(R.drawable.ic_done_black_24dp);
+                    scenarios.setProgress(1);
                 else if(scenarios_done)
-                    scenarios.setImageResource(R.drawable.ic_done_all_black_24dp);
+                    scenarios.setProgress(2);
             }
         });
 
@@ -51,9 +51,9 @@ public class PendingFragment extends Fragment {
             @Override
             public void run() {
                 if(demo_pending)
-                    demo.setImageResource(R.drawable.ic_done_black_24dp);
+                    demo.setProgress(1);
                 else if(demo_done)
-                    demo.setImageResource(R.drawable.ic_done_all_black_24dp);
+                    demo.setProgress(2);
             }
         });
     }
