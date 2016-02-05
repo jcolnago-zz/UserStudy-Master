@@ -5,6 +5,7 @@
     <string name="missed">Interrupções perdidas</string>
     <string name="location_text">Você estava aqui: </string>
     <string name="missing_option">Você deve selecionar uma opção para </string>
+    <string name="marker">I</string>
 
     <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
 
