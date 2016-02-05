@@ -67,8 +67,6 @@ public class ScenariosFragment extends Fragment {
         if (choice == -1)
             return;
 
-        // Always when clicking next, save current scenario answer
-        mAnswers[mCurrentScenario] = Integer.toString(choice);
         if(mCurrentScenario == mQuestions.length-1) {
             if (((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename),
                     Arrays.copyOfRange(mAnswers, mLastAnswered, mCurrentScenario), mLastAnswered!=0)) {
@@ -78,8 +76,7 @@ public class ScenariosFragment extends Fragment {
                 ((MainActivity) getActivity()).updatePending();
             }
         } else {
-            // If it wasn't the last scenario, increment the current value and setup the next one
-            mCurrentScenario++;
+            mAnswers[mCurrentScenario++] = Integer.toString(choice);
             mEditor.putInt(getString(R.string.current_scenario), mCurrentScenario);
             mEditor.commit();
 
