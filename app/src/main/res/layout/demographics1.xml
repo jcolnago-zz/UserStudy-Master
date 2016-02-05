@@ -122,7 +122,7 @@
             android:layout_below="@+id/inttrust_label_1"
             android:indeterminate="false"
             android:max="4"
-            android:progress="0"
+            android:progress="2"
             android:layout_alignParentRight="false"
             android:layout_alignParentEnd="true"
             android:layout_alignParentLeft="false"
