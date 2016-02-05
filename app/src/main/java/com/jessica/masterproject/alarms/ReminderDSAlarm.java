@@ -76,7 +76,6 @@ public class ReminderDSAlarm extends BroadcastReceiver {
                                     .setCategory(Notification.CATEGORY_ALARM)
                                     .setContentTitle(context.getString(R.string.pending_ds_title))
                                     .setContentText(context.getString(R.string.pending_ds_text))
-                                    .setStyle(new NotificationCompat.InboxStyle())
                                     .setContentIntent(pendingIntent);
                     // Sets an ID for the notification
                     int mNotificationId = 1;

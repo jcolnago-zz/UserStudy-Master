@@ -64,6 +64,8 @@ public class UploadDSAlarm extends BroadcastReceiver {
     private boolean isWiFiAvailable(Context context) {
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = connectivityManager.getActiveNetworkInfo();
-        return netInfo.getTypeName().equalsIgnoreCase("wifi") && netInfo.isConnected();
+        if (netInfo != null)
+            return netInfo.getTypeName().equalsIgnoreCase("wifi") && netInfo.isConnected();
+        return false;
     }
 }

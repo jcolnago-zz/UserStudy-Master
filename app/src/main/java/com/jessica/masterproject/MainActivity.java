@@ -69,7 +69,16 @@ public class MainActivity extends MotherActivity {
         // Remind participant of finishing Demographics and Scenario the day before the start of the study
         GregorianCalendar intTime = new GregorianCalendar();
         try {
-            intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
+            if (new GregorianCalendar().getTime().before(MotherActivity.FORMAT.parse("2016-02-03T01:00:00.000-0200"))) {
+                // Remind participant of finishing Demographics and Scenario the day before the start of the study
+                intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
+
+                System.out.println("[LOG] MainActivity: setting ReminderDSAlarm.");
+
+                scheduleAlarm(MainActivity.this,
+                        intTime.getTimeInMillis(),
+                        new Intent(MainActivity.this, ReminderDSAlarm.class));
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }

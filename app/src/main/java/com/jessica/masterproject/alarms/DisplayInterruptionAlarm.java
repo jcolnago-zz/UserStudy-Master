@@ -116,7 +116,6 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                                 .setContentText(context.getString(R.string.participation_request_text))
                                 .addAction(R.drawable.not_now_icon, context.getString(R.string.participation_request_not_now), notNowPendingIntent)
                                 .addAction(R.drawable.yes_icon, context.getString(R.string.participation_request_yes), yesPendingIntent)
-                                .setStyle(new NotificationCompat.InboxStyle())
                                 .setContentIntent(yesPendingIntent);
 
                 Notification notification = mBuilder.build();
