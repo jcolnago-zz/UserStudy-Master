@@ -21,27 +21,25 @@ public class UploadDSAlarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        System.out.println("[LOG] UploadDSAlarm started.");
         if (intent.getAction() != null && intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             MainActivity.reScheduleAlarm(context.getApplicationContext(),
                     (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR/2,
                     new Intent(context, UploadDSAlarm.class));
         }
         else {
+            boolean setNextDayAlarm = false;
+            String[] files = new String[2];
+
+            SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+
+            files[0] = context.getString(R.string.scenarios_filename)
+                    .substring(0, context.getString(R.string.scenarios_filename).length() - 4);
+            files[1] = context.getString(R.string.demographic_filename)
+                    .substring(0, context.getString(R.string.demographic_filename).length() - 4);
+
             if (isWiFiAvailable(context)) {
-                boolean setNextDayAlarm = false;
-                String[] files = new String[2];
-
-                SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
-
-                files[0] = context.getString(R.string.scenarios_filename)
-                        .substring(0, context.getString(R.string.scenarios_filename).length() - 4);
-                files[1] = context.getString(R.string.demographic_filename)
-                        .substring(0, context.getString(R.string.demographic_filename).length() - 4);
-
                 for (int i = 0; i < 2; i++) {
                     if (mSharedPref.getBoolean(context.getString(R.string.upload_pending) + files[i], false)) {
-                        System.out.println("[LOG] UploadDSAlarm: uploading: " + files[i]);
                         FileUploader.upload(files[i], ".csv", context);
                     } else if (!mSharedPref.getBoolean(context.getString(R.string.upload_done) + files[i], false)) {
                         setNextDayAlarm = true;
@@ -49,7 +47,6 @@ public class UploadDSAlarm extends BroadcastReceiver {
                 }
 
                 if (setNextDayAlarm) {
-                    System.out.println("[LOG] UploadDSAlarm: some are still pending, rescheduling for next day.");
                     MainActivity.reScheduleAlarm(context.getApplicationContext(),
                             (new GregorianCalendar()).getTimeInMillis() + MainActivity.DAY,
                             intent);

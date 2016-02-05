@@ -66,7 +66,7 @@ public class MainActivity extends MotherActivity {
                 ((new GregorianCalendar()).getTimeInMillis() + 2*HOUR),
                 new Intent(MainActivity.this, UploadDSAlarm.class));
 
-
+        // Remind participant of finishing Demographics and Scenario the day before the start of the study
         GregorianCalendar intTime = new GregorianCalendar();
         try {
             if (new GregorianCalendar().getTime().before(MotherActivity.FORMAT.parse("2016-02-03T01:00:00.000-0200"))) {
@@ -82,6 +82,11 @@ public class MainActivity extends MotherActivity {
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+        System.out.println("[LOG] MainActivity: setting ReminderDSAlarm.");
+        scheduleAlarm(MainActivity.this,
+                intTime.getTimeInMillis(),
+                new Intent(MainActivity.this, ReminderDSAlarm.class));
 
         // Set up alarm for the first interruption
         int lastInterruption = mSharedPref.getInt(getString(R.string.last_interruption), 0);

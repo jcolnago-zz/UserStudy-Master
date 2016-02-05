@@ -27,14 +27,15 @@ public class CancelAlarm extends BroadcastReceiver {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (!mSharedPref.getBoolean(context.getString(R.string.upload_pending) + filename, false)
-                && !mSharedPref.getBoolean(context.getString(R.string.upload_done) + filename, false)) {
+        if (!(mSharedPref.getBoolean(context.getString(R.string.upload_pending) + filename, false)
+                || mSharedPref.getBoolean(context.getString(R.string.upload_done) + filename, false))) {
+            System.out.println("[DEBUG] CancelAlarm: canceling previous interruption: " + filename);
             // cancel notification
             notificationManager.cancel(notificationId);
 
             int missed = mSharedPref.getInt(context.getString(R.string.missed_interruptions), 0);
             mEditor.putInt(context.getString(R.string.missed_interruptions), ++missed);
-            // set it as done, so it won't try to upload a non-existing file.
+            // set it as done, so it won't try to upload an non-existing file.
             mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
             mEditor.commit();
 

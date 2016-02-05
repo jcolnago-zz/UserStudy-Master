@@ -67,7 +67,6 @@ public class ScenariosFragment extends Fragment {
         if (choice == -1)
             return;
 
-        // Always when clicking next, save current scenario answer
         mAnswers[mCurrentScenario++] = Integer.toString(choice);
         if(mCurrentScenario == mQuestions.length) {
             if (((MainActivity)getActivity()).requestSave(getString(R.string.scenarios_filename),
@@ -80,7 +79,6 @@ public class ScenariosFragment extends Fragment {
         } else {
             mEditor.putInt(getString(R.string.current_scenario), mCurrentScenario);
             mEditor.commit();
-
             setupScenario();
         }
     }

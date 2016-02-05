@@ -70,19 +70,15 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                 NotificationManager notificationManager =
                         (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);  // Gets an instance of the NotificationManager service
 
-                // If the timeout of 10 minutes doesn't do the trick, cancel previous one before
-                // creating a new one (could not use schedule alarm because the same intent is going to be used
-                // and it will override all previous alarms with that intent).
-                int previousInterruption = mCurrentInterruption-1;
-                if (mCurrentInterruption > 1 && isNotificationVisible(context,  CancelAlarm.class, previousInterruption)) {
-                    System.out.println("[LOG] DisplayInterruptionAlarm: canceling previous interruption: " + previousInterruption);
-                    notificationManager.cancel(previousInterruption);
-                    int missed = mSharedPref.getInt(context.getString(R.string.missed_interruptions), 0);
-                    mEditor.putInt(context.getString(R.string.missed_interruptions), ++missed);
-                    // set it as done, so it won't try to upload an non-existing file.
-                    mEditor.putBoolean(context.getString(R.string.upload_done) +
-                            (mCurrentInterruption - 1) + "_" + filename.substring(0, filename.length() - 4), true);
-                    mEditor.commit();
+                // If the timeout of 10 minutes doesn't do the trick, cancel previous one before creating a new one
+                // Ideally this would check if the notification is active getActiveNotifications()
+                // But this can only be done in android 4.3+
+                if (mCurrentInterruption > 1) {
+                    Intent cancelIntent = new Intent(context.getApplicationContext(), CancelAlarm.class);
+                    cancelIntent.putExtra("notificationId", (mCurrentInterruption-1));
+                    cancelIntent.putExtra("interruption", (mCurrentInterruption-1) + "_interruption");
+
+                    scheduleCancelAlarm(context, cancelIntent, 0);
                 }
 
                 Intent yesIntent = new Intent(context, ParticipationActivity.class);
@@ -144,6 +140,7 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
                 }
 
                 //Schedule alarm for 10 min after this notification is dispatched
+                System.out.println("[LOG] DisplayInterruptionAlarm: scheduling cancel for 10min");
                 scheduleCancelAlarm(context, cancelIntent, (MainActivity.HOUR / 6));
 
                 // Builds the notification and issues it.
@@ -156,11 +153,5 @@ public class DisplayInterruptionAlarm extends BroadcastReceiver {
         MainActivity.scheduleAlarm(context.getApplicationContext(),
                 ((new GregorianCalendar()).getTimeInMillis() + time),
                 intent);
-    }
-
-    private boolean isNotificationVisible(Context context, Class classUsed, int id) {
-        Intent notificationIntent = new Intent(context, classUsed);
-        PendingIntent test = PendingIntent.getBroadcast(context, id, notificationIntent, PendingIntent.FLAG_NO_CREATE);
-        return test != null;
     }
 }
