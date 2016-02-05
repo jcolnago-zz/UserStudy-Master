@@ -152,12 +152,12 @@
     <!-- Scenarios -->
     <string-array name="scenarios">
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	NOT IMPORTANT -->
-        <item>Um restaurante não confiável quer acesso aos seus dados de saúde para sugerir pratos adequados.</item>
-        <item>Um restaurante não confiável quer acesso ao seu CPF para colocar na nota fiscal.</item>
+        <item>Um restaurante não confiável quer acesso a seus dados de saúde para sugerir pratos adequados.</item>
+        <item>Um restaurante não confiável quer acesso a seu CPF para colocar na nota fiscal.</item>
         <item>Uma loja não confiável quer acesso ao seu e-mail para envio da NFE (nota fiscal eletrônica).</item>
 
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	IRRELEVANT    -->
-        <item>Um restaurante não confiável quer acesso aos seus dados de saúde para informar decisões futuras de escolhas de receitas</item>
+        <item>Um restaurante não confiável quer acesso a seus dados de saúde para informar decisões futuras de escolhas de receitas</item>
         <item>Uma loja não confiável quer acesso ao seu e-mail para envio de propagandas.</item>
 
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	IMPORTANT    -->
@@ -178,15 +178,16 @@
 
         <!-- Classificação da tabela: UNTRUSTED	LOW SENSITIVITY	NOT IMPORTANT    -->
         <item>Um restaurante não confiável quer acesso às suas preferências de comida para sugerir pratos adequados.</item>
-        <item>A bomba de combustível do posto de gasolina quer informações sobre o consumo do seu carro.</item>
+        <item>A bomba de combustível do posto de gasolina quer informações sobre consumo do seu carro.</item>
 
         <!-- Classificação da tabela: UNTRUSTED	LOW SENSITIVITY	IRRELEVANT   -->
+
         <item>Sua rede social quer acesso às suas escolhas diárias de roupa para divulgar para os seus seguidores.</item>
         <item>Um restaurante não confiável quer acesso às suas preferências de comida para informar decisões futuras de escolhas de receitas.</item>
         <item>O compressor de ar do posto de gasolina quer informações sobre o modelo do seu carro para determinar a pressão adequada do calibrador.</item>
 
         <!-- Classificação da tabela: UNTRUSTED	LOW SENSITIVITY	IMPORTANT   -->
-        <item>O sistema de um estacionamento deseja saber se seu carro possui um mecanismo de pagamento automático para determinar a forma de cobrança.</item>
+        <item>O sistema de um estacionamento deseja saber se seu carro tem um mecanismo de pagamento automático para determinar a forma de cobrança.</item>
 
         <!-- Classificação da tabela: UNKNOWN	HIGH SENSITIVITY	NOT IMPORTANT   -->
         <item>A cafeteira do restaurante quer acesso aos seus dados de sono para fazer um café de acordo com a sua necessidade.</item>
@@ -202,8 +203,8 @@
         <item>A farmácia quer informações sobre sua receita médica para a consulta de estoque e seleção de produto.</item>
 
         <!-- Classificação da tabela: UNKNOWN	MEDIUM SENSITIVITY	NOT IMPORTANT   -->
-        <item>Um serviço de táxi quer acesso ao endereço do seu local de trabalho para lhe fornecer uma estimativa de preço</item>
-        <item>A farmácia quer informações sobre seu histórico de saúde para coleta de informações estatísticas.</item>
+        <item>Um serviço de táxi quer acesso ao endereço do seu local de trabalho para calcular a sua tarifa a priori</item>
+        <item>A farmácia quer informações sobre seu histórico de saúde para montagem de informações estatísticas.</item>
 
         <!-- Classificação da tabela: UNKNOWN	MEDIUM SENSITIVITY	IRRELEVANT   -->
         <item>Um supermercado quer acesso aos seus dados de higiene bucal para fazer propaganda de produtos apropriados para você.</item>
@@ -214,7 +215,7 @@
         <item>O sistema de atendimento de uma loja quer acesso à sua data de nascimento para determinar sua prioridade de atendimento.</item>
 
         <!-- Classificação da tabela: UNKNOWN	LOW SENSITIVITY	NOT IMPORTANT   -->
-        <item>Um serviço de táxi quer acesso ao seu horário de chegada no trabalho para enviar um táxi no horário mais adequado.</item>
+        <item>Um serviço de táxi quer acesso ao seu horário de chegada no trabalho para enviarem um táxi no horário mais adequado.</item>
         <item>A empresa de ar condicionado quer acesso à sua preferência de temperatura para realizar melhorias nos aparelhos.</item>
         <item>A livraria quer informações sobre sua preferência de gênero literário para propor recomendações de compras.</item>
 
@@ -229,7 +230,7 @@
 
         <!-- Classificação da tabela: TRUSTED	HIGH SENSITIVITY	NOT IMPORTANT  -->
         <item>A sua cafeteira quer acesso aos seus dados de sono para fazer um café de acordo com a sua necessidade.</item>
-        <item>A sua cozinha quer acesso aos seus dados de saúde para preparar um café da manhã adequado.</item>
+        <item>A sua cozinha quer acesso a seus dados de saúde para preparar um café da manhã adequado.</item>
         <item>Seu carro quer usar informações sobre sua localização para registro em um sistema remoto.</item>
 
         <!-- Classificação da tabela: TRUSTED	HIGH SENSITIVITY	IRRELEVANT  -->
@@ -238,12 +239,12 @@
 
         <!-- Classificação da tabela: TRUSTED	HIGH SENSITIVITY	IMPORTANT  -->
         <item>O seu médico quer acesso aos seus dados de sono para acompanhar a sua insônia.</item>
-        <item>O seu médico quer acesso aos seus dados de saúde para acompanhar a sua saúde.</item>
-        <item>O seu local de trabalho quer acesso à sua agenda para reservar recursos que podem ser necessários no seu dia.</item>
+        <item>O seu médico quer acesso a seus dados de saúde para acompanhar a sua saúde.</item>
+        <item>O seu local de trabalho quer acesso à sua agenda para reservar recursos que podem ser necessários.</item>
 
         <!-- Classificação da tabela: TRUSTED	MEDIUM SENSITIVITY	NOT IMPORTANT  -->
         <item>O seu sistema de despensa quer acesso aos seus dados de higiêne bucal para adicionar mais pasta de dente na sua lista de compras.</item>
-        <item>O seu contador de calorias quer acesso aos dados sobre o seu peso para fazer o cálculo de calorias gastas corretamente.</item>
+        <item>O seu contador de calorias quer acesso a dados sobre o seu peso para fazer o cálculo de calorias gastas corretamente.</item>
         <item>O seu telefone quer acesso à sua agenda para ajustar o nível do toque de acordo com as suas tarefas.</item>
 
         <!-- Classificação da tabela: TRUSTED	MEDIUM SENSITIVITY	IRRELEVANT  -->

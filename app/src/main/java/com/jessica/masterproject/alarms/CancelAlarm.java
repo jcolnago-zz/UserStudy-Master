@@ -34,7 +34,7 @@ public class CancelAlarm extends BroadcastReceiver {
 
             int missed = mSharedPref.getInt(context.getString(R.string.missed_interruptions), 0);
             mEditor.putInt(context.getString(R.string.missed_interruptions), ++missed);
-            // set it as done, so it won't try to upload a non-existing file.
+            // set it as done, so it won't try to upload an non-existing file.
             mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
             mEditor.commit();
 
