@@ -31,7 +31,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/greetings5"
+            android:text="@string/greeting5"
             android:id="@+id/textView31"
             android:layout_weight="0.1"
             android:layout_marginLeft="4dp"

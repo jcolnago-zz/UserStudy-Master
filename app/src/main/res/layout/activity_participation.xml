@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/greetings6"
+                android:text="@string/greeting6"
                 android:id="@+id/textView34"
                 android:layout_below="@+id/certainty"
                 android:layout_alignLeft="@+id/sensitivity"

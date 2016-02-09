@@ -54,7 +54,7 @@ public class ScenariosFragment extends Fragment {
             @Override
             public void run() {
                 progress.setMax(mQuestions.length);
-                progress.setProgress(mCurrentScenario);
+                progress.setProgress(mCurrentScenario+1);
             }
         });
 
