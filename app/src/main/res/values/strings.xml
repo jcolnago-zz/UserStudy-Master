@@ -2,9 +2,8 @@
     <string name="app_name">Estudo de Caso</string>
     <string name="demographics">Demográfico</string>
     <string name="scenarios">Cenários</string>
-    <string name="missed">Interrupções perdidas</string>
-    <string name="location_text">Você estava aqui: </string>
     <string name="missing_option">Você deve selecionar uma opção para </string>
+    <string name="missing_answer">Uma resposta é necessária. \nCaso não lembre, por favor escreva \'não lembro\'.</string>
     <string name="marker">I</string>
 
     <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
@@ -22,7 +21,7 @@
     <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
     <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
     <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
-    <string name="missed_interruptions">com.jessica.app.missed_interruptions</string>
+    <string name="dismissed_interruptions">com.jessica.app.dismissed_interruptions</string>
 
     <string name="pending_ds_title">Atividade Inicial Pendente</string>
     <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
@@ -72,7 +71,6 @@
     <string name="what_working">Trabalhando</string>
     <string name="what_shopping">Compras</string>
     <string name="what_eating">Comendo</string>
-
     <!-- End Choice values -->
 
     <!-- Greetings and buttons -->
@@ -82,8 +80,11 @@
     <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
-    <string name="greetings5">Por favor, classifique o cenário de acordo com como você acha que você se comportaria e se sentiria. </string>
-    <string name="greetings6">Considerando o seu contexto atual e a situação apresentada, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
+    <string name="greeting5">Por favor, classifique o cenário de acordo com como você acha que você se comportaria e se sentiria. </string>
+    <string name="greeting6">Considerando o seu contexto atual e a situação apresentada, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
+    <string name="greeting7">No dia %s você disse que não poderia responder naquele momento. Você poderia elaborar mais sobre o motivo?</string>
+    <string name="greeting8">Você havia dito: %s.</string>
+    <string name="greeting9">Você não possui nenhuma interrupção que necessita de esclarecimentos.</string>
     <!-- End Greetings and buttons -->
 
     <!-- Demo -->
@@ -267,7 +268,7 @@
     <!-- User Study -->
     <string name="userStudy_mood">Como você está se sentindo? </string>
     <string name="userStudy_busy">Você está ocupado? </string>
-    <string name="userStudy_interacting">Você está interagindo com outras pessoas? </string>
+    <string name="userStudy_interacting">Você está interagindo pessoalmente com outras pessoas? </string>
     <string name="userStudy_social_acceptance">Você acha que na situação atual é socialmente aceitável ser interrompido?</string>
     <string name="userStudy_where">Onde você está agora?</string>
     <string name="userStudy_activity">O que você está fazendo agora?</string>

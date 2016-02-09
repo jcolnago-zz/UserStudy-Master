@@ -129,9 +129,10 @@ public class MotherActivity extends AppCompatActivity {
     public String readTextField(View view, int viewId) {
         EditText editText = (EditText) view.findViewById(viewId);
         String text = editText.getText().toString();
-        if (text.equalsIgnoreCase(""))
-            return "N/A";
-
+        if (text.equalsIgnoreCase("")) {
+            Toast.makeText(this, getString(R.string.missing_answer), Toast.LENGTH_SHORT).show();
+            return null;
+        }
         return text;
     }
 
