@@ -200,6 +200,8 @@ public class ParticipationActivity extends MotherActivity {
 
     private boolean readTextField(int viewId) {
         String item = readTextField(mView, viewId);
+        if (item == null)
+            item = "N/A";
         mAnswers[mCurrentAnswer++] = item;
         return true;
     }

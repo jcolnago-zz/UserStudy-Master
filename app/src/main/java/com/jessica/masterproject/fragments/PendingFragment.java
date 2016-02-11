@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jessica.masterproject.MainActivity;
 import com.jessica.masterproject.R;
@@ -137,8 +138,10 @@ public class PendingFragment extends Fragment {
         answer[0] = ((MainActivity)getActivity()).readTextField(mView, R.id.editText);
 
         // Do not accept empty answer
-        if (answer[0] == null)
+        if (answer[0] == null) {
+            Toast.makeText(getActivity(), getString(R.string.missing_answer), Toast.LENGTH_SHORT).show();
             return;
+        }
 
         String filename = mCurrentInterruption + "_" + getString(R.string.interruption_filename);
         if (((MainActivity)getActivity()).requestSave(filename,answer, true)) {
