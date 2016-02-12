@@ -83,13 +83,33 @@
         android:layout_below="@+id/not_now_mood"
         android:checked="false" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_now_other"
+        android:id="@+id/not_now_other"
+        android:layout_below="@+id/not_now_frequency"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/not_now_observation"
+        android:id="@+id/textView31"
+        android:layout_below="@+id/not_now_other"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp" />
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
         android:id="@+id/not_now_save"
         android:layout_alignParentTop="false"
-        android:layout_below="@+id/not_now_frequency"
+        android:layout_below="@+id/textView31"
         android:layout_alignParentRight="true"
         android:onClick="saveNotNow" />
 

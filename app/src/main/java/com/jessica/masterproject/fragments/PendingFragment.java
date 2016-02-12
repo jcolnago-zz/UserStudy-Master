@@ -22,7 +22,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -70,7 +69,7 @@ public class PendingFragment extends Fragment {
             }
         });
 
-        mInterruptionsPending = mSharedPref.getStringSet(getString(R.string.dismissed_interruptions), new HashSet<String>());
+        mInterruptionsPending = mSharedPref.getStringSet(getString(R.string.more_information_interruptions), new HashSet<String>());
         TextView text = (TextView) mView.findViewById(R.id.pending_question);
         TextView helpText = (TextView) mView.findViewById(R.id.pending_help);
         EditText answer = (EditText) mView.findViewById(R.id.editText);
@@ -148,7 +147,7 @@ public class PendingFragment extends Fragment {
             mEditor.putBoolean(getString(R.string.upload_pending)
                     + filename.substring(0, filename.length() - 4), true);
             mInterruptionsPending.remove(mCurrentInterruption);
-            mEditor.putStringSet(getString(R.string.dismissed_interruptions), mInterruptionsPending);
+            mEditor.putStringSet(getString(R.string.more_information_interruptions), mInterruptionsPending);
             mEditor.commit();
         }
 

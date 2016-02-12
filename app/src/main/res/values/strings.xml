@@ -23,7 +23,7 @@
     <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
     <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
     <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
-    <string name="dismissed_interruptions">com.jessica.app.dismissed_interruptions</string>
+    <string name="more_information_interruptions">com.jessica.app.more_information_interruptions</string>
     <!-- end Shared Preferences -->
 
     <!-- Pending demographics or scenarios notification -->
@@ -83,11 +83,13 @@
     <string name="not_now_activity_engagement">Estou ocupado</string>
     <string name="not_now_mood">Não estou com paciência para responder agora</string>
     <string name="not_now_frequency">Já fui muito interrompido</string>
+    <string name="not_now_other">Outro*</string>
+    <string name="not_now_observation">*detalhamento futuro será necessário na aba \'A Fazer\'</string>
     <!-- End Not Now -->
 
     <!-- Pending -->
-    <string name="pending_question">No dia %s você disse que não poderia responder naquele momento. Você poderia elaborar mais sobre o motivo?</string>
-    <string name="pending_help">Você havia dito: %s.</string>
+    <string name="pending_question">No dia %s você delegou para o agente de imediato e selecionou \'Outro\' como sendo um dos motivos. Explique qual seria esse outro motivo.</string>
+    <string name="pending_help">Motivo(s) selecionado(s): %s.</string>
     <string name="pending_done">Você não possui nenhuma interrupção que necessita de esclarecimentos.</string>
     <!-- End Pending -->
 
