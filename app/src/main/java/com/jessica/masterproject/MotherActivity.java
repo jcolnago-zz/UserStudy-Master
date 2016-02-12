@@ -119,7 +119,7 @@ public class MotherActivity extends AppCompatActivity {
         RadioGroup group = (RadioGroup) view.findViewById(viewId);
         int id = group.getCheckedRadioButtonId();
         if (id < 0) {
-            Toast.makeText(this, getString(R.string.missing_option) + name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.missing_option) + name, Toast.LENGTH_SHORT).show();
             return -1;
         }
 

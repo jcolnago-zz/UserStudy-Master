@@ -3,6 +3,7 @@
     <string name="demographics">Demográfico</string>
     <string name="scenarios">Cenários</string>
     <string name="missing_option">Você deve selecionar uma opção para: </string>
+    <string name="missing_user_study_reason">Você esqueceu de dizer o porquê da sua escolha.</string>
     <string name="marker">I</string>
 
     <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
@@ -67,14 +68,17 @@
     <string name="user_study_frequency_low">baixa</string>
     <string name="user_study_frequency_medium">média</string>
     <string name="user_study_frequency_high">alta</string>
-    <string name="user_study_question">Por que você decidiu %s?</string>
-    <string name="user_study_sharing_sensitivity">Por causa do cenário apresentado</string>
-    <string name="user_study_certainty">Por causa do nível de certeza do sistema</string>
+    <string name="user_study_question">Eu decidi %s por causa...</string>
+    <string name="user_study_data">do dado sendo requisitado</string>
+    <string name="user_study_requester">de quem estava requisitando</string>
+    <string name="user_study_motive">do uso que seria feito</string>
+    <string name="user_study_certainty">do nível de certeza do sistema</string>
+    <string name="user_study_other">Outros motivos ou detalhamento:</string>
     <!-- End User Study -->
 
     <!-- Not now -->
     <string name="not_now_text">Você escolheu não decidir e delegar a decisão para o agente mesmo sem saber mais informações.</string>
-    <string name="not_now_reason">Por favor escolha o(s) motivo(s) que mais se encaixa(m)</string>
+    <string name="not_now_reason">Por favor escolha o(s) motivo(s) dessa decisão.</string>
     <string name="not_now_social_expectation">Não deveria ter sido interrompido agora</string>
     <string name="not_now_activity_engagement">Estou ocupado</string>
     <string name="not_now_mood">Não estou com paciência para responder agora</string>

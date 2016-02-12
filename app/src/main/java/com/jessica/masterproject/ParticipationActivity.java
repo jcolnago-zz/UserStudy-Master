@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -27,6 +28,7 @@ public class ParticipationActivity extends MotherActivity {
     private View mView;
     private String mFilename;
     private boolean mDone;
+    private String mChoice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +182,12 @@ public class ParticipationActivity extends MotherActivity {
 
         if(mCurrentUserStudy == 1)
             mDone = true;
+        else {
+            if (mAnswers[0].equals("0"))
+                mChoice = getString(R.string.user_study_choose).toLowerCase();
+            else
+                mChoice = getString(R.string.user_study_delegate).toLowerCase();
+        }
 
         return requestSave(mFilename, mAnswers, mCurrentUserStudy != 0);
     }
@@ -194,15 +202,38 @@ public class ParticipationActivity extends MotherActivity {
     }
 
     private boolean readCheckBox(int viewId) {
-        mAnswers[mCurrentAnswer++] = readCheckBox(mView, viewId);
-        return true;
+        String answer = readCheckBox(mView, viewId);
+        mAnswers[mCurrentAnswer++] = answer;
+        return Boolean.parseBoolean(answer);
+    }
+
+    private boolean readCheckboxGroup(int[] checks) {
+        boolean atLeastOne = false;
+        for (int checkbox : checks) {
+            if (readCheckBox(checkbox))
+                atLeastOne = true;
+        }
+        return atLeastOne;
     }
 
     private boolean readTextField(int viewId) {
         String item = readTextField(mView, viewId);
-        if (item == null)
-            item = "N/A";
+        if (item == null) {
+            mAnswers[mCurrentAnswer++] = "N/A";
+            return false;
+        }
         mAnswers[mCurrentAnswer++] = item;
+        return true;
+    }
+
+    private boolean readReason(int[] checks, int text) {
+        boolean checkOption = readCheckboxGroup(checks);
+        boolean checkText = readTextField(text);
+
+        if (!checkOption && !checkText){
+            Toast.makeText(getApplicationContext(), R.string.missing_user_study_reason, Toast.LENGTH_SHORT).show();
+            return false;
+        }
         return true;
     }
 
@@ -212,30 +243,17 @@ public class ParticipationActivity extends MotherActivity {
             case 0:
                 mAnswers = new String[1];
                 Arrays.fill(mAnswers, "N/A");
-                return readRadio(R.id.us_choice, "Escolha");
+                return readRadio(R.id.user_study_choice_group, "Escolha");
             case 1:
-                mAnswers = new String[19];
+                mAnswers = new String[10];
                 Arrays.fill(mAnswers, "N/A");
-                return readRadio(R.id.mood_group, "Humor")
-                        && readRadio(R.id.busy_group, "Ocupado")
-                        && readRadio(R.id.interacting_group, "Interação")
-                        && readRadio(R.id.acceptance_group, "Aceitação")
-                        && readCheckBox(R.id.do_not_care)
-                        && readRadio(R.id.where_group, "Onde")
-                        && readTextField(R.id.where_other_text)
-                        && readCheckBox(R.id.what_studying)
-                        && readCheckBox(R.id.what_shower)
-                        && readCheckBox(R.id.what_in_class)
-                        && readCheckBox(R.id.what_driving)
-                        && readCheckBox(R.id.what_meeting)
-                        && readCheckBox(R.id.what_shopping)
-                        && readCheckBox(R.id.what_watching)
-                        && readCheckBox(R.id.what_eating)
-                        && readCheckBox(R.id.what_cooking)
-                        && readCheckBox(R.id.what_talking)
-                        && readCheckBox(R.id.what_other)
-                        && readTextField(R.id.what_other_text);
-
+                int[] checks = {R.id.user_study_data, R.id.user_study_requester, R.id.user_study_motive, R.id.user_study_certainty};
+                return readRadio(R.id.user_study_mood_group, "Humor")
+                        && readRadio(R.id.user_study_activity_group, "Ocupado")
+                        && readRadio(R.id.user_study_engagement_group, "Interação")
+                        && readRadio(R.id.user_study_social_acceptance_group, "Aceitação")
+                        && readRadio(R.id.user_study_frequency_group, "Frequência")
+                        && readReason(checks, R.id.user_study_other_text);
         }
         return false;
     }
@@ -260,13 +278,15 @@ public class ParticipationActivity extends MotherActivity {
             } else System.err.println("Current interruption extra was not added to intent.");
         } else {
             setContentView(R.layout.activity_participation_1);
+            ((TextView) findViewById(R.id.user_study_question)).setText(
+                    String.format(getString(R.string.user_study_question), mChoice));
         }
     }
 
     @Override
     public void onStop() {
         if (!mDone) {
-            String[] temp = new String[20];
+            String[] temp = new String[11];
             Arrays.fill(temp, "N/A");
             if (mCurrentUserStudy == 1) {
                 temp[0] = mAnswers[0];
