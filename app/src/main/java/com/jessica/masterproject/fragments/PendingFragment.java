@@ -71,10 +71,10 @@ public class PendingFragment extends Fragment {
         });
 
         mInterruptionsPending = mSharedPref.getStringSet(getString(R.string.dismissed_interruptions), new HashSet<String>());
-        TextView text = (TextView) mView.findViewById(R.id.pendingText);
-        TextView helpText = (TextView) mView.findViewById(R.id.helpText);
+        TextView text = (TextView) mView.findViewById(R.id.pending_question);
+        TextView helpText = (TextView) mView.findViewById(R.id.pending_help);
         EditText answer = (EditText) mView.findViewById(R.id.editText);
-        Button next = (Button) mView.findViewById(R.id.next);
+        Button next = (Button) mView.findViewById(R.id.pending_next);
 
         if (!mInterruptionsPending.isEmpty()) {
             mCurrentInterruption = mInterruptionsPending.iterator().next();
@@ -95,14 +95,14 @@ public class PendingFragment extends Fragment {
                 next.setVisibility(View.VISIBLE);
 
                 String date = data[0];
-                text.setText(String.format(getString(R.string.greeting7), date));
+                text.setText(String.format(getString(R.string.pending_question), date));
 
                 if (!data[1].equals("N/A")) {
-                    helpText.setText(String.format(getString(R.string.greeting8), data[1]));
+                    helpText.setText(String.format(getString(R.string.pending_help), data[1]));
                 } else helpText.setVisibility(View.GONE);
             }
         } else {
-            text.setText(getString(R.string.greeting9));
+            text.setText(getString(R.string.pending_done));
             helpText.setVisibility(View.GONE);
             answer.setVisibility(View.GONE);
             next.setVisibility(View.GONE);

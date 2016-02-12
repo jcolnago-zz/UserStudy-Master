@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/greeting3"
-            android:id="@+id/greeting"
+            android:text="@string/indicate_agreement"
+            android:id="@+id/indicate_agreement"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/progressBar"
@@ -47,9 +47,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_1"
-            android:id="@+id/inttrust_label_1"
-            android:layout_below="@+id/greeting"
+            android:text="@string/inttrust1"
+            android:id="@+id/inttrust1"
+            android:layout_below="@+id/indicate_agreement"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="20dp"
@@ -60,13 +60,13 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_1"
-            android:layout_alignRight="@+id/inttrust_1"
+            android:layout_alignLeft="@+id/bar_inttrust1"
+            android:layout_alignRight="@+id/bar_inttrust1"
             android:id="@+id/markers_1"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_1"
-            android:layout_alignBottom="@+id/inttrust_1"
+            android:layout_alignTop="@+id/bar_inttrust1"
+            android:layout_alignBottom="@+id/bar_inttrust1"
             android:gravity="center_vertical">
 
             <TextView
@@ -118,8 +118,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_1"
-            android:layout_below="@+id/inttrust_label_1"
+            android:id="@+id/bar_inttrust1"
+            android:layout_below="@+id/inttrust1"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -138,29 +138,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView3"
-            android:layout_alignLeft="@+id/inttrust_1"
-            android:layout_below="@+id/inttrust_1" />
+            android:layout_alignLeft="@+id/bar_inttrust1"
+            android:layout_below="@+id/bar_inttrust1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView2"
-            android:layout_alignBaseline="@+id/textView3"
-            android:layout_alignBottom="@+id/textView3"
-            android:layout_alignRight="@+id/inttrust_1"
-            android:layout_alignEnd="@+id/inttrust_1"
-            android:gravity="right" />
+            android:layout_alignRight="@+id/bar_inttrust1"
+            android:gravity="right"
+            android:layout_below="@+id/bar_inttrust1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_2"
-            android:id="@+id/inttrust_label_2"
+            android:text="@string/inttrust2"
+            android:id="@+id/inttrust2"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_below="@+id/textView3"
@@ -174,14 +172,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_2"
-            android:layout_alignRight="@+id/inttrust_2"
+            android:layout_alignLeft="@+id/bar_inttrust2"
+            android:layout_alignRight="@+id/bar_inttrust2"
             android:id="@+id/markers_2"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_2"
+            android:layout_alignTop="@+id/bar_inttrust2"
             android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inttrust_2">
+            android:layout_alignBottom="@+id/bar_inttrust2">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -232,8 +230,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_2"
-            android:layout_below="@+id/inttrust_label_2"
+            android:id="@+id/bar_inttrust2"
+            android:layout_below="@+id/inttrust2"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -252,28 +250,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView5"
-            android:layout_below="@+id/inttrust_2"
-            android:layout_alignLeft="@+id/inttrust_2" />
+            android:layout_below="@+id/bar_inttrust2"
+            android:layout_alignLeft="@+id/bar_inttrust2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView4"
-            android:layout_below="@+id/inttrust_2"
-            android:layout_alignRight="@+id/inttrust_2"
-            android:layout_alignEnd="@+id/inttrust_2"
+            android:layout_below="@+id/bar_inttrust2"
+            android:layout_alignRight="@+id/bar_inttrust2"
             android:gravity="right" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_3"
-            android:id="@+id/inttrust_label_3"
+            android:text="@string/inttrust3"
+            android:id="@+id/inttrust3"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_below="@+id/textView5"
@@ -289,14 +286,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_3"
-            android:layout_alignRight="@+id/inttrust_3"
+            android:layout_alignLeft="@+id/bar_inttrust3"
+            android:layout_alignRight="@+id/bar_inttrust3"
             android:id="@+id/markers_3"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_3"
+            android:layout_alignTop="@+id/bar_inttrust3"
             android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inttrust_3">
+            android:layout_alignBottom="@+id/bar_inttrust3">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -347,8 +344,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_3"
-            android:layout_below="@+id/inttrust_label_3"
+            android:id="@+id/bar_inttrust3"
+            android:layout_below="@+id/inttrust3"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -367,49 +364,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView7"
-            android:layout_below="@+id/inttrust_3"
-            android:layout_alignLeft="@+id/inttrust_3" />
+            android:layout_below="@+id/bar_inttrust3"
+            android:layout_alignLeft="@+id/bar_inttrust3" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView6"
-            android:layout_below="@+id/inttrust_3"
-            android:layout_alignRight="@+id/inttrust_3"
-            android:layout_alignEnd="@+id/inttrust_3"
+            android:layout_below="@+id/bar_inttrust3"
+            android:layout_alignRight="@+id/bar_inttrust3"
             android:gravity="right" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_4"
-            android:id="@+id/inttrust_label_4"
-            android:paddingLeft="10dp"
+            android:text="@string/inttrust4"
+            android:id="@+id/inttrust4"
             android:layout_below="@+id/textView7"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="20dp"
-            android:paddingRight="10dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp" />
+            android:layout_marginRight="4dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true" />
         
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_4"
-            android:layout_alignRight="@+id/inttrust_4"
+            android:layout_alignLeft="@+id/bar_inttrust4"
+            android:layout_alignRight="@+id/bar_inttrust4"
             android:id="@+id/markers_4"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_4"
+            android:layout_alignTop="@+id/bar_inttrust4"
             android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inttrust_4">
+            android:layout_alignBottom="@+id/bar_inttrust4">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -460,12 +458,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_4"
-            android:layout_below="@+id/inttrust_label_4"
-            android:paddingLeft="20dp"
-            android:paddingTop="10dp"
-            android:paddingRight="20dp"
-            android:paddingBottom="10dp"
+            android:id="@+id/bar_inttrust4"
+            android:layout_below="@+id/inttrust4"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -484,29 +478,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView9"
-            android:layout_below="@+id/inttrust_4"
-            android:layout_alignLeft="@+id/inttrust_4" />
+            android:layout_below="@+id/bar_inttrust4"
+            android:layout_alignLeft="@+id/bar_inttrust4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView8"
-            android:layout_alignBaseline="@+id/textView9"
-            android:layout_alignBottom="@+id/textView9"
-            android:layout_alignRight="@+id/inttrust_4"
-            android:layout_alignEnd="@+id/inttrust_4"
-            android:gravity="right" />
+            android:layout_alignRight="@+id/bar_inttrust4"
+            android:gravity="right"
+            android:layout_below="@+id/bar_inttrust4" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_5"
-            android:id="@+id/inttrust_label_5"
+            android:text="@string/inttrust5"
+            android:id="@+id/inttrust5"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_below="@+id/textView9"
@@ -520,14 +512,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_5"
-            android:layout_alignRight="@+id/inttrust_5"
+            android:layout_alignLeft="@+id/bar_inttrust5"
+            android:layout_alignRight="@+id/bar_inttrust5"
             android:id="@+id/markers_5"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_5"
+            android:layout_alignTop="@+id/bar_inttrust5"
             android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inttrust_5">
+            android:layout_alignBottom="@+id/bar_inttrust5">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -578,8 +570,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_5"
-            android:layout_below="@+id/inttrust_label_5"
+            android:id="@+id/bar_inttrust5"
+            android:layout_below="@+id/inttrust5"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -598,28 +590,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView11"
-            android:layout_below="@+id/inttrust_5"
-            android:layout_alignLeft="@+id/inttrust_5" />
+            android:layout_below="@+id/bar_inttrust5"
+            android:layout_alignLeft="@+id/bar_inttrust5" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView10"
-            android:layout_below="@+id/inttrust_5"
-            android:layout_alignRight="@+id/inttrust_5"
-            android:layout_alignEnd="@+id/inttrust_5"
+            android:layout_below="@+id/bar_inttrust5"
+            android:layout_alignRight="@+id/bar_inttrust5"
+            android:layout_alignEnd="@+id/inttrust5"
             android:gravity="right" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/inttrust_6"
-            android:id="@+id/inttrust_label_6"
+            android:text="@string/inttrust6"
+            android:id="@+id/inttrust6"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_below="@+id/textView11"
@@ -633,14 +625,14 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignLeft="@+id/inttrust_6"
-            android:layout_alignRight="@+id/inttrust_6"
+            android:layout_alignLeft="@+id/bar_inttrust6"
+            android:layout_alignRight="@+id/bar_inttrust6"
             android:id="@+id/markers_6"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_alignTop="@+id/inttrust_6"
+            android:layout_alignTop="@+id/bar_inttrust6"
             android:gravity="center_vertical"
-            android:layout_alignBottom="@+id/inttrust_6">
+            android:layout_alignBottom="@+id/bar_inttrust6">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -691,8 +683,8 @@
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/inttrust_6"
-            android:layout_below="@+id/inttrust_label_6"
+            android:id="@+id/bar_inttrust6"
+            android:layout_below="@+id/inttrust6"
             android:indeterminate="false"
             android:max="4"
             android:progress="0"
@@ -711,37 +703,37 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView13"
-            android:layout_below="@+id/inttrust_6"
-            android:layout_alignLeft="@+id/inttrust_6" />
+            android:layout_below="@+id/bar_inttrust6"
+            android:layout_alignLeft="@+id/bar_inttrust6" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView12"
-            android:layout_below="@+id/inttrust_6"
-            android:layout_alignRight="@+id/inttrust_6"
-            android:layout_alignEnd="@+id/inttrust_6"
+            android:layout_below="@+id/bar_inttrust6"
+            android:layout_alignRight="@+id/bar_inttrust6"
+            android:layout_alignEnd="@+id/inttrust6"
             android:gravity="right" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/avancar"
-            android:id="@+id/buttonDemoNext"
+            android:text="@string/next"
+            android:id="@+id/demographics1_next"
             android:layout_gravity="right"
             android:onClick="nextDemographics"
             android:layout_below="@+id/textView12"
-            android:layout_alignRight="@+id/inttrust_label_6"
+            android:layout_alignRight="@+id/inttrust6"
             android:layout_marginBottom="10dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/buttonDemoNext"
+            android:layout_below="@+id/demographics1_next"
             android:layout_marginTop="50dp"/>
 
     </RelativeLayout>

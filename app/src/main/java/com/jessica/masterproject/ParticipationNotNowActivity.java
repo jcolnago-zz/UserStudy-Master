@@ -56,10 +56,10 @@ public class ParticipationNotNowActivity extends MotherActivity {
     }
 
     private boolean readAnswers() {
-        return  readCheckBox(R.id.notNow_situation)
-                && readCheckBox(R.id.notNow_tired)
-                && readCheckBox(R.id.notNow_too_much)
-                && readCheckBox(R.id.notNow_will);
+        return  readCheckBox(R.id.not_now_social_expectation)
+                && readCheckBox(R.id.not_now_activity_engagement)
+                && readCheckBox(R.id.not_now_mood)
+                && readCheckBox(R.id.not_now_frequency);
     }
 
     public void saveNotNow(View view) {
