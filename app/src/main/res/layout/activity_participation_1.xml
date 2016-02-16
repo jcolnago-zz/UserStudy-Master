@@ -1,7 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#FEFEFE"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -21,10 +21,10 @@
             android:gravity="center">
 
             <TextView
-                android:text="@string/userStudy_mood"
+                android:text="@string/user_study_mood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/mood_label"
+                android:id="@+id/user_study_mood"
                 android:layout_marginTop="24dp"
                 android:layout_marginLeft="4dp"
                 android:textColor="#000000"
@@ -35,8 +35,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@+id/mood_label"
-                android:id="@+id/imageView"
+                android:layout_below="@+id/user_study_mood"
+                android:id="@+id/emotions"
                 android:src="@mipmap/emotions"
                 android:adjustViewBounds="true"
                 android:contentDescription="Angra, sad, anxious, netural, happy" />
@@ -45,8 +45,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:layout_below="@+id/imageView"
-                android:id="@+id/mood_group">
+                android:layout_below="@+id/emotions"
+                android:id="@+id/user_study_mood_group">
 
                 <RadioButton
                     android:layout_width="wrap_content"
@@ -85,11 +85,11 @@
             </RadioGroup>
 
             <TextView
-                android:text="@string/userStudy_busy"
+                android:text="@string/user_study_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/busy_label"
-                android:layout_below="@+id/mood_group"
+                android:id="@+id/user_study_activity"
+                android:layout_below="@+id/user_study_mood_group"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
                 android:textStyle="bold"
@@ -102,19 +102,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:measureWithLargestChild="false"
-                android:id="@+id/busy_group"
-                android:layout_below="@+id/busy_label"
+                android:id="@+id/user_study_activity_group"
+                android:layout_below="@+id/user_study_activity"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp">
 
                 <RadioButton
-                    android:text="@string/yes_label"
+                    android:text="@string/yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <RadioButton
-                    android:text="@string/no_label"
+                    android:text="@string/no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
@@ -122,11 +122,11 @@
             </RadioGroup>
 
             <TextView
-                android:text="@string/userStudy_interacting"
+                android:text="@string/user_study_engagement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/interacting_label"
-                android:layout_below="@+id/busy_group"
+                android:id="@+id/user_study_engagement"
+                android:layout_below="@+id/user_study_activity_group"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
@@ -139,19 +139,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:measureWithLargestChild="false"
-                android:id="@+id/interacting_group"
-                android:layout_below="@+id/interacting_label"
+                android:id="@+id/user_study_engagement_group"
+                android:layout_below="@+id/user_study_engagement"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp">
 
                 <RadioButton
-                    android:text="@string/yes_label"
+                    android:text="@string/yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <RadioButton
-                    android:text="@string/no_label"
+                    android:text="@string/no"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:layout_weight="1" />
@@ -159,11 +159,11 @@
             </RadioGroup>
 
             <TextView
-                android:text="@string/userStudy_social_acceptance"
+                android:text="@string/user_study_social_acceptance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/acceptance_label"
-                android:layout_below="@+id/interacting_group"
+                android:id="@+id/user_study_social_acceptance"
+                android:layout_below="@+id/user_study_engagement_group"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
                 android:textColor="#000000"
@@ -176,254 +176,142 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:measureWithLargestChild="false"
-                android:id="@+id/acceptance_group"
-                android:layout_below="@+id/acceptance_label"
+                android:id="@+id/user_study_social_acceptance_group"
+                android:layout_below="@+id/user_study_social_acceptance"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp">
 
                 <RadioButton
-                    android:text="@string/yes_label"
+                    android:text="@string/yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
 
                 <RadioButton
-                    android:text="@string/no_label"
+                    android:text="@string/no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1" />
             </RadioGroup>
+
+            <TextView
+                android:text="@string/user_study_frequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_study_frequency"
+                android:layout_below="@+id/user_study_social_acceptance_group"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginRight="4dp" />
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_study_frequency_group"
+                android:layout_below="@+id/user_study_frequency"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_study_frequency_low"
+                    android:id="@+id/user_study_frequency_low" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_study_frequency_medium"
+                    android:id="@+id/user_study_frequency_medium" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_study_frequency_high"
+                    android:id="@+id/user_study_frequency_high" />
+            </RadioGroup>
+
+            <TextView
+                android:text="@string/user_study_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/user_study_question"
+                android:layout_below="@+id/user_study_frequency_group"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_marginRight="4dp" />
 
             <CheckBox
-                android:text="@string/do_not_care"
-                android:id="@+id/do_not_care"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/acceptance_group"
+                android:text="@string/user_study_data"
+                android:id="@+id/user_study_data"
+                android:layout_below="@+id/user_study_question"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_study_requester"
+                android:id="@+id/user_study_requester"
+                android:layout_below="@+id/user_study_data"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_study_motive"
+                android:id="@+id/user_study_motive"
+                android:layout_below="@+id/user_study_requester"
+                android:layout_marginLeft="14dp"
+                android:layout_marginRight="14dp" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/user_study_certainty"
+                android:id="@+id/user_study_certainty"
+                android:layout_below="@+id/user_study_motive"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp" />
 
             <TextView
-                android:text="@string/userStudy_where"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/where"
-                android:layout_below="@+id/do_not_care"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/user_study_other"
+                android:id="@+id/user_study_other"
                 android:layout_marginLeft="4dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="4dp" />
-
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/where_group"
-                android:layout_below="@+id/where"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="14dp">
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_work"
-                    android:id="@+id/work" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_home"
-                    android:id="@+id/home" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_school"
-                    android:id="@+id/school" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_store"
-                    android:id="@+id/store" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_in_transit"
-                    android:id="@+id/in_transit" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_park"
-                    android:id="@+id/park" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_doctor"
-                    android:id="@+id/doctor" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_restaurant"
-                    android:id="@+id/restaurant" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_bar"
-                    android:id="@+id/bar" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/where_cinema"
-                    android:id="@+id/cinema" />
-
-                <RadioButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/outros"
-                    android:id="@+id/other" />
-
-            </RadioGroup>
+                android:layout_marginRight="4dp"
+                android:layout_below="@+id/user_study_certainty" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/where_other_text"
-                android:inputType="text"
-                android:layout_toRightOf="@+id/where_group"
-                android:layout_alignBottom="@+id/where_group"
-                android:layout_marginRight="14dp" />
-
-            <TextView
-                android:text="@string/userStudy_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/what"
-                android:layout_below="@+id/where_group"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="10dp"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:layout_marginRight="4dp" />
-
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginRight="14dp"
-                android:layout_marginLeft="14dp"
-                android:layout_below="@+id/what"
-                android:id="@+id/what_options"
-                android:baselineAligned="false">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_studying"
-                        android:id="@+id/what_studying" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_in_class"
-                        android:id="@+id/what_in_class" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_meeting"
-                        android:id="@+id/what_meeting" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_watching"
-                        android:id="@+id/what_watching" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_cooking"
-                        android:id="@+id/what_cooking" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/outros"
-                        android:id="@+id/what_other" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1">
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_shower"
-                        android:id="@+id/what_shower" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_working"
-                        android:id="@+id/what_driving" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_shopping"
-                        android:id="@+id/what_shopping" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_eating"
-                        android:id="@+id/what_eating" />
-
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/what_talking"
-                        android:id="@+id/what_talking" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/what_other_text"
-                        android:layout_weight="1"
-                        android:inputType="text" />
-                </LinearLayout>
-
-            </LinearLayout>
+                android:inputType="textMultiLine"
+                android:ems="10"
+                android:id="@+id/user_study_other_text"
+                android:layout_below="@+id/user_study_other" />
 
             <Button
-                android:id="@+id/us_button"
+                android:id="@+id/participation_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/avancar"
+                android:text="@string/save"
                 android:textColor="#000000"
                 android:onClick="nextUserStudy"
-                android:layout_below="@+id/what_options"
                 android:layout_alignParentRight="true"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginBottom="10dp"
+                android:layout_below="@+id/user_study_other_text" />
 
         </RelativeLayout>
     </ScrollView>

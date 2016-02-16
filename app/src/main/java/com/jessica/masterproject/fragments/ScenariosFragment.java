@@ -36,7 +36,7 @@ public class ScenariosFragment extends Fragment {
 
     private void setupScenario () {
         final ProgressBar progress = (ProgressBar) mView.findViewById(R.id.progress);
-        TextView question = (TextView) mView.findViewById(R.id.question);
+        TextView scenario = (TextView) mView.findViewById(R.id.scenario);
         RadioGroup choices = (RadioGroup) mView.findViewById(R.id.choices);
 
         if(mQuestions == null){
@@ -54,11 +54,11 @@ public class ScenariosFragment extends Fragment {
             @Override
             public void run() {
                 progress.setMax(mQuestions.length);
-                progress.setProgress(mCurrentScenario);
+                progress.setProgress(mCurrentScenario+1);
             }
         });
 
-        question.setText(mQuestions[mCurrentScenario]);
+        scenario.setText(mQuestions[mCurrentScenario]);
         choices.clearCheck();
     }
 

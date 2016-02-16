@@ -137,6 +137,10 @@ public class MainActivity extends MotherActivity {
         mSectionsPagerAdapter.nextScenario();
     }
 
+    public void nextPending(View view) {
+        mSectionsPagerAdapter.nextPending();
+    }
+
     public void updatePending() {
         mSectionsPagerAdapter.updatePending();
     }
@@ -196,6 +200,10 @@ public class MainActivity extends MotherActivity {
                 mScenFragment = DoneFragment.newInstance();
                 notifyDataSetChanged();
             }
+        }
+
+        public void nextPending() {
+            ((PendingFragment) mPendingFragment).nextPending();
         }
 
         public void updatePending() {

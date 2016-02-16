@@ -13,8 +13,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/notNow_reason"
-        android:id="@+id/textView33"
+        android:text="@string/not_now_text"
+        android:id="@+id/not_now_text"
         android:layout_alignParentTop="false"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
@@ -24,12 +24,24 @@
         android:layout_marginRight="4dp"
         android:layout_marginLeft="4dp" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/not_now_reason"
+        android:id="@+id/not_now_reason"
+        android:textColor="#000000"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_below="@+id/not_now_text" />
+
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notNow_situation"
-        android:id="@+id/notNow_situation"
-        android:layout_below="@+id/textView33"
+        android:text="@string/not_now_social_expectation"
+        android:id="@+id/not_now_social_expectation"
+        android:layout_below="@+id/not_now_reason"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
         android:layout_marginLeft="14dp"
@@ -40,9 +52,9 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notNow_too_much"
-        android:id="@+id/notNow_too_much"
-        android:layout_below="@+id/notNow_situation"
+        android:text="@string/not_now_activity_engagement"
+        android:id="@+id/not_now_activity_engagement"
+        android:layout_below="@+id/not_now_social_expectation"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
         android:layout_marginLeft="14dp"
@@ -52,9 +64,9 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notNow_will"
-        android:id="@+id/notNow_will"
-        android:layout_below="@+id/notNow_too_much"
+        android:text="@string/not_now_mood"
+        android:id="@+id/not_now_mood"
+        android:layout_below="@+id/not_now_activity_engagement"
         android:layout_alignParentLeft="false"
         android:layout_alignParentStart="false"
         android:layout_marginLeft="14dp"
@@ -64,21 +76,40 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/notNow_tired"
-        android:id="@+id/notNow_tired"
+        android:text="@string/not_now_frequency"
+        android:id="@+id/not_now_frequency"
         android:layout_marginLeft="14dp"
         android:layout_marginRight="14dp"
-        android:layout_below="@+id/notNow_will"
+        android:layout_below="@+id/not_now_mood"
         android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/not_now_other"
+        android:id="@+id/not_now_other"
+        android:layout_below="@+id/not_now_frequency"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:checked="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/not_now_observation"
+        android:id="@+id/textView31"
+        android:layout_below="@+id/not_now_other"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/save"
-        android:id="@+id/button"
+        android:id="@+id/not_now_save"
         android:layout_alignParentTop="false"
-        android:layout_toEndOf="@+id/notNow_will"
-        android:layout_below="@+id/notNow_tired"
+        android:layout_below="@+id/textView31"
         android:layout_alignParentRight="true"
         android:onClick="saveNotNow" />
 

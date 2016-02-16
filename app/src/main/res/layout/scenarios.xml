@@ -31,8 +31,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/greetings5"
-            android:id="@+id/textView31"
+            android:text="@string/scenario_classification"
+            android:id="@+id/scenario_classification"
             android:layout_weight="0.1"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
@@ -41,7 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:id="@+id/question"
+            android:id="@+id/scenario"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
             android:textColor="#000000"
@@ -59,21 +59,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/low_sensitivity"
-                android:id="@+id/choice1"
+                android:id="@+id/low_sensitivity"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/medium_sensitivity"
-                android:id="@+id/choice2"
+                android:id="@+id/medium_sensitivity"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/high_sensitivity"
-                android:id="@+id/choice3"
+                android:id="@+id/high_sensitivity"
                 android:checked="false" />
 
         </RadioGroup>
@@ -81,8 +81,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/avancar"
-            android:id="@+id/next"
+            android:text="@string/next"
+            android:id="@+id/scenarios_next"
             android:layout_gravity="right"
             android:onClick="nextScenario"
             android:layout_marginBottom="50dp" />

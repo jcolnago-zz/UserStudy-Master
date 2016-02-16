@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/greeting2"
-            android:id="@+id/greetingPB"
+            android:text="@string/indicate_action"
+            android:id="@+id/indicate_action"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/progressBar"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:text="@string/pb1"
             android:id="@+id/pb1"
-            android:layout_below="@+id/greetingPB"
+            android:layout_below="@+id/indicate_action"
             android:checked="false"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="14dp"
@@ -102,8 +102,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/greeting3"
-            android:id="@+id/greetingWestin"
+            android:text="@string/indicate_agreement"
+            android:id="@+id/indicate_agreement"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/pb5"
@@ -116,19 +116,69 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/westin1"
-            android:id="@+id/westin_label_1"
-            android:layout_below="@+id/greetingWestin"
+            android:id="@+id/westin_1"
+            android:layout_below="@+id/indicate_agreement"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/westin1"
+            android:layout_alignRight="@+id/westin1"
+            android:id="@+id/markers_1"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_alignTop="@+id/westin1"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/westin1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView99"
+                android:layout_weight="0.5"
+                android:textAlignment="viewStart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView98"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView97"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView96"
+                android:layout_weight="0.5"
+                android:textAlignment="viewEnd" />
+        </LinearLayout>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/westin1"
-            android:layout_below="@+id/westin_label_1"
+            android:layout_below="@+id/westin_1"
             android:indeterminate="false"
             android:max="3"
             android:progress="0"
@@ -147,7 +197,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView3"
             android:layout_below="@+id/westin1"
             android:layout_alignLeft="@+id/westin1" />
@@ -156,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView2"
             android:layout_alignBaseline="@+id/textView3"
             android:layout_alignBottom="@+id/textView3"
@@ -169,7 +219,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/westin2"
-            android:id="@+id/westin_label_2"
+            android:id="@+id/westin_2"
             android:layout_below="@+id/textView2"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -177,11 +227,61 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/westin2"
+            android:layout_alignRight="@+id/westin2"
+            android:id="@+id/markers_2"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_alignTop="@+id/westin2"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/westin2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView95"
+                android:layout_weight="0.5"
+                android:textAlignment="viewStart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView94"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView93"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView92"
+                android:layout_weight="0.5"
+                android:textAlignment="viewEnd" />
+        </LinearLayout>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/westin2"
-            android:layout_below="@+id/westin_label_2"
+            android:layout_below="@+id/westin_2"
             android:indeterminate="false"
             android:max="3"
             android:progress="0"
@@ -200,7 +300,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView5"
             android:layout_below="@+id/westin2"
             android:layout_alignLeft="@+id/westin2" />
@@ -209,7 +309,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView4"
             android:layout_alignBaseline="@+id/textView5"
             android:layout_alignBottom="@+id/textView5"
@@ -222,7 +322,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/westin3"
-            android:id="@+id/westin_label_3"
+            android:id="@+id/westin_3"
             android:layout_below="@+id/textView4"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -230,11 +330,61 @@
             android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp" />
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignLeft="@+id/westin3"
+            android:layout_alignRight="@+id/westin3"
+            android:id="@+id/markers_3"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:layout_alignTop="@+id/westin3"
+            android:gravity="center_vertical"
+            android:layout_alignBottom="@+id/westin3">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView91"
+                android:layout_weight="0.5"
+                android:textAlignment="viewStart" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView90"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView89"
+                android:layout_weight="1"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/textView88"
+                android:layout_weight="0.5"
+                android:textAlignment="viewEnd" />
+        </LinearLayout>
+
         <SeekBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/westin3"
-            android:layout_below="@+id/westin_label_3"
+            android:layout_below="@+id/westin_3"
             android:indeterminate="false"
             android:max="3"
             android:progress="0"
@@ -253,7 +403,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/disagree_label"
+            android:text="@string/disagree"
             android:id="@+id/textView7"
             android:layout_below="@+id/westin3"
             android:layout_alignLeft="@+id/westin3" />
@@ -262,7 +412,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/agree_label"
+            android:text="@string/agree"
             android:id="@+id/textView6"
             android:layout_alignBaseline="@+id/textView7"
             android:layout_alignBottom="@+id/textView7"
@@ -273,8 +423,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/avancar"
-            android:id="@+id/buttonDemoNext"
+            android:text="@string/next"
+            android:id="@+id/demographics2_next"
             android:layout_gravity="right"
             android:onClick="nextDemographics"
             android:layout_below="@+id/textView6"
@@ -284,7 +434,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/buttonDemoNext"
+            android:layout_below="@+id/demographics2_next"
             android:layout_marginTop="50dp"/>
 
     </RelativeLayout>

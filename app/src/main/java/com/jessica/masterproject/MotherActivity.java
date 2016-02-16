@@ -119,7 +119,7 @@ public class MotherActivity extends AppCompatActivity {
         RadioGroup group = (RadioGroup) view.findViewById(viewId);
         int id = group.getCheckedRadioButtonId();
         if (id < 0) {
-            Toast.makeText(this, getString(R.string.missing_option) + name, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.missing_option) + name, Toast.LENGTH_SHORT).show();
             return -1;
         }
 
@@ -129,9 +129,9 @@ public class MotherActivity extends AppCompatActivity {
     public String readTextField(View view, int viewId) {
         EditText editText = (EditText) view.findViewById(viewId);
         String text = editText.getText().toString();
-        if (text.equalsIgnoreCase(""))
-            return "N/A";
-
+        if (text.equalsIgnoreCase("")) {
+            return null;
+        }
         return text;
     }
 

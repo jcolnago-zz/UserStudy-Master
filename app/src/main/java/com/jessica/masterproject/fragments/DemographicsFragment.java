@@ -53,27 +53,27 @@ public class DemographicsFragment extends Fragment {
         switch(mCurrentDemographic) {
             case 0:
                 mAnswers = new String[13];
-                return readRadio(R.id.sex, "Sexo")
-                        && readRadio(R.id.age, "Faixa etária")
-                        && readRadio(R.id.compKnow, "Conhecimento de Computadores")
+                return readRadio(R.id.gender_group, "Sexo")
+                        && readRadio(R.id.age_group, "Faixa etária")
+                        && readRadio(R.id.comp_know_group, "Conhecimento de computadores")
                         && readCheckBox(R.id.fun)
                         && readCheckBox(R.id.work)
-                        && readCheckBox(R.id.bank)
-                        && readCheckBox(R.id.sn)
-                        && readCheckBox(R.id.shop)
+                        && readCheckBox(R.id.banking)
+                        && readCheckBox(R.id.SN)
+                        && readCheckBox(R.id.shopping)
                         && readCheckBox(R.id.emails)
                         && readCheckBox(R.id.news)
                         && readCheckBox(R.id.study)
                         && readCheckBox(R.id.other)
-                        && readRadio(R.id.time, "Tempo de Uso de Computador");
+                        && readRadio(R.id.time_group, "Tempo de uso de computador");
             case 1:
                 mAnswers = new String[6];
-                return readSeekBar(R.id.inttrust_1)
-                        && readSeekBar(R.id.inttrust_2)
-                        && readSeekBar(R.id.inttrust_3)
-                        && readSeekBar(R.id.inttrust_4)
-                        && readSeekBar(R.id.inttrust_5)
-                        && readSeekBar(R.id.inttrust_6);
+                return readSeekBar(R.id.bar_inttrust1)
+                        && readSeekBar(R.id.bar_inttrust2)
+                        && readSeekBar(R.id.bar_inttrust3)
+                        && readSeekBar(R.id.bar_inttrust4)
+                        && readSeekBar(R.id.bar_inttrust5)
+                        && readSeekBar(R.id.bar_inttrust6);
             case 2:
                 mAnswers = new String[8];
                 return readCheckBox(R.id.pb1)

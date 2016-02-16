@@ -2,16 +2,18 @@
     <string name="app_name">Estudo de Caso</string>
     <string name="demographics">Demográfico</string>
     <string name="scenarios">Cenários</string>
-    <string name="missed">Interrupções perdidas</string>
-    <string name="location_text">Você estava aqui: </string>
-    <string name="missing_option">Você deve selecionar uma opção para </string>
+    <string name="missing_option">Você deve selecionar uma opção para: </string>
+    <string name="missing_user_study_reason">Você esqueceu de dizer o porquê da sua escolha.</string>
+    <string name="marker">I</string>
 
     <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
+    <string name="missing_answer">Uma resposta é necessária. \nCaso não lembre, por favor escreva \'não lembro\'.</string>
 
     <string name="scenarios_filename">scenarios.csv</string>
     <string name="demographic_filename">demographics.csv</string>
     <string name="interruption_filename">interruption.csv</string>
 
+    <!-- Shared Preferences -->
     <string name="preference_file">com.jessica.app.preference_file</string>
     <string name="current_scenario">com.jessica.app.current_scenario</string>
     <string name="upload_pending">com.jessica.app.upload_pending_</string>
@@ -21,120 +23,137 @@
     <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
     <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
     <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
-    <string name="missed_interruptions">com.jessica.app.missed_interruptions</string>
+    <string name="more_information_interruptions">com.jessica.app.more_information_interruptions</string>
+    <!-- end Shared Preferences -->
 
+    <!-- Pending demographics or scenarios notification -->
     <string name="pending_ds_title">Atividade Inicial Pendente</string>
     <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
+    <!-- end pending demographics or scenarios notification -->
 
-    <string name="participation_request_title">Você pode participar agora?</string>
-    <string name="participation_request_text">Escolha se você pode participar agora.</string>
-    <string name="participation_request_not_now">Agora não</string>
-    <string name="participation_request_yes">Vamos lá</string>
-
-    <string name="certainty">Eu tenho %s de certeza na decisão que eu faria por você.</string>
-
-    <string name="default_low_sensitivity">Imagine uma situação onde você NÃO ACHA importante a sua privacidade no compartilhamento de dados.</string>
-    <string name="default_medium_sensitivity">Imagine uma situação onde você ACHA MEIO importante a sua privacidade no compartilhamento de dados.</string>
-    <string name="default_high_sensitivity">Imagine uma situação onde você ACHA MUITO importante a sua privacidade no compartilhamento de dados.</string>
+    <!-- User study notification -->
+    <string name="participation_request_title">Hora de decidir!</string>
+    <string name="participation_request_text">Qual opção é melhor para você agora?</string>
+    <string name="participation_request_not_now">Delegue</string>
+    <string name="participation_request_yes">Vamos ver</string>
+    <!-- end user study notification -->
 
     <!-- Choice values -->
-    <string name="disagree_label">Discordo \ncompletamente</string>
-    <string name="agree_label">Concordo \ncompletamente</string>
+    <string name="disagree">Discordo \ncompletamente</string>
+    <string name="agree">Concordo \ncompletamente</string>
     <string name="never">Nunca</string>
     <string name="half_noidea">Na metade do tempo\nNão tenho certeza </string>
     <string name="always">Sempre</string>
-    <string name="low_sensitivity">Permitiria tranquilamente</string>
-    <string name="medium_sensitivity">Permitiria incomodado</string>
-    <string name="high_sensitivity">Não permitiria</string>
-    <string name="let_me_choose_label">Quero escolher</string>
-    <string name="leave_me_alone_label">Quero delegar</string>
-    <string name="yes_label">Sim</string>
-    <string name="no_label">Não</string>
-    <string name="do_not_care"> … mas não me importo com isso.</string>
-    <string name="where_work">Trabalho</string>
-    <string name="where_home">Casa</string>
-    <string name="where_school">Escola</string>
-    <string name="where_store">Supermercado/Loja</string>
-    <string name="where_in_transit">Em trânsito</string>
-    <string name="where_doctor">Médico</string>
-    <string name="where_restaurant">Restaurante</string>
-    <string name="where_bar">Bar</string>
-    <string name="where_cinema">Cinema</string>
-    <string name="where_park">Parque</string>
-    <string name="what_studying">Estudando</string>
-    <string name="what_in_class">Em aula</string>
-    <string name="what_meeting">Em reunião</string>
-    <string name="what_watching">Vendo TV/Filme</string>
-    <string name="what_cooking">Cozinhando</string>
-    <string name="what_talking">Conversando</string>
-    <string name="what_shower">Banho</string>
-    <string name="what_working">Trabalhando</string>
-    <string name="what_shopping">Compras</string>
-    <string name="what_eating">Comendo</string>
-
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="other">Outros</string>
     <!-- End Choice values -->
 
-    <!-- Greetings and buttons -->
-    <string name="avancar">Avançar</string>
+    <!-- Buttons -->
+    <string name="next">Avançar</string>
     <string name="save">Salvar</string>
-    <string name="greeting1">Por favor, responda as questões abaixo: </string>
-    <string name="greeting2">Por favor, indique se você já fez alguma das opções abaixo: </string>
-    <string name="greeting3">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
-    <string name="greeting4">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
-    <string name="greetings5">Por favor, classifique o cenário de acordo com como você acha que você se comportaria e se sentiria. </string>
-    <string name="greetings6">Considerando o seu contexto atual e a situação apresentada, você prefere ser interrompido para escolher a permissão ou delegar essa escolha para mim e não ser interrompido?</string>
-    <!-- End Greetings and buttons -->
+    <!-- End Buttons -->
+
+    <!-- User Study -->
+    <string name="certainty">Eu tenho %s de certeza na decisão que eu faria por você.</string>
+    <string name="user_study_greeting">Agora que você tem mais informações, o que você preferiria?</string>
+    <string name="user_study_choose">Escolher</string>
+    <string name="user_study_delegate">Delegar</string>
+
+    <string name="user_study_mood">Como você está se sentindo? </string>
+    <string name="user_study_activity">Você está ocupado? </string>
+    <string name="user_study_engagement">Você está interagindo pessoalmente com outras pessoas? </string>
+    <string name="user_study_social_acceptance">Você acha foi rude ser interrompido agora?</string>
+    <string name="user_study_frequency">A frequência de interrupções está...</string>
+    <string name="user_study_frequency_low">baixa</string>
+    <string name="user_study_frequency_medium">média</string>
+    <string name="user_study_frequency_high">alta</string>
+    <string name="user_study_question">Eu decidi %s por causa...</string>
+    <string name="user_study_data">do dado sendo requisitado</string>
+    <string name="user_study_requester">de quem estava requisitando</string>
+    <string name="user_study_motive">do uso que seria feito</string>
+    <string name="user_study_certainty">do nível de certeza do sistema</string>
+    <string name="user_study_other">Outros motivos ou detalhamento:</string>
+    <!-- End User Study -->
+
+    <!-- Not now -->
+    <string name="not_now_text">Você escolheu não decidir e delegar a decisão para o agente mesmo sem saber mais informações.</string>
+    <string name="not_now_reason">Por favor escolha o(s) motivo(s) dessa decisão.</string>
+    <string name="not_now_social_expectation">Não deveria ter sido interrompido agora</string>
+    <string name="not_now_activity_engagement">Estou ocupado</string>
+    <string name="not_now_mood">Não estou com paciência para responder agora</string>
+    <string name="not_now_frequency">Já fui muito interrompido</string>
+    <string name="not_now_other">Outro*</string>
+    <string name="not_now_observation">*detalhamento futuro será necessário na aba \'A Fazer\'</string>
+    <!-- End Not Now -->
+
+    <!-- Pending -->
+    <string name="pending_question">No dia %s você delegou para o agente de imediato e selecionou \'Outro\' como sendo um dos motivos. Explique qual seria esse outro motivo.</string>
+    <string name="pending_help">Motivo(s) selecionado(s): %s.</string>
+    <string name="pending_done">Você não possui nenhuma interrupção que necessita de esclarecimentos.</string>
+    <!-- End Pending -->
 
     <!-- Demo -->
-    <string name="sexo">Sexo</string>
-    <string name="feminino">Feminino</string>
-    <string name="masculino">Masculino</string>
+    <!-- demographics0.xml -->
+    <string name="indicate_answer">Por favor, responda as questões abaixo: </string>
+    <string name="gender">Sexo</string>
+    <string name="female">Feminino</string>
+    <string name="male">Masculino</string>
 
-    <string name="idade">Faixa etária</string>
-    <string name="grupo_etario_1">18–25</string>
-    <string name="grupo_etario_2">26–35</string>
-    <string name="grupo_etario_3">36–50</string>
-    <string name="grupo_etario_4">50+</string>
+    <string name="age">Faixa etária</string>
+    <string name="age_group1">18–25</string>
+    <string name="age_group2">26–35</string>
+    <string name="age_group3">36–50</string>
+    <string name="age_group4">50+</string>
 
-    <string name="conhecimento_computador">Qual das frases abaixo melhor descreve seu conhecimento de computadores?</string>
-    <string name="grupo_cc_1">Preciso de ajuda para usar computadores, celulares, etc.</string>
-    <string name="grupo_cc_2">Consigo usar computadores para funções simples, como acessar a internet, escrever documentos, ouvir música, …</string>
-    <string name="grupo_cc_3">Consigo usar computadores para funções mais complexas, como uso de programas especializados para edição de vídeos, fotos, análise estatísticas, …</string>
-    <string name="grupo_cc_4">Sou capaz de programar novas funções para um computador.</string>
+    <string name="comp_know">Qual das frases abaixo melhor descreve seu conhecimento de computadores?</string>
+    <string name="ck_group1">Preciso de ajuda para usar computadores, celulares, etc.</string>
+    <string name="ck_group2">Consigo usar computadores para funções simples, como acessar a internet, escrever documentos, ouvir música, …</string>
+    <string name="ck_group3">Consigo usar computadores para funções mais complexas, como uso de programas especializados para edição de vídeos, fotos, análise estatísticas, …</string>
+    <string name="ck_group4">Sou capaz de programar novas funções para um computador.</string>
 
-    <string name="uso">Quais os principais usos que você faz de computadores, celulares, tablets, …?</string>
-    <string name="trabalho">Trabalho</string>
-    <string name="compras">Compras</string>
-    <string name="entretenimento">Entretenimento</string>
+    <string name="use">Quais os principais usos que você faz de computadores, celulares, tablets, …?</string>
+    <string name="work">Trabalho</string>
+    <string name="shopping">Compras</string>
+    <string name="fun">Entretenimento</string>
     <string name="emails">E-mails</string>
-    <string name="banco">Operações bancárias</string>
-    <string name="noticias">Notícias</string>
+    <string name="banking">Operações bancárias</string>
+    <string name="news">Notícias</string>
     <string name="SN">Redes Sociais</string>
-    <string name="estudo">Estudo</string>
-    <string name="outros">Outros</string>
+    <string name="study">Estudo</string>
 
-    <string name="tempo">Quanto tempo por dia você passa utilizando computadores e outros dispositivos?</string>
-    <string name="grupo_tempo_1">Menos que 2 horas</string>
-    <string name="grupo_tempo_2">Entre 2 e 6 horas</string>
-    <string name="grupo_tempo_3">Entre 6 e 8 horas</string>
-    <string name="grupo_tempo_4">Mais do que 8 horas</string>
+    <string name="time">Quanto tempo por dia você passa utilizando computadores e outros dispositivos?</string>
+    <string name="time_group1">Menos que 2 horas</string>
+    <string name="time_group2">Entre 2 e 6 horas</string>
+    <string name="time_group3">Entre 6 e 8 horas</string>
+    <string name="time_group4">Mais do que 8 horas</string>
+    <!-- end demographics0.xml -->
 
-    <string name="inttrust_1">Conto com meu celular / tablet / computador para lembrar de eventos importantes.</string>
-    <string name="inttrust_2">Possuo documentos importantes no meu computador / tablet / celular sem cópias em outros lugares.</string>
-    <string name="inttrust_3">Não confio em tecnologias em geral.</string>
-    <string name="inttrust_4">Quanto mais tecnológico algo é, fico mais preocupado que algo vai dar errado.</string>
-    <string name="inttrust_5">Desligo as notificações do celular / tablet / computador sempre que posso. </string>
-    <string name="inttrust_6">Não gosto de ser interrompido enquanto estou concentrado.</string>
+    <!-- demographics1.xml -->
+    <string name="indicate_agreement">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
+    <string name="inttrust1">Conto com meu celular / tablet / computador para lembrar de eventos importantes.</string>
+    <string name="inttrust2">Possuo documentos importantes no meu computador / tablet / celular sem cópias em outros lugares.</string>
+    <string name="inttrust3">Não confio em tecnologias em geral.</string>
+    <string name="inttrust4">Quanto mais tecnológico algo é, fico mais preocupado que algo vai dar errado.</string>
+    <string name="inttrust5">Desligo as notificações do celular / tablet / computador sempre que posso. </string>
+    <string name="inttrust6">Não gosto de ser interrompido enquanto estou concentrado.</string>
+    <!-- end demographics1.xml -->
 
+    <!-- demographics2.xml -->
+    <string name="indicate_action">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="pb1">Se recusou a dar informação online porque você achou que era muito pessoal ou desnecessária.</string>
     <string name="pb2">Decidiu não usar um site / aplicativo / programa porque você não tinha certeza como as suas informações seriam utilizadas.</string>
     <string name="pb3">Leu a política de privacidade de um site / aplicativo / programa. </string>
     <string name="pb4">Deletou os cookies do seu navegador. </string>
     <string name="pb5">Ligou a opção de "do not track" do seu navegador.</string>
+    <!-- indicate agreement -->
     <string name="westin1">Consumidores perderam todo o controle sobre como suas informações pessoais são coletadas e usadas pelas empresas.</string>
     <string name="westin2">A maioria dos negócios lidam com informações pessoais coletadas dos seus clientes de forma correta e confidencial.</string>
     <string name="westin3">Existem leis e práticas organizacionais que fornecem um nível razoável de proteção para a privacidade dos consumidores.</string>
+    <!-- end demographics2.xml -->
 
+    <!-- demographics3.xml -->
+    <string name="indicate_frequency">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
     <string name="control1">Eu prefiro um emprego / uma ocupação na qual eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
     <string name="control2">Eu gosto de participar politicamente porque eu quero ter o máximo de participação que eu posso em como as políticas públicas devem ser feitas</string>
     <string name="control3">Eu tento evitar situações nas quais alguém me diz o que eu tenho que fazer.</string>
@@ -145,10 +164,19 @@
     <string name="control8">Eu queria poder deixar outra pessoa decidir por mim o máximo das minhas decisões de vida.</string>
     <string name="control9">Existem muitas situações nas quais eu preferiria só ter uma opção do que ter que tomar uma decisão.</string>
     <string name="control10">Eu gosto de esperar e ver se outra pessoa vai resolver um problema para eu não ter que me preocupar com isso.</string>
-
+    <!-- end demographics3.xml -->
     <!-- End Demo -->
 
-    <!-- Scenarios -->
+    <!-- Scenarios classification -->
+    <string name="scenario_classification">Por favor, classifique o cenário de acordo com como você acha que você se comportaria e se sentiria. </string>
+    <string name="low_sensitivity">Permitiria tranquilamente</string>
+    <string name="medium_sensitivity">Permitiria incomodado</string>
+    <string name="high_sensitivity">Não permitiria</string>
+
+    <string name="default_low_sensitivity">Imagine uma situação onde você NÃO ACHA importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_medium_sensitivity">Imagine uma situação onde você ACHA MEIO importante a sua privacidade no compartilhamento de dados.</string>
+    <string name="default_high_sensitivity">Imagine uma situação onde você ACHA MUITO importante a sua privacidade no compartilhamento de dados.</string>
+
     <string-array name="scenarios">
         <!-- Classificação da tabela: UNTRUSTED	HIGH SENSITIVITY	NOT IMPORTANT -->
         <item>Um restaurante não confiável quer acesso aos seus dados de saúde para sugerir pratos adequados.</item>
@@ -260,23 +288,5 @@
         <item>O seu médico quer acesso aos seu número de passos para acompanhar a sua atividade física pós cirurgia.</item>
         <item>Seu carro quer informações sobre seu itinerário para determinar se tem autonomia para o percurso.</item>
     </string-array>
-
     <!-- End Scenarios -->
-
-    <!-- User Study -->
-    <string name="userStudy_mood">Como você está se sentindo? </string>
-    <string name="userStudy_busy">Você está ocupado? </string>
-    <string name="userStudy_interacting">Você está interagindo com outras pessoas? </string>
-    <string name="userStudy_social_acceptance">Você acha que na situação atual é socialmente aceitável ser interrompido?</string>
-    <string name="userStudy_where">Onde você está agora?</string>
-    <string name="userStudy_activity">O que você está fazendo agora?</string>
-    <!-- End User Study -->
-
-    <!-- Not now -->
-    <string name="notNow_reason">Você pode nos dizer o por quê de você não poder participar do estudo agora?</string>
-    <string name="notNow_situation">A situação não permite</string>
-    <string name="notNow_will">Não estou com vontade</string>
-    <string name="notNow_tired">Estou cansado</string>
-    <string name="notNow_too_much">Já fui muito interrompido</string>
-    <!-- End Not Now -->
 </resources>

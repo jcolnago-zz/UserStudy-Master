@@ -34,8 +34,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/greeting1"
-            android:id="@+id/greeting"
+            android:text="@string/indicate_answer"
+            android:id="@+id/indicate_answer"
             android:layout_alignParentTop="false"
             android:layout_marginTop="5dp"
             android:layout_alignParentLeft="false"
@@ -48,9 +48,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/sexo"
-            android:id="@+id/sex_label"
-            android:layout_below="@+id/greeting"
+            android:text="@string/gender"
+            android:id="@+id/gender"
+            android:layout_below="@+id/indicate_answer"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:textStyle="bold"
@@ -62,24 +62,24 @@
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/sex_label"
+            android:layout_below="@+id/gender"
             android:measureWithLargestChild="false"
             android:layout_alignParentLeft="true"
-            android:id="@+id/sex"
+            android:id="@+id/gender_group"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/feminino"
+                android:text="@string/female"
                 android:id="@+id/female"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/masculino"
+                android:text="@string/male"
                 android:id="@+id/male"
                 android:checked="false" />
 
@@ -89,55 +89,55 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/idade"
-            android:id="@+id/age_label"
+            android:text="@string/age"
+            android:id="@+id/age"
             android:layout_gravity="center_horizontal"
             android:layout_alignParentRight="false"
             android:layout_alignParentEnd="false"
             android:textStyle="bold"
             android:textColor="#000000"
-            android:layout_below="@+id/greeting"
-            android:layout_toRightOf="@+id/sex"
+            android:layout_below="@+id/indicate_answer"
+            android:layout_toRightOf="@+id/gender_group"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp" />
 
         <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_below="@+id/age_label"
-            android:layout_alignStart="@+id/age_label"
-            android:id="@+id/age"
-            android:layout_alignLeft="@+id/age_label"
+            android:layout_below="@+id/age"
+            android:layout_alignStart="@+id/age"
+            android:id="@+id/age_group"
+            android:layout_alignLeft="@+id/age"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_etario_1"
-                android:id="@+id/age1"
+                android:text="@string/age_group1"
+                android:id="@+id/age_group1"
                 android:checked="false"
                 android:layout_gravity="left" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_etario_2"
-                android:id="@+id/age2"
+                android:text="@string/age_group2"
+                android:id="@+id/age_group2"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_etario_3"
-                android:id="@+id/age3"
+                android:text="@string/age_group3"
+                android:id="@+id/age_group3"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_etario_4"
-                android:id="@+id/age4"
+                android:text="@string/age_group4"
+                android:id="@+id/age_group4"
                 android:checked="false"
                 android:layout_gravity="left" />
 
@@ -147,11 +147,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/conhecimento_computador"
-            android:id="@+id/compKnow_label"
+            android:text="@string/comp_know"
+            android:id="@+id/comp_know"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/age"
+            android:layout_below="@+id/age_group"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="10dp"
@@ -161,8 +161,8 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/compKnow"
-            android:layout_below="@+id/compKnow_label"
+            android:id="@+id/comp_know_group"
+            android:layout_below="@+id/comp_know"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="14dp"
@@ -171,29 +171,29 @@
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_cc_1"
-                android:id="@+id/cc1"
+                android:text="@string/ck_group1"
+                android:id="@+id/ck_group1"
                 android:checked="false"/>
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_cc_2"
-                android:id="@+id/cc2"
+                android:text="@string/ck_group2"
+                android:id="@+id/ck_group2"
                 android:checked="false"/>
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_cc_3"
-                android:id="@+id/cc3"
+                android:text="@string/ck_group3"
+                android:id="@+id/ck_group3"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_cc_4"
-                android:id="@+id/cc4"
+                android:text="@string/ck_group4"
+                android:id="@+id/ck_group4"
                 android:checked="false" />
 
         </RadioGroup>
@@ -202,11 +202,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/uso"
-            android:id="@+id/use_label"
+            android:text="@string/use"
+            android:id="@+id/use"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/compKnow"
+            android:layout_below="@+id/comp_know_group"
             android:textStyle="bold"
             android:textColor="#000000"
             android:layout_marginTop="10dp"
@@ -217,7 +217,7 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/use_label"
+            android:layout_below="@+id/use"
             android:id="@+id/use_options"
             android:weightSum="1"
             android:layout_marginLeft="14dp"
@@ -234,26 +234,26 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/entretenimento"
+                    android:text="@string/fun"
                     android:id="@+id/fun" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/trabalho"
+                    android:text="@string/work"
                     android:id="@+id/work" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/banco"
-                    android:id="@+id/bank" />
+                    android:text="@string/banking"
+                    android:id="@+id/banking" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/SN"
-                    android:id="@+id/sn" />
+                    android:id="@+id/SN" />
             </LinearLayout>
 
             <LinearLayout
@@ -266,8 +266,8 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/compras"
-                    android:id="@+id/shop" />
+                    android:text="@string/shopping"
+                    android:id="@+id/shopping" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
@@ -278,19 +278,19 @@
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/noticias"
+                    android:text="@string/news"
                     android:id="@+id/news" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/estudo"
+                    android:text="@string/study"
                     android:id="@+id/study" />
 
                 <CheckBox
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/outros"
+                    android:text="@string/other"
                     android:id="@+id/other" />
             </LinearLayout>
         </LinearLayout>
@@ -298,8 +298,8 @@
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="@string/tempo"
-            android:id="@+id/time_label"
+            android:text="@string/time"
+            android:id="@+id/time"
             android:layout_alignParentLeft="true"
             android:textStyle="bold"
             android:textColor="#000000"
@@ -314,8 +314,8 @@
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/time"
-            android:layout_below="@+id/time_label"
+            android:id="@+id/time_group"
+            android:layout_below="@+id/time"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="14dp"
@@ -324,47 +324,47 @@
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_tempo_1"
-                android:id="@+id/time1"
+                android:text="@string/time_group1"
+                android:id="@+id/time_group1"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_tempo_2"
-                android:id="@+id/time2"
+                android:text="@string/time_group2"
+                android:id="@+id/time_group2"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_tempo_3"
-                android:id="@+id/time3"
+                android:text="@string/time_group3"
+                android:id="@+id/time_group3"
                 android:checked="false" />
 
             <RadioButton
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/grupo_tempo_4"
-                android:id="@+id/time4"
+                android:text="@string/time_group4"
+                android:id="@+id/time_group4"
                 android:checked="false"/>
         </RadioGroup>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/avancar"
-            android:id="@+id/buttonDemoNext"
+            android:text="@string/next"
+            android:id="@+id/demographics0_next"
             android:layout_gravity="right"
             android:onClick="nextDemographics"
-            android:layout_below="@+id/time"
-            android:layout_alignRight="@+id/time"
+            android:layout_below="@+id/time_group"
+            android:layout_alignRight="@+id/time_group"
             android:layout_marginBottom="10dp" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/buttonDemoNext"
+            android:layout_below="@+id/demographics0_next"
             android:layout_marginTop="50dp"/>
 
     </RelativeLayout>

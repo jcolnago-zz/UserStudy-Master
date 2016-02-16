@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/greetings6"
+                android:text="@string/user_study_greeting"
                 android:id="@+id/textView34"
                 android:layout_below="@+id/certainty"
                 android:layout_alignLeft="@+id/sensitivity"
@@ -55,7 +55,7 @@
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/us_choice"
+                android:id="@+id/user_study_choice_group"
                 android:layout_below="@+id/textView34"
                 android:layout_marginLeft="14dp"
                 android:layout_marginRight="14dp"
@@ -64,7 +64,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/let_me_choose_label"
+                    android:text="@string/user_study_choose"
                     android:id="@+id/let_me_choose"
                     android:textColor="#000000"
                     android:textSize="15dp" />
@@ -72,7 +72,7 @@
                 <RadioButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/leave_me_alone_label"
+                    android:text="@string/user_study_delegate"
                     android:id="@+id/leave_me_alone"
                     android:layout_marginTop="10dp"
                     android:textColor="#000000"
@@ -83,14 +83,15 @@
         <!-- This FrameLayout insets its children based on system windows using
              android:fitsSystemWindows. -->
         <Button
-            android:id="@+id/us_button"
+            android:id="@+id/user_study_next"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/avancar"
+            android:text="@string/next"
             android:textColor="#000000"
             android:onClick="nextUserStudy"
             android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/fullscreen_content" />
 
     </RelativeLayout>
     </ScrollView>
