@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.jessica.masterproject.R;
+import com.jessica.masterproject.MainActivity;
 
 public class CancelAlarm extends BroadcastReceiver {
 
@@ -15,10 +15,8 @@ public class CancelAlarm extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        System.out.println("[LOG] CancelAlarm started.");
         // Cancel notification and sets interruption as done (no file means N/As)
-
-        SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+        SharedPreferences mSharedPref = context.getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPref.edit();
 
         int notificationId = intent.getIntExtra("notificationId", -1);
@@ -27,17 +25,18 @@ public class CancelAlarm extends BroadcastReceiver {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (!(mSharedPref.getBoolean(context.getString(R.string.upload_pending) + filename, false)
-                || mSharedPref.getBoolean(context.getString(R.string.upload_done) + filename, false))) {
-            System.out.println("[DEBUG] CancelAlarm: canceling previous interruption: " + filename);
+        if (!(mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + filename, false)
+                || mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + filename, false))) {
             // cancel notification
             notificationManager.cancel(notificationId);
 
+            // Increment missed counter
+            int missed = mSharedPref.getInt(MainActivity.SP_MISSED_INTERRUPTIONS, 0);
+            mEditor.putInt(MainActivity.SP_MISSED_INTERRUPTIONS, ++missed);
+
             // set it as done, so it won't try to upload an non-existing file.
-            mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
+            mEditor.putBoolean(MainActivity.SP_UPLOAD_DONE + filename, true);
             mEditor.commit();
-
         }
-
     }
 }

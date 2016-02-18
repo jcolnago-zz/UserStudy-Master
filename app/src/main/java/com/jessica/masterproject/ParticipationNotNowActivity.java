@@ -24,15 +24,16 @@ public class ParticipationNotNowActivity extends MotherActivity {
     private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mEditor;
     private String mFilename;
+    private String mFormat;
     private int mCurrentInterruption;
-    private SimpleDateFormat mFormat = new SimpleDateFormat("dd MMMM 'às' HH:mm");;
+    private SimpleDateFormat mDataFormat = new SimpleDateFormat("dd MMMM 'às' HH:mm");;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_participation_not_now);
+        setContentView(R.layout.not_now);
 
-        mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+        mSharedPref = getSharedPreferences(SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
         mEditor = mSharedPref.edit();
 
         mCurrentInterruption = getIntent().getIntExtra("current_interruption", -1);
@@ -41,7 +42,8 @@ public class ParticipationNotNowActivity extends MotherActivity {
                 .getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(mCurrentInterruption);
 
-        mFilename = mCurrentInterruption + "_" + getString(R.string.interruption_filename);
+        mFilename = mCurrentInterruption + "_" + INTERRUPTIONS_FILENAME;
+        mFormat = FILE_FORMAT;
         mAnswers = new ArrayList<>();
     }
 
@@ -76,9 +78,10 @@ public class ParticipationNotNowActivity extends MotherActivity {
 
         if (Boolean.parseBoolean(readCheckBox(mView, R.id.not_now_other))){
             // Updates the list of dismissed interruptions
-            Set<String> moreInfo = mSharedPref.getStringSet(getString(R.string.more_information_interruptions), new HashSet<String>());
+            Set<String> moreInfo = new HashSet<>(mSharedPref.getStringSet(SP_MORE_INFORMATION_INTERRUPTIONS, new HashSet<String>()));
             moreInfo.add(Integer.toString(mCurrentInterruption));
-            mEditor.putStringSet(getString(R.string.more_information_interruptions), moreInfo);
+            mEditor.putStringSet(SP_MORE_INFORMATION_INTERRUPTIONS, moreInfo);
+            mEditor.commit();
         }
 
         return readCheckboxGroup(checks);
@@ -94,13 +97,12 @@ public class ParticipationNotNowActivity extends MotherActivity {
             return;
         mDone = true;
 
-        notNow[0] = mFormat.format(new GregorianCalendar().getTime());
+        notNow[0] = mDataFormat.format(new GregorianCalendar().getTime());
         if (!mAnswers.isEmpty())
             notNow[1] = TextUtils.join("; ", mAnswers);
 
-        if (requestSave(mFilename, notNow, false)) {
-            mEditor.putBoolean(getString(R.string.upload_pending)
-                    + mFilename.substring(0, mFilename.length() - 4), true);
+        if (requestSave(mFilename, mFormat, notNow, false)) {
+            mEditor.putBoolean(SP_UPLOAD_PENDING + mFilename, true);
             mEditor.commit();
             finish();
         }
@@ -112,11 +114,10 @@ public class ParticipationNotNowActivity extends MotherActivity {
             String[] notNow = new String[2];
             Arrays.fill(notNow, "N/A");
 
-            notNow[0] = mFormat.format(new GregorianCalendar().getTime());
+            notNow[0] = mDataFormat.format(new GregorianCalendar().getTime());
 
-            if (requestSave(mFilename, notNow, false)) {
-                mEditor.putBoolean(getString(R.string.upload_pending)
-                        + mFilename.substring(0, mFilename.length() - 4), true);
+            if (requestSave(mFilename, mFormat, notNow, false)) {
+                mEditor.putBoolean(SP_UPLOAD_PENDING + mFilename, true);
                 mEditor.commit();
             }
         }

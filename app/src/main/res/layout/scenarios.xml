@@ -78,6 +78,44 @@
 
         </RadioGroup>
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/decision"
+            android:id="@+id/textView32"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="4dp"
+            android:textColor="#000000" />
+
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/decision"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="14dp"
+            android:orientation="horizontal"
+            android:layout_weight="1">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/choose"
+                android:id="@+id/radioButton"
+                android:checked="false"
+                android:layout_weight="1" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/delegate"
+                android:id="@+id/radioButton2"
+                android:checked="false"
+                android:layout_weight="1" />
+
+        </RadioGroup>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

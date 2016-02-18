@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Environment;
 import android.provider.Settings;
 
-import com.jessica.masterproject.R;
+import com.jessica.masterproject.MainActivity;
 import com.loopj.android.http.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -32,10 +32,10 @@ public class FileUploader {
         client.post(url, params, new AsyncHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
-                SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+                SharedPreferences mSharedPref = context.getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
                 SharedPreferences.Editor mEditor = mSharedPref.edit();
-                mEditor.putBoolean(context.getString(R.string.upload_pending) + filename, false);
-                mEditor.putBoolean(context.getString(R.string.upload_done) + filename, true);
+                mEditor.putBoolean(MainActivity.SP_UPLOAD_PENDING + filename, false);
+                mEditor.putBoolean(MainActivity.SP_UPLOAD_DONE + filename, true);
                 mEditor.commit();
             }
 

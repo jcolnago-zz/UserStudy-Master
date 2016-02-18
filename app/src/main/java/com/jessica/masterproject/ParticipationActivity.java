@@ -17,8 +17,6 @@ import java.util.Arrays;
 
 public class ParticipationActivity extends MotherActivity {
 
-    private SharedPreferences mSharedPref;
-    private SharedPreferences.Editor mEditor;
     private String[] mSensitivity;
     private int mCurrentUserStudy;
     private int mCurrentInterruption;
@@ -27,8 +25,11 @@ public class ParticipationActivity extends MotherActivity {
     private String[] setupValues;
     private View mView;
     private String mFilename;
+    private String mFormat;
     private boolean mDone;
     private String mChoice;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,8 @@ public class ParticipationActivity extends MotherActivity {
 
         super.onCreate(savedInstanceState);
 
-        mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
-        mEditor = mSharedPref.edit();
+        mSharedPreferences = getSharedPreferences(SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
+        mEditor = mSharedPreferences.edit();
 
         mCurrentInterruption = getIntent().getIntExtra("current_interruption", -1);
 
@@ -46,9 +47,9 @@ public class ParticipationActivity extends MotherActivity {
                 .getSystemService(NOTIFICATION_SERVICE);
         notificationManager.cancel(mCurrentInterruption);
 
-        mFilename = mCurrentInterruption + "_" + getString(R.string.interruption_filename);
+        mFilename = mCurrentInterruption + "_" + INTERRUPTIONS_FILENAME;
+        mFormat = FILE_FORMAT;
         setupUserStudy(mCurrentUserStudy);
-
     }
 
     private String getNextSensitivity(String[] sensitivities, String sensitivityLevel) {
@@ -60,13 +61,13 @@ public class ParticipationActivity extends MotherActivity {
         // Fetch right last sensitivity used
         switch (sensitivityLevel) {
             case "0":
-                startAt = mSharedPref.getInt(getString(R.string.last_low_sensitivity), -1);
+                startAt = mSharedPreferences.getInt(SP_LAST_LOW_SENSITIVITY, -1);
                 break;
             case "1":
-                startAt = mSharedPref.getInt(getString(R.string.last_medium_sensitivity), -1);
+                startAt = mSharedPreferences.getInt(SP_LAST_MEDIUM_SENSITIVITY, -1);
                 break;
             default:
-                startAt = mSharedPref.getInt(getString(R.string.last_high_sensitivity), -1);
+                startAt = mSharedPreferences.getInt(SP_LAST_HIGH_SENSITIVITY, -1);
                 break;
         }
 
@@ -121,13 +122,13 @@ public class ParticipationActivity extends MotherActivity {
 
         switch (sensitivityLevel) {
             case "0":
-                mEditor.putInt(getString(R.string.last_low_sensitivity), i);
+                mEditor.putInt(SP_LAST_LOW_SENSITIVITY, i);
                 break;
             case "1":
-                mEditor.putInt(getString(R.string.last_medium_sensitivity), i);
+                mEditor.putInt(SP_LAST_MEDIUM_SENSITIVITY, i);
                 break;
             default:
-                mEditor.putInt(getString(R.string.last_high_sensitivity), i);
+                mEditor.putInt(SP_LAST_HIGH_SENSITIVITY, i);
                 break;
         }
 
@@ -137,7 +138,7 @@ public class ParticipationActivity extends MotherActivity {
 
     private String[] readSensitivityFile(){
         String scenariosFile = String.valueOf(Environment.getExternalStorageDirectory())
-                + "/annoyme/" + getString(R.string.scenarios_filename);
+                + "/annoyme/" + SCENARIOS_FILENAME + FILE_FORMAT;
         BufferedReader bufferedReader;
         String line;
         String[] sensitivity = null;
@@ -165,12 +166,10 @@ public class ParticipationActivity extends MotherActivity {
         if(!saveUserStudy())
             return;
 
-        if(mCurrentUserStudy != 1) {
+        if(mCurrentUserStudy != 1)
             setupUserStudy(++mCurrentUserStudy);
-        } else {
-            System.out.println("[LOG] ParticipationActivity: setting as pending: " + mFilename.substring(0, mFilename.length() - 4));
-            mEditor.putBoolean(getString(R.string.upload_pending)
-                    + mFilename.substring(0, mFilename.length() - 4), true);
+        else {
+            mEditor.putBoolean(SP_UPLOAD_PENDING + mFilename, true);
             mEditor.commit();
             finish();
         }
@@ -184,12 +183,12 @@ public class ParticipationActivity extends MotherActivity {
             mDone = true;
         else {
             if (mAnswers[0].equals("0"))
-                mChoice = getString(R.string.user_study_choose).toLowerCase();
+                mChoice = getString(R.string.choose).toLowerCase();
             else
-                mChoice = getString(R.string.user_study_delegate).toLowerCase();
+                mChoice = getString(R.string.delegate).toLowerCase();
         }
 
-        return requestSave(mFilename, mAnswers, mCurrentUserStudy != 0);
+        return requestSave(mFilename, mFormat, mAnswers, mCurrentUserStudy != 0);
     }
 
     private boolean readRadio(int viewId, String name) {
@@ -261,7 +260,7 @@ public class ParticipationActivity extends MotherActivity {
     public void setupUserStudy(int page){
         if (page == 0) {
             mDone = false;
-            setContentView(R.layout.activity_participation);
+            setContentView(R.layout.lets_see1);
 
             if (mCurrentInterruption != -1) {
                 if (setupValues != null) {
@@ -277,7 +276,7 @@ public class ParticipationActivity extends MotherActivity {
                 } else System.err.println("Problem reading the interruptions file.");
             } else System.err.println("Current interruption extra was not added to intent.");
         } else {
-            setContentView(R.layout.activity_participation_1);
+            setContentView(R.layout.lets_see2);
             ((TextView) findViewById(R.id.user_study_question)).setText(
                     String.format(getString(R.string.user_study_question), mChoice));
         }
@@ -291,10 +290,9 @@ public class ParticipationActivity extends MotherActivity {
             if (mCurrentUserStudy == 1) {
                 temp[0] = mAnswers[0];
             }
-            mEditor.putBoolean(getString(R.string.upload_pending)
-                    + mFilename.substring(0, mFilename.length() - 4), true);
+            mEditor.putBoolean(SP_UPLOAD_PENDING + mFilename, true);
+            requestSave(mFilename, mFormat, temp, mCurrentUserStudy != 0);
             mEditor.commit();
-            requestSave(mFilename, temp, mCurrentUserStudy != 0);
         }
         super.onStop();
     }

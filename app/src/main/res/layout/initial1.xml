@@ -25,7 +25,7 @@
             android:layout_marginLeft="14dp"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="14dp"
-            android:progress="0"
+            android:progress="1"
             android:max="4"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp" />
@@ -354,9 +354,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/next"
-            android:id="@+id/demographics0_next"
+            android:id="@+id/next"
             android:layout_gravity="right"
-            android:onClick="nextDemographics"
+            android:onClick="nextInitial"
             android:layout_below="@+id/time_group"
             android:layout_alignRight="@+id/time_group"
             android:layout_marginBottom="10dp" />
@@ -364,7 +364,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/demographics0_next"
+            android:layout_below="@+id/next"
             android:layout_marginTop="50dp"/>
 
     </RelativeLayout>

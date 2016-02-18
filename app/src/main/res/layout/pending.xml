@@ -13,52 +13,116 @@
             android:paddingRight="@dimen/activity_horizontal_margin"
             android:paddingTop="@dimen/activity_vertical_margin">
 
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:id="@+id/demoImage"
-            android:layout_alignParentTop="false"
-            android:layout_alignTop="@+id/textView"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentLeft="true"
-            android:contentDescription="image to identify if demographics were done and/or uploaded" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:id="@+id/progressLayout">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/initialProgress"
+                android:max="4"
+                android:progress="0"
+                android:layout_weight="0.15" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/initialStage" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/studyProgress"
+                android:max="90"
+                android:layout_weight="0.7"
+                android:progress="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/marker"
+                android:id="@+id/middleStage"
+                android:gravity="center_horizontal|right" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/finalProgress"
+                android:max="4"
+                android:progress="0"
+                android:layout_weight="0.15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="1"
+            android:id="@+id/layout"
+            android:layout_below="@+id/progressLayout"
+            android:layout_alignLeft="@+id/progressLayout"
+            android:layout_alignRight="@+id/progressLayout">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:id="@+id/textView"
+                android:layout_weight="0.15"
+                android:gravity="center_horizontal"
+                android:text="@string/initial_activities" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/study"
+                android:id="@+id/textView33"
+                android:layout_weight="0.7"
+                android:gravity="center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/final_activities"
+                android:id="@+id/textView35"
+                android:layout_weight="0.15"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/demographics"
-            android:id="@+id/textView"
-            android:layout_alignParentTop="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:id="@+id/missedInterruptions"
+            android:layout_marginLeft="14dp"
             android:layout_marginTop="10dp"
-            android:textColor="#333333"
-            android:textStyle="bold"
-            android:layout_toRightOf="@+id/demoImage"
-            android:layout_marginLeft="15dp" />
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:id="@+id/scenarioImage"
-            android:layout_alignParentTop="false"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentLeft="true"
-            android:contentDescription="image to identify if scenarios were done and/or uploaded" />
+            android:layout_marginRight="4dp"
+            android:layout_below="@+id/layout"
+            android:textColor="#ff0000" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/scenarios"
-            android:id="@+id/textView2"
-            android:layout_below="@+id/textView"
-            android:layout_marginTop="10dp"
-            android:textColor="#333333"
-            android:textStyle="bold"
-            android:layout_alignLeft="@+id/textView" />
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/missed_interruptions"
+            android:id="@+id/textView39"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_alignTop="@+id/missedInterruptions"
+            android:layout_toRightOf="@+id/missedInterruptions" />
 
         <LinearLayout
             android:orientation="vertical"
@@ -66,8 +130,8 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="14dp"
             android:layout_marginRight="14dp"
-            android:layout_below="@+id/textView2"
-            android:layout_marginTop="20dp">
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/textView39">
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
