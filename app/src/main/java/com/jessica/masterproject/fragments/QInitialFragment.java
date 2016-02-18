@@ -11,18 +11,18 @@ import android.view.ViewGroup;
 import com.jessica.masterproject.MainActivity;
 import com.jessica.masterproject.R;
 
-public class DemographicsFragment extends Fragment {
+public class QInitialFragment extends Fragment {
     private static final String ARG_TAB_NUMBER = "tab_number";
-    public int mCurrentDemographic = 0;
+    public int mCurrentQuestionnaire = 0;
     private int mCurrentAnswer = 0;
     private String[] mAnswers;
     private View mView;
 
-    public DemographicsFragment() {
+    public QInitialFragment() {
     }
 
-    public static DemographicsFragment newInstance(int tabNumber) {
-        DemographicsFragment fragment = new DemographicsFragment();
+    public static QInitialFragment newInstance(int tabNumber) {
+        QInitialFragment fragment = new QInitialFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_TAB_NUMBER, tabNumber);
         fragment.setArguments(args);
@@ -50,7 +50,7 @@ public class DemographicsFragment extends Fragment {
 
     private boolean readAnswers() {
         mCurrentAnswer = 0;
-        switch(mCurrentDemographic) {
+        switch(mCurrentQuestionnaire) {
             case 0:
                 mAnswers = new String[13];
                 return readRadio(R.id.gender_group, "Sexo")
@@ -100,39 +100,40 @@ public class DemographicsFragment extends Fragment {
         return false;
     }
 
-    public boolean saveDemographic() {
+    public boolean saveQuestionnaire() {
         if(!readAnswers())
             return false;
 
-        return ((MainActivity)getActivity()).requestSave(getString(R.string.demographic_filename), mAnswers, mCurrentDemographic != 0);
+        return ((MainActivity)getActivity()).requestSave(MainActivity.QUESTIONNAIRE_FILENAME,
+                MainActivity.FILE_FORMAT, mAnswers, mCurrentQuestionnaire != 0);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         int layout = 0;
-        mCurrentDemographic = getArguments().getInt(ARG_TAB_NUMBER);
+        mCurrentQuestionnaire = getArguments().getInt(ARG_TAB_NUMBER);
 
-        switch(mCurrentDemographic) {
+        switch(mCurrentQuestionnaire) {
             case 0:
-                layout = R.layout.demographics0;
+                layout = R.layout.initial1;
                 break;
             case 1:
-                layout = R.layout.demographics1;
+                layout = R.layout.initial2;
                 break;
             case 2:
-                layout = R.layout.demographics2;
+                layout = R.layout.initial3;
                 break;
             case 3:
-                layout = R.layout.demographics3;
+                layout = R.layout.initial4;
                 break;
             case 4:
                 layout = R.layout.done;
-                SharedPreferences mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+                SharedPreferences mSharedPref = getActivity().getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
                 SharedPreferences.Editor mEditor = mSharedPref.edit();
-                String filename = getString(R.string.demographic_filename);
-                if (!mSharedPref.getBoolean(getString(R.string.upload_done) + filename.substring(0, filename.length() - 4), false)) {
-                    mEditor.putBoolean(getString(R.string.upload_pending) + filename.substring(0, filename.length() - 4), true);
+                String filename = MainActivity.QUESTIONNAIRE_FILENAME;
+                if (!mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + filename, false)) {
+                    mEditor.putBoolean(MainActivity.SP_UPLOAD_PENDING + filename, true);
                     mEditor.commit();
                     ((MainActivity) getActivity()).updatePending();
                 }

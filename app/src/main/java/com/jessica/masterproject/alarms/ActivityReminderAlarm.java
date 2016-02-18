@@ -13,52 +13,64 @@ import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
 
 import com.jessica.masterproject.MainActivity;
-import com.jessica.masterproject.MotherActivity;
 import com.jessica.masterproject.R;
 
 import java.text.ParseException;
 import java.util.GregorianCalendar;
 
-public class ReminderDSAlarm extends BroadcastReceiver {
+public class ActivityReminderAlarm extends BroadcastReceiver {
 
-    public ReminderDSAlarm() {
+    public ActivityReminderAlarm() {
         super();
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        System.out.println("[LOG] Reminder DS Alarm started.");
         if (intent.getAction() != null && intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             // If system rebooted reset alarm
             GregorianCalendar intTime = new GregorianCalendar();
+            Intent reminderIntent = new Intent(context, ActivityReminderAlarm.class);
             try {
-                intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
+                // If before interruptions start, set time to remind users of initial activities
+                if (new GregorianCalendar().getTime().before(MainActivity.FORMAT.parse(MainActivity.INTERRUPTIONS_START))) {
+                    intTime.setTime(MainActivity.FORMAT.parse(MainActivity.SCENARIO_ONE_START));
+                    if (new GregorianCalendar().getTime().before(MainActivity.FORMAT.parse(MainActivity.SCENARIO_ONE_REMINDER))) {
+                        reminderIntent.putExtra("interval", 2 * MainActivity.HOUR);
+                    }
+                    else reminderIntent.putExtra("interval", MainActivity.HOUR / 2);
+                    MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
+                }
+                // If after interruptions end, set time to remind users of finishing final activities
+                else {
+                    intTime.setTime(MainActivity.FORMAT.parse(MainActivity.INTERRUPTIONS_END));
+                    if (new GregorianCalendar().getTime().before(MainActivity.FORMAT.parse(MainActivity.SCENARIO_TWO_REMINDER))) {
+                        reminderIntent.putExtra("interval", 2 * MainActivity.HOUR);
+                    }
+                    else reminderIntent.putExtra("interval", MainActivity.HOUR / 2);
+                    MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            MainActivity.reScheduleAlarm(context.getApplicationContext(),
-                    intTime.getTimeInMillis(),
-                    new Intent(context, ReminderDSAlarm.class));
         }
         else {
-            boolean setReminder = false;
+            boolean setReminder = true;
             String[] files = new String[2];
 
-            SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+            SharedPreferences mSharedPref = context.getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
 
-            files[0] = context.getString(R.string.scenarios_filename)
-                    .substring(0, context.getString(R.string.scenarios_filename).length() - 4);
-            files[1] = context.getString(R.string.demographic_filename)
-                    .substring(0, context.getString(R.string.demographic_filename).length() - 4);
+            files[0] = MainActivity.SCENARIOS_FILENAME;
+            files[1] = MainActivity.QUESTIONNAIRE_FILENAME;
 
             for (int i = 0; i < 2; i++) {
-                if (!mSharedPref.getBoolean(context.getString(R.string.upload_pending) + files[i], false)
-                        && !mSharedPref.getBoolean(context.getString(R.string.upload_done) + files[i], false)) {
+                if (!mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + files[i], false)
+                        && !mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + files[i], false)) {
                     Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
                     long[] pattern = {500, 500, 500, 500, 250, 500, 125, 500};
 
                     Intent notificationIntent = new Intent(context, MainActivity.class);
+                    notificationIntent.putExtra("clicked", true);
                     notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                             | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
@@ -74,8 +86,8 @@ public class ReminderDSAlarm extends BroadcastReceiver {
                                     .setAutoCancel(true)
                                     .setPriority(NotificationCompat.PRIORITY_MAX)
                                     .setCategory(Notification.CATEGORY_ALARM)
-                                    .setContentTitle(context.getString(R.string.pending_ds_title))
-                                    .setContentText(context.getString(R.string.pending_ds_text))
+                                    .setContentTitle(context.getString(R.string.pending_qs_title))
+                                    .setContentText(context.getString(R.string.pending_qs_text))
                                     .setContentIntent(pendingIntent);
                     // Sets an ID for the notification
                     int mNotificationId = 1;
@@ -84,14 +96,14 @@ public class ReminderDSAlarm extends BroadcastReceiver {
                             (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
                     // Builds the notification and issues it.
                     notificationManager.notify(mNotificationId, mBuilder.build());
-                    setReminder = true;
                 }
+                else setReminder = false;
             }
 
             if (setReminder) {
-                // In case it wasn't done, reschedule alarm for the next 30 min
+                // In case it wasn't done, reschedule alarm for the interval defined or hour if none defined.
                 MainActivity.reScheduleAlarm(context.getApplicationContext(),
-                        (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR/2,
+                        (new GregorianCalendar()).getTimeInMillis() + intent.getLongExtra("interval", MainActivity.HOUR),
                         intent);
             }
         }

@@ -8,14 +8,13 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import com.jessica.masterproject.MainActivity;
-import com.jessica.masterproject.R;
 import com.jessica.masterproject.helpers.FileUploader;
 
 import java.util.GregorianCalendar;
 
-public class UploadDSAlarm extends BroadcastReceiver {
+public class UploadQSAlarm extends BroadcastReceiver {
 
-    public UploadDSAlarm() {
+    public UploadQSAlarm() {
         super();
     }
 
@@ -23,32 +22,31 @@ public class UploadDSAlarm extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction() != null && intent.getAction().equals("android.intent.action.BOOT_COMPLETED")) {
             MainActivity.reScheduleAlarm(context.getApplicationContext(),
-                    (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR/2,
-                    new Intent(context, UploadDSAlarm.class));
+                    (new GregorianCalendar()).getTimeInMillis(),
+                    new Intent(context, UploadQSAlarm.class));
         }
         else {
-            boolean setNextDayAlarm = false;
-            String[] files = new String[2];
+            boolean resetAlarm = false;
+            String[] files = new String[3];
 
-            SharedPreferences mSharedPref = context.getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+            SharedPreferences mSharedPref = context.getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
 
-            files[0] = context.getString(R.string.scenarios_filename)
-                    .substring(0, context.getString(R.string.scenarios_filename).length() - 4);
-            files[1] = context.getString(R.string.demographic_filename)
-                    .substring(0, context.getString(R.string.demographic_filename).length() - 4);
+            files[0] = MainActivity.SCENARIOS_FILENAME;
+            files[1] = MainActivity.QUESTIONNAIRE_FILENAME;
+            files[2] = MainActivity.SCENARIOS_DECISIONS_FILENAME;
 
             if (isWiFiAvailable(context)) {
-                for (int i = 0; i < 2; i++) {
-                    if (mSharedPref.getBoolean(context.getString(R.string.upload_pending) + files[i], false)) {
-                        FileUploader.upload(files[i], ".csv", context);
-                    } else if (!mSharedPref.getBoolean(context.getString(R.string.upload_done) + files[i], false)) {
-                        setNextDayAlarm = true;
+                for (int i = 0; i < 3; i++) {
+                    if (mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + files[i], false)) {
+                        FileUploader.upload(files[i], MainActivity.FILE_FORMAT, context);
+                    } else if (!mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + files[i], false)) {
+                        resetAlarm = true;
                     }
                 }
 
-                if (setNextDayAlarm) {
+                if (resetAlarm) {
                     MainActivity.reScheduleAlarm(context.getApplicationContext(),
-                            (new GregorianCalendar()).getTimeInMillis() + MainActivity.DAY,
+                            (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR,
                             intent);
                 }
 

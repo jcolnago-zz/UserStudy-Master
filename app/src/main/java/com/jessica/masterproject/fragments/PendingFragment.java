@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,59 +21,93 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
-import java.util.Set;
 
 
 public class PendingFragment extends Fragment {
     private View mView;
+    private HashSet<String> mInterruptionsPending;
+    private String mCurrentInterruption;
     private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mEditor;
-    private Set<String> mInterruptionsPending;
-    private String mCurrentInterruption;
 
-    public PendingFragment() {
-    }
+    public PendingFragment() { }
 
     public static PendingFragment newInstance() {
         return new PendingFragment();
     }
 
     public void setupPending () {
-        final ImageView scenarios = (ImageView) mView.findViewById(R.id.scenarioImage);
-        final ImageView demo = (ImageView) mView.findViewById(R.id.demoImage);
+        //Overall Information
+        final ProgressBar initialProgress = (ProgressBar) mView.findViewById(R.id.initialProgress);
+        final ProgressBar studyProgress   = (ProgressBar) mView.findViewById(R.id.studyProgress);
+        final ProgressBar finalProgress   = (ProgressBar) mView.findViewById(R.id.finalProgress);
+        final TextView missed             = (TextView) mView.findViewById(R.id.missedInterruptions);
 
-        final boolean scenarios_pending = mSharedPref.getBoolean(getString(R.string.upload_pending) + "scenarios", false);
-        final boolean scenarios_done    = mSharedPref.getBoolean(getString(R.string.upload_done) + "scenarios", false);
-        final boolean demo_pending      = mSharedPref.getBoolean(getString(R.string.upload_pending) + "demographics", false);
-        final boolean demo_done         = mSharedPref.getBoolean(getString(R.string.upload_done) + "demographics", false);
+        final int scenariosPending = mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + MainActivity.SCENARIOS_FILENAME, false) ? 1 : 0;
+        final int scenariosDone    = mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + MainActivity.SCENARIOS_FILENAME, false)? 1 : 0;
+        final int questPending     = mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + MainActivity.QUESTIONNAIRE_FILENAME, false)? 1 : 0;
+        final int questDone        = mSharedPref.getBoolean(MainActivity.SP_UPLOAD_DONE + MainActivity.QUESTIONNAIRE_FILENAME, false)? 1 : 0;
 
-        scenarios.post(new Runnable() {
+        try {
+            if (new GregorianCalendar().getTime().before(MainActivity.FORMAT.parse(MainActivity.INTERRUPTIONS_END))) {
+                initialProgress.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        initialProgress.setMax(MainActivity.ACTIVITIES_PROGRESS);
+                        initialProgress.setProgress(scenariosPending + scenariosDone + questPending + questDone);
+                    }
+                });
+            } else {
+                // There's nothing that can be done, so tell the user it was all done anyway
+                initialProgress.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        initialProgress.setMax(MainActivity.ACTIVITIES_PROGRESS);
+                        initialProgress.setProgress(MainActivity.ACTIVITIES_PROGRESS);
+                    }
+                });
+                finalProgress.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        finalProgress.setMax(MainActivity.ACTIVITIES_PROGRESS);
+                        finalProgress.setProgress(scenariosPending + scenariosDone + questPending + questDone);
+                    }
+                });
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        studyProgress.post(new Runnable() {
             @Override
             public void run() {
-                if(scenarios_pending)
-                    scenarios.setImageResource(R.drawable.ic_done_black_24dp);
-                else if(scenarios_done)
-                    scenarios.setImageResource(R.drawable.ic_done_all_black_24dp);
+                studyProgress.setMax(MainActivity.INTERRUPTIONS);
+                studyProgress.setProgress(mSharedPref.getInt(
+                        MainActivity.SP_LAST_INTERRUPTION, 0));
             }
         });
 
-        demo.post(new Runnable() {
+        missed.post(new Runnable() {
             @Override
             public void run() {
-                if(demo_pending)
-                    demo.setImageResource(R.drawable.ic_done_black_24dp);
-                else if(demo_done)
-                    demo.setImageResource(R.drawable.ic_done_all_black_24dp);
+                missed.setText(String.valueOf(mSharedPref.getInt(
+                        MainActivity.SP_MISSED_INTERRUPTIONS, 0)));
             }
         });
 
-        mInterruptionsPending = mSharedPref.getStringSet(getString(R.string.more_information_interruptions), new HashSet<String>());
-        TextView text = (TextView) mView.findViewById(R.id.pending_question);
-        TextView helpText = (TextView) mView.findViewById(R.id.pending_help);
-        EditText answer = (EditText) mView.findViewById(R.id.editText);
-        Button next = (Button) mView.findViewById(R.id.pending_next);
 
+        // Pending interruptions
+        mInterruptionsPending = new HashSet<>(mSharedPref.getStringSet(MainActivity.SP_MORE_INFORMATION_INTERRUPTIONS, new HashSet<String>()));
+        TextView text         = (TextView) mView.findViewById(R.id.pending_question);
+        TextView helpText     = (TextView) mView.findViewById(R.id.pending_help);
+        EditText answer       = (EditText) mView.findViewById(R.id.editText);
+        Button next           = (Button) mView.findViewById(R.id.pending_next);
+
+        answer.setText("");
         if (!mInterruptionsPending.isEmpty()) {
             mCurrentInterruption = mInterruptionsPending.iterator().next();
             String[] data = readInterruptionFile();
@@ -100,6 +133,7 @@ public class PendingFragment extends Fragment {
                     helpText.setText(String.format(getString(R.string.pending_help), data[1]));
                 } else helpText.setVisibility(View.GONE);
             }
+            else System.err.println(String.format("[ERROR] Interruption file for %s is empty ", mCurrentInterruption));
         } else {
             text.setText(getString(R.string.pending_done));
             helpText.setVisibility(View.GONE);
@@ -110,7 +144,8 @@ public class PendingFragment extends Fragment {
 
     private String[] readInterruptionFile(){
         String interruptionFile = String.valueOf(Environment.getExternalStorageDirectory())
-                + "/annoyme/" + mCurrentInterruption + "_" + getString(R.string.interruption_filename);
+                + "/annoyme/" + mCurrentInterruption + "_" 
+                + MainActivity.INTERRUPTIONS_FILENAME + MainActivity.FILE_FORMAT;
         BufferedReader bufferedReader;
         String line;
         String[] info = null;
@@ -142,12 +177,11 @@ public class PendingFragment extends Fragment {
             return;
         }
 
-        String filename = mCurrentInterruption + "_" + getString(R.string.interruption_filename);
-        if (((MainActivity)getActivity()).requestSave(filename,answer, true)) {
-            mEditor.putBoolean(getString(R.string.upload_pending)
-                    + filename.substring(0, filename.length() - 4), true);
+        String filename = mCurrentInterruption + "_" + MainActivity.INTERRUPTIONS_FILENAME;
+        if (((MainActivity)getActivity()).requestSave(filename, MainActivity.FILE_FORMAT, answer, true)) {
+            mEditor.putBoolean(MainActivity.SP_UPLOAD_PENDING + filename, true);
             mInterruptionsPending.remove(mCurrentInterruption);
-            mEditor.putStringSet(getString(R.string.more_information_interruptions), mInterruptionsPending);
+            mEditor.putStringSet(MainActivity.SP_MORE_INFORMATION_INTERRUPTIONS, (HashSet) mInterruptionsPending.clone());
             mEditor.commit();
         }
 
@@ -157,17 +191,12 @@ public class PendingFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mSharedPref = getActivity().getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
+        mSharedPref = getContext().getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
         mEditor = mSharedPref.edit();
+
         mView = inflater.inflate(R.layout.pending, container, false);
 
         setupPending();
         return mView;
-    }
-
-    @Override
-    public void onResume() {
-        setupPending();
-        super.onResume();
     }
 }

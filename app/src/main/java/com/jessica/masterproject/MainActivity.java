@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.v7.widget.Toolbar;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -15,31 +14,33 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.jessica.masterproject.alarms.DisplayInterruptionAlarm;
-import com.jessica.masterproject.alarms.ReminderDSAlarm;
-import com.jessica.masterproject.alarms.UploadDSAlarm;
+import com.jessica.masterproject.alarms.ActivityReminderAlarm;
+import com.jessica.masterproject.alarms.ResetAlarm;
+import com.jessica.masterproject.alarms.UploadQSAlarm;
 import com.jessica.masterproject.alarms.UploadInterruptionAlarm;
-import com.jessica.masterproject.fragments.DemographicsFragment;
+import com.jessica.masterproject.fragments.QFinalFragment;
+import com.jessica.masterproject.fragments.QInitialFragment;
 import com.jessica.masterproject.fragments.DoneFragment;
 import com.jessica.masterproject.fragments.PendingFragment;
 import com.jessica.masterproject.fragments.ScenariosFragment;
 
 import java.text.ParseException;
 
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class MainActivity extends MotherActivity {
 
-    public static final long DAY = 1000 * 60 * 60 * 24;
-    public static final long HOUR = 1000 * 60 * 60;
-    public static final int INTERRUPTIONS = 150;
-
+    private SharedPreferences mSharedPreferences;
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     // OVERRIDE METHODS FROM MAIN ACTIVITY
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        mSharedPreferences = getSharedPreferences(SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
+        setContentView(R.layout.main_act);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -58,65 +59,73 @@ public class MainActivity extends MotherActivity {
 
         requestMultiplePermissions();
 
-        SharedPreferences mSharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
-
-        // Try to upload Demographics and Scenarios after 2 hours of starting the activity
-        System.out.println("[LOG] MainActivity: setting UploadDSAlarm.");
+        // Try to upload Questionnaire and Scenarios
+          // Check to see if upload is necessary is within alarm's code
         scheduleAlarm(MainActivity.this,
-                ((new GregorianCalendar()).getTimeInMillis() + 2*HOUR),
-                new Intent(MainActivity.this, UploadDSAlarm.class));
+                ((new GregorianCalendar()).getTimeInMillis()),
+                new Intent(MainActivity.this, UploadQSAlarm.class));
 
-        // Remind participant of finishing Demographics and Scenario the day before the start of the study
+        // Try to upload Interruptions
+          // Check to see if upload is necessary is within alarm's code
+        scheduleAlarm(MainActivity.this,
+                ((new GregorianCalendar()).getTimeInMillis()),
+                new Intent(MainActivity.this, UploadInterruptionAlarm.class));
+
+        // Remind participant of finishing activities
         GregorianCalendar intTime = new GregorianCalendar();
+        Intent reminderIntent = new Intent(MainActivity.this, ActivityReminderAlarm.class);
         try {
-            if (new GregorianCalendar().getTime().before(MotherActivity.FORMAT.parse("2016-02-03T01:00:00.000-0200"))) {
-                // Remind participant of finishing Demographics and Scenario the day before the start of the study
-                intTime.setTime(MotherActivity.FORMAT.parse("2016-02-02T12:00:00.000-0200"));
-
-                System.out.println("[LOG] MainActivity: setting ReminderDSAlarm.");
-
-                scheduleAlarm(MainActivity.this,
-                        intTime.getTimeInMillis(),
-                        new Intent(MainActivity.this, ReminderDSAlarm.class));
+            // If before interruptions start, set time to remind users of initial activities
+            if (new GregorianCalendar().getTime().before(FORMAT.parse(INTERRUPTIONS_START))) {
+                intTime.setTime(FORMAT.parse(SCENARIO_ONE_START));
+                if (new GregorianCalendar().getTime().before(FORMAT.parse(SCENARIO_ONE_REMINDER))) {
+                    reminderIntent.putExtra("interval", 2 * HOUR);
+                }
+                else reminderIntent.putExtra("interval", HOUR / 2);
+                scheduleAlarm(MainActivity.this, intTime.getTimeInMillis() + HOUR / 6, reminderIntent);
+            }
+            // If after interruptions end, set time to remind users of finishing final activities
+            else {
+                intTime.setTime(FORMAT.parse(INTERRUPTIONS_END));
+                if (new GregorianCalendar().getTime().before(FORMAT.parse(SCENARIO_TWO_REMINDER))) {
+                    reminderIntent.putExtra("interval", 2 * HOUR);
+                }
+                else reminderIntent.putExtra("interval", HOUR / 2);
+                scheduleAlarm(MainActivity.this, intTime.getTimeInMillis() + HOUR / 6, reminderIntent);
             }
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        System.out.println("[LOG] MainActivity: setting ReminderDSAlarm.");
+        //Set up alarm for resetting values for final activities
+        try {
+            intTime.setTime(FORMAT.parse(INTERRUPTIONS_END));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         scheduleAlarm(MainActivity.this,
                 intTime.getTimeInMillis(),
-                new Intent(MainActivity.this, ReminderDSAlarm.class));
+                new Intent(MainActivity.this, ResetAlarm.class));
 
         // Set up alarm for the first interruption
-        int lastInterruption = mSharedPref.getInt(getString(R.string.last_interruption), 0);
+        int lastInterruption = mSharedPreferences.getInt(SP_LAST_INTERRUPTION, 0);
         if (lastInterruption != INTERRUPTIONS) {
             Intent interruptionIntent = new Intent(MainActivity.this, DisplayInterruptionAlarm.class);
-            interruptionIntent.putExtra("current_interruption", lastInterruption + 1);
-
             String[] setupValues = getResources().getStringArray(R.array.interruptions);
 
             try {
-                intTime.setTime(MotherActivity.FORMAT.parse(setupValues[lastInterruption * 3 + 2]));
+                intTime.setTime(FORMAT.parse(setupValues[lastInterruption * 3 + 2]));
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            System.out.println("[LOG] MainActivity: setting DisplayInterruptionAlarm: " + (lastInterruption+1));
+
+            interruptionIntent.putExtra("current_interruption", lastInterruption + 1);
+            long elapsed_time = intTime.getTimeInMillis() - new GregorianCalendar().getTimeInMillis();
+            interruptionIntent.putExtra("lost_time", elapsed_time < 0 ? -elapsed_time : 0);
             scheduleAlarm(MainActivity.this,
                     intTime.getTimeInMillis(),
                     interruptionIntent);
         }
-
-        // Set alarm to upload interruptions at 8pm of the first day of the study
-        try {
-            intTime.setTime(MotherActivity.FORMAT.parse("2016-02-03T20:00:00.000-0200"));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        System.out.println("[LOG] MainActivity: setting UploadInterruptionAlarm.");
-        scheduleAlarm(MainActivity.this,
-                intTime.getTimeInMillis(),
-                new Intent(MainActivity.this, UploadInterruptionAlarm.class));
     }
 
     @Override
@@ -128,9 +137,12 @@ public class MainActivity extends MotherActivity {
     }
 
     // METHODS FROM MAIN ACTIVITY
+    public void nextInitial (View view) {
+        mSectionsPagerAdapter.nextQInitial();
+    }
 
-    public void nextDemographics(View view) {
-        mSectionsPagerAdapter.nextDemographics();
+    public void nextFinal (View view) {
+        mSectionsPagerAdapter.nextQFinal();
     }
 
     public void nextScenario(View view) {
@@ -149,45 +161,68 @@ public class MainActivity extends MotherActivity {
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
         private final FragmentManager mFragmentManager;
-        private int mCurrentDemographic = 0;
-        private Fragment mDemFragment;
+        private int mCurrentQuest = 0;
+        private Fragment mQuestFragment;
         private Fragment mScenFragment;
         private Fragment mPendingFragment;
-        private boolean mUpdateDemographics = false;
+        private boolean mUpdateInitial = false;
 
         public SectionsPagerAdapter(FragmentManager fm) {
             super(fm);
             mFragmentManager = fm;
 
-            SharedPreferences SharedPref = getSharedPreferences(String.valueOf(R.string.preference_file), Context.MODE_PRIVATE);
-
-            if ((SharedPref.getBoolean(getString(R.string.upload_pending)
-                    + getString(R.string.demographic_filename).substring(0, getString(R.string.demographic_filename).length() - 4), false)
-                    || SharedPref.getBoolean(getString(R.string.upload_done)
-                    + getString(R.string.demographic_filename).substring(0, getString(R.string.demographic_filename).length() - 4), false))) {
-                mDemFragment = DemographicsFragment.newInstance(4);
+            if ((mSharedPreferences.getBoolean(SP_UPLOAD_PENDING + QUESTIONNAIRE_FILENAME, false)
+                    || mSharedPreferences.getBoolean(SP_UPLOAD_DONE + QUESTIONNAIRE_FILENAME, false)))
+                mQuestFragment =  DoneFragment.newInstance();
+            else {
+                try {
+                    Date date = new GregorianCalendar().getTime();
+                    if (date.before(FORMAT.parse(INTERRUPTIONS_END)))
+                        mQuestFragment = QInitialFragment.newInstance(0);
+                    else
+                        mQuestFragment = QFinalFragment.newInstance(0);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
-            else mDemFragment = DemographicsFragment.newInstance(0);
 
-            if ((SharedPref.getBoolean(getString(R.string.upload_pending)
-                    + getString(R.string.scenarios_filename).substring(0, getString(R.string.scenarios_filename).length() - 4), false)
-                    || SharedPref.getBoolean(getString(R.string.upload_done)
-                    + getString(R.string.scenarios_filename).substring(0, getString(R.string.scenarios_filename).length() - 4), false))) {
+            if ((mSharedPreferences.getBoolean(SP_UPLOAD_PENDING + SCENARIOS_FILENAME, false)
+                    || mSharedPreferences.getBoolean(SP_UPLOAD_DONE + SCENARIOS_FILENAME, false)))
                 mScenFragment = DoneFragment.newInstance();
+            else {
+                try {
+                    Date date = new GregorianCalendar().getTime();
+                    if ((date.after(FORMAT.parse(SCENARIO_ONE_START))
+                            && date.before(FORMAT.parse(INTERRUPTIONS_START)))
+                        || date.after(FORMAT.parse(INTERRUPTIONS_END)))
+                        mScenFragment = ScenariosFragment.newInstance();
+                    else mScenFragment = DoneFragment.newInstance();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
-            else mScenFragment = ScenariosFragment.newInstance();
-
             mPendingFragment = PendingFragment.newInstance();
         }
 
-        public void nextDemographics() {
-            DemographicsFragment fragment = (DemographicsFragment) mDemFragment;
-            if(!fragment.saveDemographic())
+        public void nextQInitial() {
+            QInitialFragment fragment = (QInitialFragment) mQuestFragment;
+            if(!fragment.saveQuestionnaire())
                 return;
 
-            mUpdateDemographics = true;
-            mFragmentManager.beginTransaction().remove(mDemFragment).commit();
-            mDemFragment = DemographicsFragment.newInstance(++mCurrentDemographic);
+            mUpdateInitial = true;
+            mFragmentManager.beginTransaction().remove(mQuestFragment).commit();
+            mQuestFragment = QInitialFragment.newInstance(++mCurrentQuest);
+            notifyDataSetChanged();
+        }
+
+        public void nextQFinal() {
+            QFinalFragment fragment = (QFinalFragment) mQuestFragment;
+            if(!fragment.saveQuestionnaire())
+                return;
+
+            mUpdateInitial = true;
+            mFragmentManager.beginTransaction().remove(mQuestFragment).commit();
+            mQuestFragment = QFinalFragment.newInstance(++mCurrentQuest);
             notifyDataSetChanged();
         }
 
@@ -215,7 +250,7 @@ public class MainActivity extends MotherActivity {
             switch(position)
             {
                 case 1:
-                    return mDemFragment;
+                    return mQuestFragment;
                 case 2:
                     return mScenFragment;
                 default:
@@ -225,15 +260,20 @@ public class MainActivity extends MotherActivity {
 
         @Override
         public int getItemPosition(Object object) {
-            if(object instanceof DemographicsFragment) {
-                if(mUpdateDemographics) {
-                    mUpdateDemographics = false;
+            if(object instanceof QInitialFragment) {
+                if(mUpdateInitial) {
+                    mUpdateInitial = false;
                     return POSITION_NONE;
                 }
             } else if (object instanceof ScenariosFragment) {
                 ScenariosFragment fragment = (ScenariosFragment) object;
                 if(fragment.isDone())
                     return POSITION_NONE;
+            } else if(object instanceof QFinalFragment) {
+                if(mUpdateInitial) {
+                    mUpdateInitial = false;
+                    return POSITION_NONE;
+                }
             }
             return POSITION_UNCHANGED;
         }
@@ -249,15 +289,12 @@ public class MainActivity extends MotherActivity {
                 case 0:
                     return "A Fazer";
                 case 1:
-                    return "Demog.";
+                    return "Questionário";
                 case 2:
                     return "Cenários";
-
             }
             return null;
         }
     }
-
-
 }
 

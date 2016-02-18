@@ -1,35 +1,22 @@
 <resources>
     <string name="app_name">Estudo de Caso</string>
-    <string name="demographics">Demográfico</string>
+    <string name="questionnaire">Questionário</string>
     <string name="scenarios">Cenários</string>
     <string name="missing_option">Você deve selecionar uma opção para: </string>
     <string name="missing_user_study_reason">Você esqueceu de dizer o porquê da sua escolha.</string>
     <string name="marker">I</string>
+    <string name="initial_activities">Atividades\nIniciais</string>
+    <string name="final_activities">Atividades\nFinais</string>
+    <string name="missed_interruptions">interrupções perdidas até o momento</string>
 
     <string name="pending">Você marcou agora não dizendo: "%s". Você poderia elaborar mais sobre o motivo? </string>
     <string name="missing_answer">Uma resposta é necessária. \nCaso não lembre, por favor escreva \'não lembro\'.</string>
+    <string name="done">Nada a fazer aqui no momento. </string>
 
-    <string name="scenarios_filename">scenarios.csv</string>
-    <string name="demographic_filename">demographics.csv</string>
-    <string name="interruption_filename">interruption.csv</string>
-
-    <!-- Shared Preferences -->
-    <string name="preference_file">com.jessica.app.preference_file</string>
-    <string name="current_scenario">com.jessica.app.current_scenario</string>
-    <string name="upload_pending">com.jessica.app.upload_pending_</string>
-    <string name="upload_done">com.jessica.app.upload_done_</string>
-    <string name="last_interruption_uploaded">com.jessica.app.last_interruption_uploaded</string>
-    <string name="last_interruption">com.jessica.app.last_interruption</string>
-    <string name="last_low_sensitivity">com.jessica.app.last_low_sensitivity</string>
-    <string name="last_medium_sensitivity">com.jessica.app.last_medium_sensitivity</string>
-    <string name="last_high_sensitivity">com.jessica.app.last_high_sensitivity</string>
-    <string name="more_information_interruptions">com.jessica.app.more_information_interruptions</string>
-    <!-- end Shared Preferences -->
-
-    <!-- Pending demographics or scenarios notification -->
-    <string name="pending_ds_title">Atividade Inicial Pendente</string>
-    <string name="pending_ds_text">Clique aqui para ir para o aplicativo.</string>
-    <!-- end pending demographics or scenarios notification -->
+    <!-- Pending questionnaire or scenarios notification -->
+    <string name="pending_qs_title">Atividade Pendente</string>
+    <string name="pending_qs_text">Clique aqui para ir para o aplicativo.</string>
+    <!-- end pending questionnaire or scenarios notification -->
 
     <!-- User study notification -->
     <string name="participation_request_title">Hora de decidir!</string>
@@ -41,12 +28,19 @@
     <!-- Choice values -->
     <string name="disagree">Discordo \ncompletamente</string>
     <string name="agree">Concordo \ncompletamente</string>
+    <string name="irrelevant">Irrelevante</string>
+    <string name="relevant">Relevante</string>
+    <string name="soso">Meio relevante\nNão tenho certez</string>
+    <string name="too_long">Muito longa</string>
+    <string name="too_short">Muito curta</string>
     <string name="never">Nunca</string>
     <string name="half_noidea">Na metade do tempo\nNão tenho certeza </string>
     <string name="always">Sempre</string>
     <string name="yes">Sim</string>
     <string name="no">Não</string>
     <string name="other">Outros</string>
+    <string name="choose">Escolher</string>
+    <string name="delegate">Delegar</string>
     <!-- End Choice values -->
 
     <!-- Buttons -->
@@ -57,18 +51,16 @@
     <!-- User Study -->
     <string name="certainty">Eu tenho %s de certeza na decisão que eu faria por você.</string>
     <string name="user_study_greeting">Agora que você tem mais informações, o que você preferiria?</string>
-    <string name="user_study_choose">Escolher</string>
-    <string name="user_study_delegate">Delegar</string>
 
     <string name="user_study_mood">Como você está se sentindo? </string>
     <string name="user_study_activity">Você está ocupado? </string>
     <string name="user_study_engagement">Você está interagindo pessoalmente com outras pessoas? </string>
     <string name="user_study_social_acceptance">Você acha foi rude ser interrompido agora?</string>
-    <string name="user_study_frequency">A frequência de interrupções está...</string>
+    <string name="user_study_frequency">A frequência de interrupções está…</string>
     <string name="user_study_frequency_low">baixa</string>
     <string name="user_study_frequency_medium">média</string>
     <string name="user_study_frequency_high">alta</string>
-    <string name="user_study_question">Eu decidi %s por causa...</string>
+    <string name="user_study_question">Eu decidi %s por causa…</string>
     <string name="user_study_data">do dado sendo requisitado</string>
     <string name="user_study_requester">de quem estava requisitando</string>
     <string name="user_study_motive">do uso que seria feito</string>
@@ -94,7 +86,7 @@
     <!-- End Pending -->
 
     <!-- Demo -->
-    <!-- demographics0.xml -->
+    <!-- initial1-->
     <string name="indicate_answer">Por favor, responda as questões abaixo: </string>
     <string name="gender">Sexo</string>
     <string name="female">Feminino</string>
@@ -127,9 +119,8 @@
     <string name="time_group2">Entre 2 e 6 horas</string>
     <string name="time_group3">Entre 6 e 8 horas</string>
     <string name="time_group4">Mais do que 8 horas</string>
-    <!-- end demographics0.xml -->
-
-    <!-- demographics1.xml -->
+    <!-- end initial1.xml -->
+    <!-- initial2.xml  -->
     <string name="indicate_agreement">Por favor, indique o seu nível de concordância com as frases abaixo: </string>
     <string name="inttrust1">Conto com meu celular / tablet / computador para lembrar de eventos importantes.</string>
     <string name="inttrust2">Possuo documentos importantes no meu computador / tablet / celular sem cópias em outros lugares.</string>
@@ -137,9 +128,9 @@
     <string name="inttrust4">Quanto mais tecnológico algo é, fico mais preocupado que algo vai dar errado.</string>
     <string name="inttrust5">Desligo as notificações do celular / tablet / computador sempre que posso. </string>
     <string name="inttrust6">Não gosto de ser interrompido enquanto estou concentrado.</string>
-    <!-- end demographics1.xml -->
+    <!-- end initial2-->
 
-    <!-- demographics2.xml -->
+    <!-- initial3.xml -->
     <string name="indicate_action">Por favor, indique se você já fez alguma das opções abaixo: </string>
     <string name="pb1">Se recusou a dar informação online porque você achou que era muito pessoal ou desnecessária.</string>
     <string name="pb2">Decidiu não usar um site / aplicativo / programa porque você não tinha certeza como as suas informações seriam utilizadas.</string>
@@ -150,9 +141,9 @@
     <string name="westin1">Consumidores perderam todo o controle sobre como suas informações pessoais são coletadas e usadas pelas empresas.</string>
     <string name="westin2">A maioria dos negócios lidam com informações pessoais coletadas dos seus clientes de forma correta e confidencial.</string>
     <string name="westin3">Existem leis e práticas organizacionais que fornecem um nível razoável de proteção para a privacidade dos consumidores.</string>
-    <!-- end demographics2.xml -->
+    <!-- end initial3-->
 
-    <!-- demographics3.xml -->
+    <!-- initial4.xml -->
     <string name="indicate_frequency">Por favor, indique a frequência com a qual as frases abaixo se aplicam a você: </string>
     <string name="control1">Eu prefiro um emprego / uma ocupação na qual eu tenha muito controle sobre o que eu faço e quando eu faço.</string>
     <string name="control2">Eu gosto de participar politicamente porque eu quero ter o máximo de participação que eu posso em como as políticas públicas devem ser feitas</string>
@@ -164,7 +155,7 @@
     <string name="control8">Eu queria poder deixar outra pessoa decidir por mim o máximo das minhas decisões de vida.</string>
     <string name="control9">Existem muitas situações nas quais eu preferiria só ter uma opção do que ter que tomar uma decisão.</string>
     <string name="control10">Eu gosto de esperar e ver se outra pessoa vai resolver um problema para eu não ter que me preocupar com isso.</string>
-    <!-- end demographics3.xml -->
+    <!-- end initial4.xml -->
     <!-- End Demo -->
 
     <!-- Scenarios classification -->
@@ -172,6 +163,7 @@
     <string name="low_sensitivity">Permitiria tranquilamente</string>
     <string name="medium_sensitivity">Permitiria incomodado</string>
     <string name="high_sensitivity">Não permitiria</string>
+    <string name="decision">Considerando esse cenário e um agente inteligente eu preferiria…</string>
 
     <string name="default_low_sensitivity">Imagine uma situação onde você NÃO ACHA importante a sua privacidade no compartilhamento de dados.</string>
     <string name="default_medium_sensitivity">Imagine uma situação onde você ACHA MEIO importante a sua privacidade no compartilhamento de dados.</string>
@@ -289,4 +281,54 @@
         <item>Seu carro quer informações sobre seu itinerário para determinar se tem autonomia para o percurso.</item>
     </string-array>
     <!-- End Scenarios -->
+
+    <!-- Final Questionnaire -->
+    <!-- final1.xml -->
+    <string name="indicate_relevance">Por favor complete as frases com o nível de relevância mais adequado à sua experiência</string>
+    <string name="imo">Eu acho que na hora de escolher se eu delegaria ou preferiria responder eu mesmo…</string>
+    <string name="relevance1">…o meu humor na hora de decidir foi:</string>
+    <string name="relevance2">…o quanto eu estava ocupado foi:</string>
+    <string name="relevance3">…se eu estava interagindo com outras pessoas foi:</string>
+    <string name="relevance4">…a minha característica pessoal de querer ter controle sobre as minhas decisões foi:</string>
+    <string name="relevance5">…o quão socialmente aceitável era ter sido interrompido naquele momento foi:</string>
+    <string name="relevance6">…o nível de certeza que o agente dizia ter foi:</string>
+    <string name="relevance7">…a quantidade de interrupções que já haviam acontecido foi:</string>
+    <string name="relevance8">…a minha característica pessoal do quanto eu me preocupo com minha privacidade foi:</string>
+    <string name="relevance9">…a pessoa ou objeto que queria acesso as minhas informações foi:</string>
+    <string name="relevance10">…o tipo de dado sendo requisitado foi:</string>
+    <string name="relevance11">…o uso que seria feito do dado sendo requisitado foi:</string>
+    <string name="relevance12">…a minha confiança que um agente inteligente responderia corretamente por mim:</string>
+    <string name="relevance13">…o quanto eu gostaria de garantir que a escolha seria feita corretamente foi:</string>
+    <string name="relevance14">…o nível de sensitividade dos cenários apresentados foi:</string>
+    <!-- end final1.xml -->
+
+    <!-- final2.xml -->
+    <string name="missed">Durante o estudo você não esteve presente para interagir com %s notificações. Se isso acontecesse na realidade da Internet das Coisas isso implicaria que essas coisas tentaram ter acesso aos seus dados e não tiveram uma resposta.</string>
+    <string name="missed_question"> Considerando essa situação de você não estar presente para responder um requerimento,  o que você preferiria?</string>
+    <string name="missed1">Negar acesso independente de quem fosse, o que queria e do motivo da requisição.</string>
+    <string name="missed2">Permitir acesso considerando opções padrão definidas por você (sobre quem, o que e por que motivo).</string>
+    <string name="missed3">Deixar o agente de privacidade responder somente se ele tivesse uma certeza alta.</string>
+    <string name="missed4">Deixar o agente de privacidade responder se ele tivesse uma certeza de média a alta.</string>
+    <string name="missed5">Deixar o agente de privacidade responder independente da certeza que ele tivesse da escolha.</string>
+    <string name="missed6">Permitir acesso independente de quem fosse, o que queria e do motivo da requisição.</string>
+    <!-- end final2.xml -->
+
+    <!-- final3.xml -->
+    <string name="indicate_study_length">O que você achou sobre a duração do estudo referente ao período com as interrupções?</string>
+    <string name="indicate_interruption">O que você achou sobre a quantidade de interrupções por dia?</string>
+    <string name="interruption1">Excessiva</string>
+    <string name="interruption2">Achei que eram muitas, mas não me incomodou tanto.</string>
+    <string name="interruption3">Foi uma quantidade razoável.</string>
+    <string name="interruption4">Achei que foram poucas, poderia ter respondido mais.</string>
+    <string name="interruption_low">Acho uma interrupção por hora uma frequência baixa de interrupções.</string>
+    <string name="interruption_medium">Acho duas interrupções por hora uma frequência média de interrupções.</string>
+    <string name="interruption_high">Acho três ou mais interrupções por hora uma frequência alta de interrupções.</string>
+    <!-- end final3.xml -->
+
+    <!-- final4.xml -->
+    <string name="opinion1">Houveram situações desagradáveis, engraçadas e/ou interessantes que você gostaria de compartilhar conosco?</string>
+    <string name="opinion2">Você tem algum outro comentário que gostaria de fazer?</string>
+    <!-- end final4.xml -->
+
+    <!-- End Final -->
 </resources>
