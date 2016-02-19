@@ -82,7 +82,9 @@ public class MainActivity extends MotherActivity {
                     reminderIntent.putExtra("interval", 2 * HOUR);
                 }
                 else reminderIntent.putExtra("interval", HOUR / 2);
-                scheduleAlarm(MainActivity.this, intTime.getTimeInMillis() + HOUR / 6, reminderIntent);
+                if (intTime.getTimeInMillis()-(new GregorianCalendar()).getTimeInMillis() < 0) {
+                    scheduleAlarm(MainActivity.this, (new GregorianCalendar()).getTimeInMillis() + HOUR / 6, reminderIntent);
+                } else scheduleAlarm(MainActivity.this, intTime.getTimeInMillis(), reminderIntent);
             }
             // If after interruptions end, set time to remind users of finishing final activities
             else {
@@ -91,7 +93,9 @@ public class MainActivity extends MotherActivity {
                     reminderIntent.putExtra("interval", 2 * HOUR);
                 }
                 else reminderIntent.putExtra("interval", HOUR / 2);
-                scheduleAlarm(MainActivity.this, intTime.getTimeInMillis() + HOUR / 6, reminderIntent);
+                if (intTime.getTimeInMillis()-(new GregorianCalendar()).getTimeInMillis() < 0) {
+                    scheduleAlarm(MainActivity.this, (new GregorianCalendar()).getTimeInMillis() + HOUR / 6, reminderIntent);
+                } else scheduleAlarm(MainActivity.this, intTime.getTimeInMillis(), reminderIntent);
             }
         } catch (ParseException e) {
             e.printStackTrace();

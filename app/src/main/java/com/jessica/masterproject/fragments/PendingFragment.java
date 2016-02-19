@@ -57,7 +57,7 @@ public class PendingFragment extends Fragment {
                     @Override
                     public void run() {
                         initialProgress.setMax(MainActivity.ACTIVITIES_PROGRESS);
-                        initialProgress.setProgress(scenariosPending + scenariosDone + questPending + questDone);
+                        initialProgress.setProgress(scenariosPending + 2*scenariosDone + questPending + 2*questDone);
                     }
                 });
             } else {
@@ -73,7 +73,7 @@ public class PendingFragment extends Fragment {
                     @Override
                     public void run() {
                         finalProgress.setMax(MainActivity.ACTIVITIES_PROGRESS);
-                        finalProgress.setProgress(scenariosPending + scenariosDone + questPending + questDone);
+                        finalProgress.setProgress(scenariosPending + 2*scenariosDone + questPending + 2*questDone);
                     }
                 });
             }
