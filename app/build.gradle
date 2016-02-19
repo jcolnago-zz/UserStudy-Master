@@ -8,8 +8,8 @@ android {
         applicationId "com.jessica.masterproject"
         minSdkVersion 11
         targetSdkVersion 23
-        versionCode 5
-        versionName "2.0"
+        versionCode 6
+        versionName "1.6"
     }
     buildTypes {
         release {
