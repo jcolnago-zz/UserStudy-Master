@@ -28,7 +28,7 @@ public class ParticipationActivity extends MotherActivity {
     private String mFormat;
     private boolean mDone;
     private String mChoice;
-    private SharedPreferences mSharedPreferences;
+    private SharedPreferences mSharedPref;
     private SharedPreferences.Editor mEditor;
 
     @Override
@@ -38,8 +38,8 @@ public class ParticipationActivity extends MotherActivity {
 
         super.onCreate(savedInstanceState);
 
-        mSharedPreferences = getSharedPreferences(SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
-        mEditor = mSharedPreferences.edit();
+        mSharedPref = getSharedPreferences(SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
+        mEditor = mSharedPref.edit();
 
         mCurrentInterruption = getIntent().getIntExtra("current_interruption", -1);
 
@@ -61,13 +61,13 @@ public class ParticipationActivity extends MotherActivity {
         // Fetch right last sensitivity used
         switch (sensitivityLevel) {
             case "0":
-                startAt = mSharedPreferences.getInt(SP_LAST_LOW_SENSITIVITY, -1);
+                startAt = mSharedPref.getInt(SP_LAST_LOW_SENSITIVITY, -1);
                 break;
             case "1":
-                startAt = mSharedPreferences.getInt(SP_LAST_MEDIUM_SENSITIVITY, -1);
+                startAt = mSharedPref.getInt(SP_LAST_MEDIUM_SENSITIVITY, -1);
                 break;
             default:
-                startAt = mSharedPreferences.getInt(SP_LAST_HIGH_SENSITIVITY, -1);
+                startAt = mSharedPref.getInt(SP_LAST_HIGH_SENSITIVITY, -1);
                 break;
         }
 
