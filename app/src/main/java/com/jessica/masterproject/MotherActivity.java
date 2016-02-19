@@ -37,11 +37,11 @@ public class MotherActivity extends AppCompatActivity {
     // related to the pending overallProgressBar. Do not change!
     public static final int ACTIVITIES_PROGRESS = 4;
 
-    public static final String SCENARIO_ONE_START = "2016-02-27T00:00:01.000-0200";
-    public static final String SCENARIO_ONE_REMINDER = "2016-02-28T12:00:00.000-0200";
-    public static final String INTERRUPTIONS_START = "2016-02-29T00:00:01.000-0200";
-    public static final String INTERRUPTIONS_END = "2016-03-09T23:59:59.000-0200";
-    public static final String SCENARIO_TWO_REMINDER = "2016-02-10T12:00:00.000-0200";
+    public static final String SCENARIO_ONE_START = "2016-02-27T00:00:01.000-0300";
+    public static final String SCENARIO_ONE_REMINDER = "2016-02-28T12:00:00.000-0300";
+    public static final String INTERRUPTIONS_START = "2016-02-29T00:00:01.000-0300";
+    public static final String INTERRUPTIONS_END = "2016-03-09T23:59:59.000-0300";
+    public static final String SCENARIO_TWO_REMINDER = "2016-02-10T12:00:00.000-0300";
     public static final DateFormat FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
 
     public static final String SP_MORE_INFORMATION_INTERRUPTIONS = "com.annoyme.app.more_information_interruptions";
