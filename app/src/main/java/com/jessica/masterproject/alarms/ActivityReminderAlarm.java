@@ -38,7 +38,9 @@ public class ActivityReminderAlarm extends BroadcastReceiver {
                         reminderIntent.putExtra("interval", 2 * MainActivity.HOUR);
                     }
                     else reminderIntent.putExtra("interval", MainActivity.HOUR / 2);
-                    MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
+                    if (intTime.getTimeInMillis()-(new GregorianCalendar()).getTimeInMillis() < 0) {
+                        MainActivity.reScheduleAlarm(context, (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR / 6, reminderIntent);
+                    } else MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
                 }
                 // If after interruptions end, set time to remind users of finishing final activities
                 else {
@@ -47,7 +49,9 @@ public class ActivityReminderAlarm extends BroadcastReceiver {
                         reminderIntent.putExtra("interval", 2 * MainActivity.HOUR);
                     }
                     else reminderIntent.putExtra("interval", MainActivity.HOUR / 2);
-                    MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
+                    if (intTime.getTimeInMillis()-(new GregorianCalendar()).getTimeInMillis() < 0) {
+                        MainActivity.reScheduleAlarm(context, (new GregorianCalendar()).getTimeInMillis() + MainActivity.HOUR / 6, reminderIntent);
+                    } else MainActivity.reScheduleAlarm(context, intTime.getTimeInMillis(), reminderIntent);
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
@@ -59,8 +63,16 @@ public class ActivityReminderAlarm extends BroadcastReceiver {
 
             SharedPreferences mSharedPref = context.getSharedPreferences(MainActivity.SP_PREFERENCE_FILE, Context.MODE_PRIVATE);
 
-            files[0] = MainActivity.SCENARIOS_FILENAME;
-            files[1] = MainActivity.QUESTIONNAIRE_FILENAME;
+            //TODO: fix this but I'm too tired now
+            try {
+                if (MainActivity.SCENARIOS_FILENAME == "scenarios" &&
+                        (new GregorianCalendar().getTime().after(MainActivity.FORMAT.parse(MainActivity.INTERRUPTIONS_END)))){
+                    files[0] = MainActivity.SCENARIOS_FILENAME + "_final";
+                    files[1] = MainActivity.QUESTIONNAIRE_FILENAME + "_final";
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
             for (int i = 0; i < 2; i++) {
                 if (!mSharedPref.getBoolean(MainActivity.SP_UPLOAD_PENDING + files[i], false)
@@ -70,7 +82,6 @@ public class ActivityReminderAlarm extends BroadcastReceiver {
                     long[] pattern = {500, 500, 500, 500, 250, 500, 125, 500};
 
                     Intent notificationIntent = new Intent(context, MainActivity.class);
-                    notificationIntent.putExtra("clicked", true);
                     notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                             | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
