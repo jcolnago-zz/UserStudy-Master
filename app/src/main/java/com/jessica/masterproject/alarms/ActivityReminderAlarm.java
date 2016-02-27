@@ -70,6 +70,10 @@ public class ActivityReminderAlarm extends BroadcastReceiver {
                     files[0] = MainActivity.SCENARIOS_FILENAME + "_final";
                     files[1] = MainActivity.QUESTIONNAIRE_FILENAME + "_final";
                 }
+                else {
+                    files[0] = MainActivity.SCENARIOS_FILENAME;
+                    files[1] = MainActivity.QUESTIONNAIRE_FILENAME;
+                }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
