@@ -38,11 +38,15 @@ public class ScenariosFragment extends Fragment {
         RadioGroup choices         = (RadioGroup) mView.findViewById(R.id.choices);
         RadioGroup decision        = (RadioGroup) mView.findViewById(R.id.decision);
 
-        if(mQuestions == null){
+        if(mQuestions == null)
             mQuestions = getResources().getStringArray(R.array.scenarios);
+
+        if(mAnswersChoices == null)
             mAnswersChoices = new String[mQuestions.length];
+
+        if(mAnswersDecisions == null)
             mAnswersDecisions = new String[mQuestions.length];
-        }
+        
 
         // If fragment has been newly initialized
         if (mCurrentScenario == 0) {
@@ -110,7 +114,7 @@ public class ScenariosFragment extends Fragment {
 
     @Override
     public void onStop() {
-        if (mCurrentScenario < mAnswersChoices.length && mLastAnswered != mCurrentScenario) {
+        if (mAnswersChoices!=null && mCurrentScenario < mAnswersChoices.length && mLastAnswered != mCurrentScenario) {
             if (((MainActivity)getActivity()).requestSave(MainActivity.SCENARIOS_FILENAME, MainActivity.FILE_FORMAT,
                     Arrays.copyOfRange(mAnswersChoices, mLastAnswered, mCurrentScenario), mLastAnswered!=0)
                     && ((MainActivity)getActivity()).requestSave(MainActivity.SCENARIOS_DECISIONS_FILENAME, MainActivity.FILE_FORMAT,
